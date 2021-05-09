@@ -22,7 +22,9 @@ export const appRoutes: Route[] = [
             {
                 path: ':slug',
                 loadChildren: () =>
-                    import('app/modules/projects-view/projects-view.module').then(i => i.ProjectsViewModule),
+                    import(
+                        'app/modules/projects-view/projects-view.module'
+                    ).then(i => i.ProjectsViewModule),
             },
         ],
     },
