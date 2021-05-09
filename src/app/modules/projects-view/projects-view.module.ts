@@ -5,13 +5,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from 'app/shared/shared.module';
 import { ProjectsViewComponent } from './projects-view.component';
 import { RouterModule } from '@angular/router';
+import { projectsViewRoutes } from './projects-view.routing';
 
 @NgModule({
     declarations: [ProjectsViewComponent],
     imports: [
         // Angular
         CommonModule,
-        RouterModule,
+        RouterModule.forChild(projectsViewRoutes),
 
         // Material
         MatButtonModule,
