@@ -1,0 +1,11 @@
+.hero-section {
+    &__title-wrapper {
+        width: 50%;
+        margin-left: 80px;
+    }
+    &__image-area {
+        width: 480px;
+        height: 585px;
+        background: gray;
+    }
+}

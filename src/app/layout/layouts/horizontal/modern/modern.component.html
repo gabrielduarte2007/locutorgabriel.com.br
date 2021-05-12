@@ -25,17 +25,12 @@
 <div class="flex flex-col flex-auto w-full min-w-0">
     <!-- Header -->
     <div
-        class="relative flex flex-0 items-center w-full h-16 sm:h-20 px-4 md:px-6 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden"
+        class="relative flex flex-0 items-center w-full h-16 sm:h-20 px-4 md:px-22 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden"
     >
-        <ng-container *ngIf="!isScreenSmall">
-            <!-- Logo -->
-            <!-- Horizontal navigation -->
-            <fuse-horizontal-navigation
-                class="mr-2"
-                [name]="'mainNavigation'"
-                [navigation]="data.navigation.horizontal"
-            ></fuse-horizontal-navigation>
-        </ng-container>
+        <div class='header-title'>
+            <h3 class='text-lg font-light'>Locutor</h3>
+            <h1 class='font-bold text-2xl'><b>Gabriel Duarte</b></h1>
+        </div>
 
         <!-- Components -->
         <div class="flex items-center pl-5 ml-auto space-x-5">
