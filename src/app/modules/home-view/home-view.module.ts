@@ -8,9 +8,10 @@ import { RouterModule } from '@angular/router';
 import { homeViewRoutes } from './home-view.routing';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-    declarations: [HomeViewComponent, FooterComponent],
+    declarations: [HomeViewComponent, FooterComponent, HeaderComponent],
     imports: [
         // Angular
         CommonModule,
@@ -23,9 +24,6 @@ import { FooterComponent } from './footer/footer.component';
         // Shared
         SharedModule,
         MatFormFieldModule,
-    ],
-    exports: [
-        FooterComponent,
     ],
 })
 export class HomeViewModule {}
