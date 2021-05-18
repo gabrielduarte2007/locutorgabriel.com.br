@@ -12,6 +12,7 @@ import { SearchModule } from 'app/layout/common/search/search.module';
 import { ShortcutsModule } from 'app/layout/common/shortcuts/shortcuts.module';
 import { SharedModule } from 'app/shared/shared.module';
 import { ModernLayoutComponent } from 'app/layout/layouts/horizontal/modern/modern.component';
+import { HomeViewModule } from '../../../../modules/home-view/home-view.module';
 
 @NgModule({
     declarations: [ModernLayoutComponent],
@@ -28,6 +29,7 @@ import { ModernLayoutComponent } from 'app/layout/layouts/horizontal/modern/mode
         SearchModule,
         ShortcutsModule,
         SharedModule,
+        HomeViewModule,
     ],
     exports: [ModernLayoutComponent],
 })
