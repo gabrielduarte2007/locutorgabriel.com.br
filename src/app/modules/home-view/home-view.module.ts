@@ -10,9 +10,10 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { CardsAreaComponent } from './cards-area/cards-area.component';
+import { SearchAreaComponent } from './search-area/search-area.component';
 
 @NgModule({
-    declarations: [HomeViewComponent, FooterComponent, HeaderComponent, CardsAreaComponent],
+    declarations: [HomeViewComponent, FooterComponent, HeaderComponent, CardsAreaComponent, SearchAreaComponent],
     imports: [
         // Angular
         CommonModule,
