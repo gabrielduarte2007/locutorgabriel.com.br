@@ -6,10 +6,9 @@ import { HomeViewComponent } from 'app/modules/home-view/home-view.component';
 import { RouterModule } from '@angular/router';
 import { homeViewRoutes } from './home-view.routing';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { CardsAreaComponent } from './cards-area/cards-area.component';
 
 @NgModule({
-    declarations: [HomeViewComponent, CardsAreaComponent],
+    declarations: [HomeViewComponent],
     imports: [
         // Angular
         CommonModule,
