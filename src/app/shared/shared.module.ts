@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { CardsSectionComponent } from './cards-section/cards-section.component';
 import { CardsListComponent } from './cards-section/cards-list/cards-list.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,7 @@ import { CardsListComponent } from './cards-section/cards-list/cards-list.compon
         CardsFilterComponent,
         CardsListComponent,
     ],
-    imports: [CommonModule, MatIconModule],
+    imports: [CommonModule, MatIconModule, RouterModule],
     exports: [
         CommonModule,
 
