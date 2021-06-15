@@ -1,22 +1,22 @@
 <div class="cards-section flex justify-center pb-6 px-64 flex-wrap">
-    <div class="card" *ngFor="let item of [0, 0, 0, 0, 0, 0]">
+    <div class="card" *ngFor="let item of projectVideo">
         <a routerLink="/slug">
         <figure
             class="card__thumbnail rounded-lg h-96 m-2 bg-cover relative text-center"
         >
             <div class="card-title-wrapper text-white pt-3.5">
-                <div class="card-title font-extrabold text-4xl">Locução: Wizard</div>
-                <div class="card-subtitle font-normal text-xl">“Os melhores motivos”</div>
+                <div class="card-title font-extrabold text-4xl">{{item.titulo}}</div>
+                <div class="card-subtitle font-normal text-xl">{{item.subtitulo}}</div>
             </div>
             <div class="tags absolute bottom-8 w-full text-center">
                 <button class="card__title text-sm mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500">
-                    Natural
+                    {{item.tags[0]}}
                 </button>
                 <button class="card__title text-sm mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500">
-                    Natural
+                    {{item.tags[1]}}
                 </button>
                 <button class="card__title text-sm mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500">
-                    Natural
+                    {{item.tags[2]}}
                 </button>
                 <button class="card__title text-sm mx-2 w-6 h-6 rounded-md border-solid border-2 border-white">+6</button>
             </div>
