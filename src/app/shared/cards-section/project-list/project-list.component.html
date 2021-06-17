@@ -24,20 +24,23 @@
                     >
                         {{ project.tags[0] }}
                     </button>
+
                     <button
                         class="card__title text-sm mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500"
                     >
                         {{ project.tags[1] }}
                     </button>
+
                     <button
                         class="card__title text-sm mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500"
                     >
                         {{ project.tags[2] }}
                     </button>
+
                     <button
                         class="card__title text-sm mx-2 w-6 h-6 rounded-md border-solid border-2 border-white"
                     >
-                        +6
+                        +{{ project.tags.length - 3 }}
                     </button>
                 </div>
             </figure>
