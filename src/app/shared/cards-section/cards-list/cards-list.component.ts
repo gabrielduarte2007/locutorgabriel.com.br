@@ -27,9 +27,9 @@ export class CardsListComponent {
 
     getYouTubeImageUrl(project: Project, highRes = false): string {
         if (!project.youtube) {
-            console.error(
-                `Project ${project.id} is a VIDEO without youtube url.`,
-            );
+            // console.error(
+            //     `Project ${project.id} is a VIDEO without youtube url.`,
+            // );
 
             return 'YOUTUBE_URL_NOT_FOUND';
         }
