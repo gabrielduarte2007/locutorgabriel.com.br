@@ -1,17 +1,35 @@
 import { Component } from '@angular/core';
 
+enum ProjectType {
+    VIDEO = 'VIDEO',
+    IMAGE = 'IMAGE',
+}
+
+interface Project {
+    id: string;
+    titulo: string;
+    subtitulo: string;
+    tipo: ProjectType;
+    youtube: string;
+    principal: boolean;
+    tags: string[];
+
+    imagem_posicao?: 'center' | 'left' | 'right' | string;
+    imagem_altura?: string;
+}
+
 @Component({
     selector: 'app-cards-list',
     templateUrl: './cards-list.component.html',
     styleUrls: ['./cards-list.component.sass'],
 })
 export class CardsListComponent {
-    projectVideo: any[] = [
+    projectVideo: Project[] = [
         {
             id: 'Amazon Prime Video - Grandes Estrelas',
             titulo: 'Amazon Prime',
             subtitulo: 'Grandes Estrelas',
-            tipo: 'VIDEO',
+            tipo: ProjectType.VIDEO,
             youtube: 'https://youtu.be/CWGIsYA2DS0',
             principal: true,
             tags: [
@@ -38,7 +56,7 @@ export class CardsListComponent {
             id: 'CCXP 2019',
             titulo: 'CCXP',
             subtitulo: '2019',
-            tipo: 'VIDEO',
+            tipo: ProjectType.VIDEO,
             youtube: 'https://youtu.be/UqKgK_ceZBg',
             principal: true,
             tags: [
@@ -67,7 +85,7 @@ export class CardsListComponent {
             id: 'Volkswagen - Nivus',
             titulo: 'Volkswagen',
             subtitulo: 'Lançamento Nivus',
-            tipo: 'VIDEO',
+            tipo: ProjectType.VIDEO,
             youtube: 'https://youtu.be/Z5QNwzfccqM',
             imagem_posicao: 'center',
             imagem_altura: '180%',
