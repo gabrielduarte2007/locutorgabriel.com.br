@@ -1,18 +1,18 @@
 <div class="cards-section flex justify-center pb-6 px-64 flex-wrap">
-    <div class="card" *ngFor="let item of projectVideo">
+    <div class="card" *ngFor="let project of projects">
         <a routerLink="/slug">
             <figure
                 class="card__thumbnail rounded-lg h-96 m-2 relative text-center"
-                [style.background-image]="'url(' + getYouTubeImageUrl(item) + ')'"
-                [style.background-position]="item.imagem_posicao || 'center'"
-                [style.background-size]="(item.imagem_largura || 'auto') + ' ' + (item.imagem_altura || '135%')"
+                [style.background-image]="'url(' + getYouTubeImageUrl(project) + ')'"
+                [style.background-position]="project.imagem_posicao || 'center'"
+                [style.background-size]="(project.imagem_largura || 'auto') + ' ' + (project.imagem_altura || '135%')"
             >
                 <div class="card-title-wrapper text-white pt-3.5">
                     <div class="card-title font-extrabold text-4xl">
-                        {{ item.titulo }}
+                        {{ project.titulo }}
                     </div>
                     <div class="card-subtitle font-normal text-xl">
-                        {{ item.subtitulo }}
+                        {{ project.subtitulo }}
                     </div>
                 </div>
 
@@ -20,17 +20,17 @@
                     <button
                         class="card__title text-sm mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500"
                     >
-                        {{ item.tags[0] }}
+                        {{ project.tags[0] }}
                     </button>
                     <button
                         class="card__title text-sm mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500"
                     >
-                        {{ item.tags[1] }}
+                        {{ project.tags[1] }}
                     </button>
                     <button
                         class="card__title text-sm mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500"
                     >
-                        {{ item.tags[2] }}
+                        {{ project.tags[2] }}
                     </button>
                     <button
                         class="card__title text-sm mx-2 w-6 h-6 rounded-md border-solid border-2 border-white"
