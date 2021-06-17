@@ -38,4 +38,10 @@ export class ProjectsService {
 
         return `https://img.youtube.com/vi/${videoId}/${fileName}.jpg`;
     }
+
+    getYouTubeIframeUrl(project: Project): string {
+        const videoId = this.getYouTubeVideoId(project);
+
+        return `https://www.youtube.com/embed/${videoId}`;
+    }
 }

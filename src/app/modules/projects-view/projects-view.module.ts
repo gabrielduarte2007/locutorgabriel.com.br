@@ -6,9 +6,16 @@ import { SharedModule } from 'app/shared/shared.module';
 import { ProjectsViewComponent } from './projects-view.component';
 import { RouterModule } from '@angular/router';
 import { projectsViewRoutes } from './projects-view.routing';
+import { SafePipe } from '../_pipes/safe.pipe';
 
 @NgModule({
-    declarations: [ProjectsViewComponent],
+    declarations: [
+        // Components
+        ProjectsViewComponent,
+
+        // Pipes
+        SafePipe,
+    ],
     imports: [
         // Angular
         CommonModule,

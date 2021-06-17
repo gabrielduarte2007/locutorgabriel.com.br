@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { projects } from '../../../_data/projects.data';
 import slugify from 'slugify';
 import { Project } from '../../../_model/Project';
+import { ProjectsService } from '../../_services/ProjectsService';
 
 @Component({
     selector: 'projects-view',
@@ -14,7 +15,10 @@ export class ProjectsViewComponent {
 
     relatedProjects: Project[] = projects.slice(20, 26);
 
-    constructor(private readonly router: Router) {
+    constructor(
+        private readonly router: Router,
+        public readonly service: ProjectsService,
+    ) {
         const slug = this.router.url?.replace('/', '');
 
         this.currentProject = projects.find(
