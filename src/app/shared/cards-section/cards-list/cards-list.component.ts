@@ -111,4 +111,34 @@ export class CardsListComponent {
             ],
         },
     ];
+
+    getYouTubeVideoId(project: Project) {
+        let videoId;
+
+        if (project.youtube) {
+            const url = new URL(project.youtube);
+
+            videoId = url.pathname.includes('watch')
+                ? url.searchParams.get('v')
+                : url.pathname.slice(1);
+        }
+
+        return videoId;
+    }
+
+    getYouTubeImageUrl(project: Project, highRes = false): string {
+        if (!project.youtube) {
+            console.error(
+                `Project ${project.id} is a VIDEO without youtube url.`,
+            );
+
+            return 'YOUTUBE_URL_NOT_FOUND';
+        }
+
+        const videoId = this.getYouTubeVideoId(project);
+
+        const fileName = highRes ? 'maxresdefault' : 'hqdefault';
+
+        return `https://img.youtube.com/vi/${videoId}/${fileName}.jpg`;
+    }
 }
