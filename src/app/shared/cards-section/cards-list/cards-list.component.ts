@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Project } from '../../../../_model/Project';
 import { projects } from '_data/projects.data';
+import slugify from 'slugify';
 
 @Component({
     selector: 'app-cards-list',
@@ -9,6 +10,10 @@ import { projects } from '_data/projects.data';
 })
 export class CardsListComponent {
     public projects = projects;
+
+    getSlug(project: Project): string {
+        return slugify(project.id);
+    }
 
     getYouTubeVideoId(project: Project): string | undefined {
         if (project.youtube) {
