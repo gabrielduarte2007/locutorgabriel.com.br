@@ -22,6 +22,8 @@ interface Project {
     principal?: boolean;
 
     imagem_posicao?: 'center' | 'left' | 'right' | string;
+
+    imagem_largura?: string;
     imagem_altura?: string;
 }
 
