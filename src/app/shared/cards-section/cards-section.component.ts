@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class CardsSectionComponent {
     @Input()
-    public title: string;
+    public sectionTitle: string;
 
     @Input()
-    public subtitle?: string;
+    public sectionSubtitle?: string;
 }
