@@ -1,9 +1,11 @@
+<app-cards-filter></app-cards-filter>
+
 <div class="cards-section flex justify-center pb-6 px-64 flex-wrap">
     <div class="card" *ngFor="let project of projects">
-        <a [routerLink]="'/' + getSlug(project)">
+        <a [routerLink]="'/' + service.getSlug(project)">
             <figure
                 class="card__thumbnail rounded-lg h-96 m-2 relative text-center"
-                [style.background-image]="'url(' + getYouTubeImageUrl(project) + ')'"
+                [style.background-image]="'url(' + service.getYouTubeImageUrl(project) + ')'"
                 [style.background-position]="project.imagem_posicao || 'center'"
                 [style.background-size]="(project.imagem_largura || 'auto') + ' ' + (project.imagem_altura || '135%')"
             >

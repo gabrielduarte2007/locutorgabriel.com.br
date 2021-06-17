@@ -1,14 +1,12 @@
-import { Component } from '@angular/core';
-import { Project } from '../../../../_model/Project';
+import { Injectable } from '@angular/core';
 import { projects } from '_data/projects.data';
+import { Project } from '../../_model/Project';
 import slugify from 'slugify';
 
-@Component({
-    selector: 'app-cards-list',
-    templateUrl: './cards-list.component.html',
-    styleUrls: ['./cards-list.component.sass'],
+@Injectable({
+    providedIn: 'root',
 })
-export class CardsListComponent {
+export class ProjectsService {
     public projects = projects;
 
     getSlug(project: Project): string {

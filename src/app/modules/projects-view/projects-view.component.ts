@@ -12,6 +12,8 @@ import { Project } from '../../../_model/Project';
 export class ProjectsViewComponent {
     currentProject: Project;
 
+    relatedProjects: Project[] = projects.slice(20, 26);
+
     constructor(private readonly router: Router) {
         const slug = this.router.url?.replace('/', '');
 

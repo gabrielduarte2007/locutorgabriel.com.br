@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { projects } from '../../../_data/projects.data';
 
 @Component({
     selector: 'home-view',
@@ -6,4 +7,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
     styleUrls: ['./home-view.component.sass'],
     encapsulation: ViewEncapsulation.None,
 })
-export class HomeViewComponent {}
+export class HomeViewComponent {
+    public projects = projects.slice(0, 6);
+}

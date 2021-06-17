@@ -5,35 +5,22 @@
         <div class="project-title text-7xl font-extrabold text-yellow-500">
             {{ currentProject.titulo }}
         </div>
+
         <div class="project-subtitle py-5 text-2xl font-bold">
             "{{ currentProject.subtitulo }}"
         </div>
+
         <div class="project-tags">
             <button
                 class="card__title mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500"
-            >
-                Natural</button
-            ><button
-                class="card__title mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500"
-            >
-                Natural</button
-            ><button
-                class="card__title mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500"
-            >
-                Natural</button
-            ><button
-                class="card__title mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500"
-            >
-                Natural
-            </button>
-            <button
-                class="card__title mx-2 w-16 h-7 rounded-md border-solid border-2 border-yellow-500"
+                *ngFor="let item of [0, 0, 0, 0, 0, 0]"
             >
                 Natural
             </button>
         </div>
     </div>
 </div>
+
 <div class="project-video flex justify-center px-24 my-3">
     <iframe
         width="1131"
@@ -45,6 +32,7 @@
         allowfullscreen
     ></iframe>
 </div>
+
 <div class="project-video-button flex py-2 w-3/5 text-left m-auto">
     <button
         class="card__title flex items-center justify-around mx-2 w-48 h-10 rounded-md border-solid border-2 border-yellow-500"
@@ -75,6 +63,8 @@
     peça foi para televisão e todas as mídias.
 </div>
 
-<app-cards-section title="Relacionados"></app-cards-section>
+<app-cards-section title="Relacionados">
+    <app-project-list [projects]="relatedProjects"></app-project-list>
+</app-cards-section>
 
 <app-footer></app-footer>

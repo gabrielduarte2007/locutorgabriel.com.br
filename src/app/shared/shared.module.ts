@@ -5,8 +5,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { CardsSectionComponent } from './cards-section/cards-section.component';
-import { CardsListComponent } from './cards-section/cards-list/cards-list.component';
+import { ProjectListComponent } from './cards-section/project-list/project-list.component';
 import { RouterModule } from '@angular/router';
+import { ProjectsService } from '../_services/ProjectsService';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,7 @@ import { RouterModule } from '@angular/router';
         // Cards
         CardsSectionComponent,
         CardsFilterComponent,
-        CardsListComponent,
+        ProjectListComponent,
     ],
     imports: [CommonModule, MatIconModule, RouterModule],
     exports: [
@@ -30,7 +31,10 @@ import { RouterModule } from '@angular/router';
         // Cards
         CardsSectionComponent,
         CardsFilterComponent,
-        CardsListComponent,
+
+        // Project
+        ProjectListComponent,
     ],
+    providers: [ProjectsService],
 })
 export class SharedModule {}
