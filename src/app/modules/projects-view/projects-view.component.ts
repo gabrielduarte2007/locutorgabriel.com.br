@@ -8,6 +8,7 @@ import { ProjectsService } from '../../_services/ProjectsService';
 @Component({
     selector: 'projects-view',
     templateUrl: './projects-view.component.html',
+    styleUrls: ['./projects-view.component.sass'],
     encapsulation: ViewEncapsulation.None,
 })
 export class ProjectsViewComponent {
