@@ -7,12 +7,25 @@
         >
             <div class="header-title">
                 <a [routerLink]="['/']">
-                <h3 class="text-lg font-light">Locutor</h3>
-                <h1 class="font-bold text-2xl"><b>Gabriel Duarte</b></h1>
+                    <h3 class="text-lg font-light">Locutor</h3>
+                    <h1 class="font-bold text-2xl"><b>Gabriel Duarte</b></h1>
                 </a>
             </div>
 
             <!-- Components -->
+<!--            <li>-->
+<!--                <a-->
+<!--                    class="icons__popover icons__phone icon solid style2 fa-phone"-->
+<!--                    href="tel:5511986686443"-->
+<!--                    data-container="body"-->
+<!--                    data-toggle="popover"-->
+<!--                    data-placement="top"-->
+<!--                    data-offset="0, 10"-->
+<!--                    data-content="+55 11 98668-6443"-->
+<!--                >-->
+<!--                    <span class="label">Telefone</span>-->
+<!--                </a>-->
+<!--            </li>-->
             <div class="flex items-center pl-5 ml-auto space-x-5">
                 <a
                     href="https://api.whatsapp.com/send/?phone=5511986686443"
@@ -41,8 +54,9 @@
                         />
                     </svg>
                 </a>
-
-                <mat-icon class="header-icon">phone</mat-icon>
+                <a href="tel:5511986686443">
+                    <mat-icon class="header-icon">phone</mat-icon>
+                </a>
                 <a href="mailto:presto.gabriel@gmail.com">
                     <mat-icon class="header-icon">email</mat-icon>
                 </a>
