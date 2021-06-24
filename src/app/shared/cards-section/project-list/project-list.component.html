@@ -5,9 +5,15 @@
         <a [routerLink]="'/' + service.getSlug(project)">
             <figure
                 class="card__thumbnail rounded-lg h-96 m-2 relative text-center"
-                [style.background-image]="'url(' + service.getYouTubeImageUrl(project) + ')'"
+                [style.background-image]="
+                    'url(' + service.getYouTubeImageUrl(project) + ')'
+                "
                 [style.background-position]="project.imagem_posicao || 'center'"
-                [style.background-size]="(project.imagem_largura || 'auto') + ' ' + (project.imagem_altura || '135%')"
+                [style.background-size]="
+                    (project.imagem_largura || 'auto')
+                    + ' '
+                    + (project.imagem_altura || '135%')
+                "
             >
                 <div class="card-title-wrapper text-white pt-3.5">
                     <div class="card-title font-extrabold text-4xl">
@@ -18,29 +24,30 @@
                     </div>
                 </div>
 
-                <div class="tags whitespace-nowrap absolute bottom-8 w-full text-center">
+                <div class="tags absolute bottom-8 w-full text-center">
                     <button
-                        class="card__title text-sm p-1 mx-2 w-auto h-7 rounded-md border-solid border-2 border-yellow-500"
+                        class="card__title text-sm p-1 m-2.5 w-auto rounded-md border-solid border-2 border-yellow-500"
                     >
                         {{ project.tags[0] }}
                     </button>
 
                     <button
-                        class="card__title text-sm p-1 mx-2 w-auto h-7 rounded-md border-solid border-2 border-yellow-500"
+                        class="card__title text-sm p-1 m-2.5 w-auto rounded-md border-solid border-2 border-yellow-500"
                     >
                         {{ project.tags[1] }}
                     </button>
 
                     <button
-                        class="card__title text-sm p-1 mx-2 w-auto h-7 rounded-md border-solid border-2 border-yellow-500"
+                        class="card__title text-sm p-1 m-2.5 w-auto rounded-md border-solid border-2 border-yellow-500"
                     >
                         {{ project.tags[2] }}
                     </button>
 
                     <button
-                        class="card__title text-sm mx-2 w-auto h-6 rounded-md border-solid border-4 border-white"
+                        class="card__title text-sm px-1.5 m-2.5 w-auto rounded-md border-solid border-1 border-white"
                     >
-                        +{{ project.tags.length - 3 }}
+                        <mat-icon inline class="text-sm p-1"> add </mat-icon>
+                        {{ project.tags.length - 3 }}
                     </button>
                 </div>
             </figure>
