@@ -1,10 +1,15 @@
 <app-cards-filter></app-cards-filter>
 
 <div class="cards-section flex justify-center flex-wrap">
-    <div class="card" *ngFor="let project of projects">
+    <div class="card" *ngFor="let project of projects; let i = index">
         <a [routerLink]="'/' + service.getSlug(project)">
             <figure
-                class="card__thumbnail rounded-lg h-96 m-2 relative text-center"
+                [ngClass]="
+                    (i % 4 === 0 ? 'card__thumbnail rounded-lg h-96 m-2 relative text-center cardcolor4':
+                    (i % 3 === 0 ? 'card__thumbnail rounded-lg h-96 m-2 relative text-center cardcolor3' :
+                    (i % 2 === 0 ? 'card__thumbnail rounded-lg h-96 m-2 relative text-center cardcolor2':
+                    'card__thumbnail rounded-lg h-96 m-2 relative text-center cardcolor1')))
+                "
                 [style.background-image]="
                     'url(' + service.getYouTubeImageUrl(project) + ')'
                 "
