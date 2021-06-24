@@ -26,4 +26,13 @@ export class ProjectsViewComponent {
             project => slugify(project.id) === slug,
         );
     }
+
+    shareLink(shareButton: HTMLElement): void {
+        console.log(shareButton.className);
+        if (shareButton.className === 'hideLink'){
+            shareButton.className = 'project-share-button';
+        }else {
+            shareButton.className = 'hideLink';
+        }
+    }
 }

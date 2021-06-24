@@ -35,6 +35,7 @@
 
 <div class="project-video-button flex py-2 text-left m-auto">
     <button
+        (click)='shareLink(shareButton)'
         class="card__title flex items-center justify-around mx-2 w-48 h-10 rounded-md border-solid border-2 border-yellow-500"
     >
         <mat-icon
@@ -43,15 +44,17 @@
         ></mat-icon>
         Compartilhar Link
     </button>
-    <button
+    <a
+        href="media/video/Wizard%20-%20Os%20Melhores%20Motivos.mp4"
         class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500"
+        download
     >
         <mat-icon
             class="card__title-icon"
             svgIcon="heroicons_solid:download"
         ></mat-icon>
         Baixar video
-    </button>
+    </a>
     <button
         class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500"
     >
@@ -61,6 +64,11 @@
         ></mat-icon>
         Baixar audio
     </button>
+</div>
+
+<div #shareButton class="hideLink">
+    <input disabled [value]="service.getYouTubeIframeUrl(currentProject)" type='text'>
+
 </div>
 
 <div class="project-video-text py-8 m-auto font-normal text-xl">
