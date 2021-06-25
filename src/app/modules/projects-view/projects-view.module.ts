@@ -7,6 +7,8 @@ import { ProjectsViewComponent } from './projects-view.component';
 import { RouterModule } from '@angular/router';
 import { projectsViewRoutes } from './projects-view.routing';
 import { SafePipe } from '../_pipes/safe.pipe';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -27,6 +29,8 @@ import { SafePipe } from '../_pipes/safe.pipe';
 
         // Shared
         SharedModule,
+        ClipboardModule,
+        FormsModule,
     ],
 })
 export class ProjectsViewModule {}

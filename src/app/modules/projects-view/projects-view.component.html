@@ -66,12 +66,20 @@
     </button>
 </div>
 
-<div *ngIf="visibleShareLink" class="project-share-button">
+<div *ngIf="visibleShareLink" class="project-share-button flex w-3/5 m-auto">
     <input
+        class="w-full"
         disabled
         [value]="service.getYouTubeIframeUrl(currentProject)"
         type="text"
     />
+    <button
+        cdkCopyToClipboard='{{service.getYouTubeIframeUrl(currentProject)}}'
+        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500"
+    >
+        <mat-icon class="card__title-icon" svgIcon="content_copy"></mat-icon>
+        Copiar
+    </button>
 </div>
 
 <div class="project-video-text py-8 m-auto font-normal text-xl">
