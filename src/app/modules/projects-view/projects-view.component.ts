@@ -16,6 +16,8 @@ export class ProjectsViewComponent {
 
     relatedProjects: Project[] = projects.slice(20, 26);
 
+    visibleShareLink: boolean = false;
+
     constructor(
         private readonly router: Router,
         public readonly service: ProjectsService,
@@ -27,12 +29,7 @@ export class ProjectsViewComponent {
         );
     }
 
-    shareLink(shareButton: HTMLElement): void {
-        console.log(shareButton.className);
-        if (shareButton.className === 'hideLink'){
-            shareButton.className = 'project-share-button';
-        }else {
-            shareButton.className = 'hideLink';
-        }
+    shareLink(): void {
+        this.visibleShareLink = !this.visibleShareLink;
     }
 }

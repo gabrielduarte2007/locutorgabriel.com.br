@@ -35,7 +35,7 @@
 
 <div class="project-video-button flex py-2 text-left m-auto">
     <button
-        (click)='shareLink(shareButton)'
+        (click)="shareLink()"
         class="card__title flex items-center justify-around mx-2 w-48 h-10 rounded-md border-solid border-2 border-yellow-500"
     >
         <mat-icon
@@ -66,9 +66,12 @@
     </button>
 </div>
 
-<div #shareButton class="hideLink">
-    <input disabled [value]="service.getYouTubeIframeUrl(currentProject)" type='text'>
-
+<div *ngIf="visibleShareLink" class="project-share-button">
+    <input
+        disabled
+        [value]="service.getYouTubeIframeUrl(currentProject)"
+        type="text"
+    />
 </div>
 
 <div class="project-video-text py-8 m-auto font-normal text-xl">
