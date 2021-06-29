@@ -7,10 +7,10 @@
                 class="cards-section__card"
                 [ngClass]="
                     i % 3 === 0
-                        ? 'card__thumbnail rounded-lg h-96 m-2 relative text-center cardcolor3'
+                        ? 'card__thumbnail rounded-lg m-2 relative text-center cardcolor3'
                         : i % 2 === 0
-                        ? 'card__thumbnail rounded-lg h-96 m-2 relative text-center cardcolor2'
-                        : 'card__thumbnail rounded-lg h-96 m-2 relative text-center cardcolor1'
+                        ? 'card__thumbnail rounded-lg m-2 relative text-center cardcolor2'
+                        : 'card__thumbnail rounded-lg m-2 relative text-center cardcolor1'
                 "
                 [style.background-image]="
                     'url(' + service.getYouTubeImageUrl(project) + ')'
