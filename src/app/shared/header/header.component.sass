@@ -2,6 +2,9 @@
     padding-left: 16rem
     padding-right: 16rem
 
+.header-area__mobile-button
+    display: none !important
+
 .header-title
     margin-left: 7rem
 
@@ -21,6 +24,26 @@
     .header-area
         padding-left: 6.8rem
         padding-right: 6.8rem
+
+//MOBILE SCREEN
+
+@media screen and (max-width: 600px) and (max-width: 768px)
+    .header-area
+        justify-content: space-around
+        padding: 0
+
+    .header-area__mobile-button
+        display: flex !important
+
+
+    .header-area__icon-wrapper
+        display: none !important
+
+
+
+
+
+
 
 
 
