@@ -21,10 +21,9 @@
     </div>
 </div>
 
-<div class="project-video flex justify-center px-24 my-3">
+<div class="project-video flex justify-center my-3">
     <iframe
-        width="1131"
-        height="636"
+        class="project-video__iframe"
         [src]="service.getYouTubeIframeUrl(currentProject) | safe"
         title="YouTube video player"
         frameborder="0"
