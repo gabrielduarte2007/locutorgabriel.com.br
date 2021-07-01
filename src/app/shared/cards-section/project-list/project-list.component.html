@@ -1,4 +1,7 @@
-<app-cards-filter></app-cards-filter>
+<app-cards-filter
+    [projects]="service.projects"
+    (filteredProjects)="updateList($event)"
+></app-cards-filter>
 
 <div class="cards-section flex justify-center flex-wrap">
     <div class="card" *ngFor="let project of projects; let i = index">
@@ -53,7 +56,7 @@
                     <button
                         class="card__title text-sm px-1.5 m-2.5 w-auto rounded-md border-solid border-1 border-white"
                     >
-                        <mat-icon inline class="text-sm p-1"> add </mat-icon>
+                        <mat-icon inline class="text-sm p-1"> add</mat-icon>
                         {{ project.tags.length - 3 }}
                     </button>
                 </div>

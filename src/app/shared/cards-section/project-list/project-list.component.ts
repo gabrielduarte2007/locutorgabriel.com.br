@@ -12,4 +12,8 @@ export class ProjectListComponent {
     public projects: Project[];
 
     constructor(public readonly service: ProjectsService) {}
+
+    public updateList(projects: Project[]): void {
+        this.projects = projects;
+    }
 }
