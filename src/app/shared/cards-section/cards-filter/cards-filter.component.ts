@@ -1,13 +1,16 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+    AfterViewInit,
+    Component,
+    ElementRef,
+    EventEmitter,
+    Input,
+    Output,
+    ViewChild,
+} from '@angular/core';
 import { Project } from '../../../../_model/Project';
-
-// TODO: Separar em arquivos individuais
-const levenshteinFactor = 1;
-
-const clearString = tag => clearAccent(tag.toLowerCase());
-
-const clearAccent = tag => tag.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-// TODO: Fim do TODO
+import { levenshteinDistance } from '../../../_utils/levenshtein.distance';
+import { config } from '../../../../_data/config.data';
+import { clearStringUtil } from '../../../_utils/clear-string.util';
 
 @Component({
     selector: 'app-cards-filter',
@@ -52,11 +55,13 @@ export class CardsFilterComponent implements AfterViewInit {
                 const found = splitTags.every(tag =>
                     keywords.some(
                         keyword =>
-                            clearString(keyword).includes(clearString(tag))
+                            clearStringUtil(keyword).includes(
+                                clearStringUtil(tag),
+                            )
                             || levenshteinDistance(
-                                clearString(keyword),
-                                clearString(tag),
-                            ) <= levenshteinFactor,
+                                clearStringUtil(keyword),
+                                clearStringUtil(tag),
+                            ) <= config.levenshteinFactor,
                     ),
                 );
 
@@ -72,46 +77,3 @@ export class CardsFilterComponent implements AfterViewInit {
         this.filteredProjects.emit(filteredProjects);
     }
 }
-
-// TODO: Separar em um arquivo de util
-// Compute the edit distance between the two given strings
-const levenshteinDistance = (a: string, b: string) => {
-    if (a.length === 0) {
-        return b.length;
-    }
-
-    if (b.length === 0) {
-        return a.length;
-    }
-
-    const matrix = [];
-
-    // Increment along the first column of each row
-    for (let i = 0; i <= b.length; i++) {
-        matrix[i] = [i];
-    }
-
-    // Increment each column in the first row
-    for (let j = 0; j <= a.length; j++) {
-        matrix[0][j] = j;
-    }
-
-    // Fill in the rest of the matrix
-    for (let i = 1; i <= b.length; i++) {
-        for (let j = 1; j <= a.length; j++) {
-            if (b.charAt(i - 1) === a.charAt(j - 1)) {
-                matrix[i][j] = matrix[i - 1][j - 1];
-            } else {
-                matrix[i][j] = Math.min(
-                    matrix[i - 1][j - 1] + 1, // substitution
-                    Math.min(
-                        matrix[i][j - 1] + 1, // insertion
-                        matrix[i - 1][j] + 1,
-                    ),
-                ); // deletion
-            }
-        }
-    }
-
-    return matrix[b.length][a.length];
-};
