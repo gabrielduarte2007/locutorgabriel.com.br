@@ -5,8 +5,4 @@ import { Component } from '@angular/core';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.sass'],
 })
-export class HeaderComponent {
-
-    menuInfo: boolean = true;
-
-}
+export class HeaderComponent {}
