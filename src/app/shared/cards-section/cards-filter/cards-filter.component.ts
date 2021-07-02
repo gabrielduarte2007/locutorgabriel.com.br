@@ -58,15 +58,15 @@ export class CardsFilterComponent implements AfterViewInit {
     private _filter(value: string): string[] {
         const filterValue = value.toLowerCase();
 
-        return this.allProjectTags.filter(fruit =>
-            fruit.toLowerCase().includes(filterValue),
+        return this.allProjectTags.filter(projectTag =>
+            projectTag.toLowerCase().includes(filterValue),
         );
     }
 
     public add(event: MatChipInputEvent): void {
         const value = (event.value || '').trim();
 
-        // Add our fruit
+        // Add our element
         if (value) {
             this.projectTags.push(value);
         }
@@ -77,8 +77,8 @@ export class CardsFilterComponent implements AfterViewInit {
         this.formControl.setValue(null);
     }
 
-    public remove(fruit: string): void {
-        const index = this.projectTags.indexOf(fruit);
+    public remove(projectTag: string): void {
+        const index = this.projectTags.indexOf(projectTag);
 
         if (index >= 0) {
             this.projectTags.splice(index, 1);
