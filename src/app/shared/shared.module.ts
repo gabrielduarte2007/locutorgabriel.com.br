@@ -8,6 +8,7 @@ import { CardsSectionComponent } from './cards-section/cards-section.component';
 import { ProjectListComponent } from './cards-section/project-list/project-list.component';
 import { RouterModule } from '@angular/router';
 import { ProjectsService } from '../_services/ProjectsService';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,7 @@ import { ProjectsService } from '../_services/ProjectsService';
         CardsFilterComponent,
         ProjectListComponent,
     ],
-    imports: [CommonModule, MatIconModule, RouterModule],
+    imports: [CommonModule, MatIconModule, RouterModule, MatMenuModule],
     exports: [
         CommonModule,
 

@@ -38,6 +38,13 @@
                 ><span class="mat-button-focus-overlay"></span>
             </button>
 
+            <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+            <!-- #enddocregion mat-menu-trigger-for -->
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Item 1</button>
+                <button mat-menu-item>Item 2</button>
+            </mat-menu>
+
             <div class="header-title">
                 <a [routerLink]="['/']">
                     <h3 class="text-lg font-light">Locutor</h3>
