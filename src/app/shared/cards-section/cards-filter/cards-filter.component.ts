@@ -13,7 +13,7 @@ import { config } from '../../../../_data/config.data';
 import { clearStringUtil } from '../../../_utils/clear-string.util';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { map, startWith } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -24,44 +24,70 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
     styleUrls: ['./cards-filter.component.sass'],
 })
 export class CardsFilterComponent implements AfterViewInit {
+    // Search config
+
+    public selectable = true;
+    public removable = true;
+    public separatorKeysCodes: number[] = [ENTER, COMMA];
+
+    // Search elements
+
+    public formControl = new FormControl();
+    public filteredProjectTags: Observable<string[]>;
+    public projectTags: string[] = [];
+    private allProjectTags: string[] = [];
+
+    // Search Input
+
+    @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
+
+    // Projects Input/Output
+
     @Input()
-    public projects: Project[];
+    public projects: Project[] = [];
 
     @Output()
     public filteredProjects = new EventEmitter<Project[]>();
 
-    // @ViewChild('searchInput')
-    // public searchInput: ElementRef<HTMLInputElement>;
-
-    // TODO: Refactor
-    selectable = true;
-    removable = true;
-    separatorKeysCodes: number[] = [ENTER, COMMA];
-    formControl = new FormControl();
-    filteredProjectTags: Observable<string[]>;
-    projectTags: string[] = [];
-    allProjectTags: string[] = []; // TODO: build this array
-
-    @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
-
     constructor() {
+        this.listenSearchInputEvents();
+    }
+
+    ngAfterViewInit(): void {
+        this.buildProjectsTags();
+    }
+
+    // Listen SearchInput events
+
+    private listenSearchInputEvents(): void {
         this.filteredProjectTags = this.formControl.valueChanges.pipe(
-            startWith(null),
-            map((projectTag: string | null) =>
-                projectTag
-                    ? this._filter(projectTag)
-                    : this.allProjectTags.slice(),
+            map<string, string>(value => clearStringUtil(value)),
+            map<string, string[]>(value =>
+                this.allProjectTags.filter(projectTag =>
+                    clearStringUtil(projectTag).includes(value),
+                ),
             ),
         );
     }
 
-    private _filter(value: string): string[] {
-        const filterValue = value.toLowerCase();
+    // Build projects tags
 
-        return this.allProjectTags.filter(projectTag =>
-            projectTag.toLowerCase().includes(filterValue),
+    private buildProjectsTags(): void {
+        this.allProjectTags = Array.from(
+            new Set(
+                this.projects
+                    .map(project => [
+                        ...project.tags,
+                        project.titulo,
+                        project.subtitulo,
+                        project.titulo + ': ' + project.subtitulo,
+                    ])
+                    .flat(),
+            ),
         );
     }
+
+    // Chips events (add, remove, selected)
 
     public add(event: MatChipInputEvent): void {
         const value = (event.value || '').trim();
@@ -91,12 +117,7 @@ export class CardsFilterComponent implements AfterViewInit {
         this.formControl.setValue(null);
     }
 
-    // TODO: End Refactor
-
-    public ngAfterViewInit(): void {
-        // this.searchInput.nativeElement.onchange = () => this.applySearch();
-    }
-
+    // TODO: Conectar com Material Chips
     private applySearch(): void {
         const { value } = this.searchInput.nativeElement;
 

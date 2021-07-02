@@ -34,6 +34,7 @@
                 #auto="matAutocomplete"
                 (optionSelected)="selected($event)"
             >
+                <!-- TODO: Rework to hide instead of rewrite HTML -->
                 <mat-option
                     *ngFor="let projectTag of filteredProjectTags | async"
                     [value]="projectTag"
