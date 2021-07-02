@@ -1,53 +1,60 @@
 <div class="search-area text-center justify-center">
     <div class="flex items-center">
-        <div class="search-area__box flex items-center flex-auto">
-            <div class="p-3.5 bg-gray-200 w-full flex rounded-lg">
+        <mat-form-field
+            class="w-full"
+            appearance="standard"
+        >
+            <mat-chip-list
+                #chipList
+                class="p-3.5 bg-gray-200 w-full flex rounded-lg"
+                aria-label="Fruit selection"
+            >
                 <mat-icon>search</mat-icon>
 
-                <mat-form-field class="example-chip-list" appearance="fill">
-                    <mat-label>Favorite Fruits</mat-label>
-                    <mat-chip-list #chipList aria-label="Fruit selection">
-                        <mat-chip
-                            *ngFor="let fruit of fruits"
-                            [selectable]="selectable"
-                            [removable]="removable"
-                            (removed)="remove(fruit)"
-                        >
-                            {{ fruit }}
-                            <mat-icon matChipRemove *ngIf="removable"
-                                >cancel</mat-icon
-                            >
-                        </mat-chip>
-                        <input
-                            placeholder="New fruit..."
-                            #fruitInput
-                            [formControl]="fruitCtrl"
-                            [matAutocomplete]="auto"
-                            [matChipInputFor]="chipList"
-                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                            (matChipInputTokenEnd)="add($event)"
-                        />
-                    </mat-chip-list>
-                    <mat-autocomplete
-                        #auto="matAutocomplete"
-                        (optionSelected)="selected($event)"
-                    >
-                        <mat-option
-                            *ngFor="let fruit of filteredFruits | async"
-                            [value]="fruit"
-                        >
-                            {{ fruit }}
-                        </mat-option>
-                    </mat-autocomplete>
-                </mat-form-field>
-
+                <mat-chip
+                    *ngFor="let fruit of fruits"
+                    [selectable]="selectable"
+                    [removable]="removable"
+                    (removed)="remove(fruit)"
+                >
+                    {{ fruit }}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
                 <input
-                    #searchInput
-                    class="w-full ml-5"
-                    type="text"
                     placeholder="Busque por cliente, clima, interpretação, tipo da peça, área de atuação, etc"
+                    #fruitInput
+                    class="search__input"
+                    [formControl]="fruitCtrl"
+                    [matAutocomplete]="auto"
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    (matChipInputTokenEnd)="add($event)"
                 />
-            </div>
-        </div>
+            </mat-chip-list>
+            <mat-autocomplete
+                #auto="matAutocomplete"
+                (optionSelected)="selected($event)"
+            >
+                <mat-option
+                    *ngFor="let fruit of filteredFruits | async"
+                    [value]="fruit"
+                >
+                    {{ fruit }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <!--        <div class="search-area__box flex items-center flex-auto">-->
+        <!--            <div class="p-3.5 bg-gray-200 w-full flex rounded-lg">-->
+        <!--                <mat-icon>search</mat-icon>-->
+
+        <!--                <input-->
+        <!--                    #searchInput-->
+        <!--                    class="w-full ml-5"-->
+        <!--                    type="text"-->
+        <!--                    placeholder="Busque por cliente, clima, interpretação, tipo da peça, área de atuação, etc"-->
+        <!--                />-->
+        <!--            </div>-->
+        <!--        </div>-->
     </div>
 </div>

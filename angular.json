@@ -40,6 +40,7 @@
                             ]
                         },
                         "styles": [
+                            "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
                             "src/@fuse/styles/tailwind.scss",
                             "src/@fuse/styles/themes.scss",
                             "src/styles/vendors.scss",

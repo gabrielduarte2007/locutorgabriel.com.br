@@ -93,7 +93,7 @@ export class CardsFilterComponent implements AfterViewInit {
     // TODO: End Refactor
 
     public ngAfterViewInit(): void {
-        this.searchInput.nativeElement.onchange = () => this.applySearch();
+        // this.searchInput.nativeElement.onchange = () => this.applySearch();
     }
 
     private applySearch(): void {
