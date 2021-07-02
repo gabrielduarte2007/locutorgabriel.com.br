@@ -62,8 +62,7 @@ export class CardsFilterComponent implements AfterViewInit {
         }
 
         // Clear the input value
-        // TODO: Fix
-        // event.chipInput.clear();
+        event.input.value = '';
 
         this.fruitCtrl.setValue(null);
     }
