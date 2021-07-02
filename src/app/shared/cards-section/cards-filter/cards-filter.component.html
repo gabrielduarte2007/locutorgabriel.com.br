@@ -1,9 +1,6 @@
 <div class="search-area text-center justify-center">
     <div class="flex items-center">
-        <mat-form-field
-            class="w-full"
-            appearance="standard"
-        >
+        <mat-form-field class="w-full" appearance="standard">
             <mat-chip-list
                 #chipList
                 class="p-3.5 bg-gray-200 w-full flex rounded-lg"
@@ -12,34 +9,36 @@
                 <mat-icon>search</mat-icon>
 
                 <mat-chip
-                    *ngFor="let fruit of fruits"
+                    *ngFor="let projectTag of projectTags"
                     [selectable]="selectable"
                     [removable]="removable"
-                    (removed)="remove(fruit)"
+                    (removed)="remove(projectTag)"
                 >
-                    {{ fruit }}
+                    {{ projectTag }}
                     <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                 </mat-chip>
+
                 <input
                     placeholder="Busque por cliente, clima, interpretação, tipo da peça, área de atuação, etc"
-                    #fruitInput
+                    #searchInput
                     class="search__input"
-                    [formControl]="fruitCtrl"
+                    [formControl]="formControl"
                     [matAutocomplete]="auto"
                     [matChipInputFor]="chipList"
                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                     (matChipInputTokenEnd)="add($event)"
                 />
             </mat-chip-list>
+
             <mat-autocomplete
                 #auto="matAutocomplete"
                 (optionSelected)="selected($event)"
             >
                 <mat-option
-                    *ngFor="let fruit of filteredFruits | async"
-                    [value]="fruit"
+                    *ngFor="let projectTag of filteredProjectTags | async"
+                    [value]="projectTag"
                 >
-                    {{ fruit }}
+                    {{ projectTag }}
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>

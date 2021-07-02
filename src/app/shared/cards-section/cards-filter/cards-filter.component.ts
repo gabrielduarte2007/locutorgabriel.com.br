@@ -30,63 +30,63 @@ export class CardsFilterComponent implements AfterViewInit {
     @Output()
     public filteredProjects = new EventEmitter<Project[]>();
 
-    @ViewChild('searchInput')
-    public searchInput: ElementRef<HTMLInputElement>;
+    // @ViewChild('searchInput')
+    // public searchInput: ElementRef<HTMLInputElement>;
 
     // TODO: Refactor
     selectable = true;
     removable = true;
     separatorKeysCodes: number[] = [ENTER, COMMA];
-    fruitCtrl = new FormControl();
-    filteredFruits: Observable<string[]>;
-    fruits: string[] = ['Lemon'];
-    allFruits: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
+    formControl = new FormControl();
+    filteredProjectTags: Observable<string[]>;
+    projectTags: string[] = [];
+    allProjectTags: string[] = []; // TODO: build this array
 
-    @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
+    @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
 
     constructor() {
-        this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
+        this.filteredProjectTags = this.formControl.valueChanges.pipe(
             startWith(null),
             map((fruit: string | null) =>
-                fruit ? this._filter(fruit) : this.allFruits.slice(),
+                fruit ? this._filter(fruit) : this.allProjectTags.slice(),
             ),
         );
-    }
-
-    add(event: MatChipInputEvent): void {
-        const value = (event.value || '').trim();
-
-        // Add our fruit
-        if (value) {
-            this.fruits.push(value);
-        }
-
-        // Clear the input value
-        event.input.value = '';
-
-        this.fruitCtrl.setValue(null);
-    }
-
-    remove(fruit: string): void {
-        const index = this.fruits.indexOf(fruit);
-
-        if (index >= 0) {
-            this.fruits.splice(index, 1);
-        }
-    }
-
-    selected(event: MatAutocompleteSelectedEvent): void {
-        this.fruits.push(event.option.viewValue);
-        this.fruitInput.nativeElement.value = '';
-        this.fruitCtrl.setValue(null);
     }
 
     private _filter(value: string): string[] {
         const filterValue = value.toLowerCase();
 
-        return this.allFruits.filter(fruit =>
+        return this.allProjectTags.filter(fruit =>
             fruit.toLowerCase().includes(filterValue),
         );
+    }
+
+    public add(event: MatChipInputEvent): void {
+        const value = (event.value || '').trim();
+
+        // Add our fruit
+        if (value) {
+            this.projectTags.push(value);
+        }
+
+        // Clear the input value
+        event.input.value = '';
+
+        this.formControl.setValue(null);
+    }
+
+    public remove(fruit: string): void {
+        const index = this.projectTags.indexOf(fruit);
+
+        if (index >= 0) {
+            this.projectTags.splice(index, 1);
+        }
+    }
+
+    public selected(event: MatAutocompleteSelectedEvent): void {
+        this.projectTags.push(event.option.viewValue);
+        this.searchInput.nativeElement.value = '';
+        this.formControl.setValue(null);
     }
 
     // TODO: End Refactor
