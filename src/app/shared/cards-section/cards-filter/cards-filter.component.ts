@@ -34,7 +34,7 @@ export class CardsFilterComponent implements AfterViewInit {
 
     public formControl = new FormControl();
     public filteredProjectTags: Observable<string[]>;
-    public projectTags: string[] = [];
+    public searchTags: string[] = [];
     private allProjectTags: string[] = [];
 
     // Search Input
@@ -92,46 +92,37 @@ export class CardsFilterComponent implements AfterViewInit {
     public add(event: MatChipInputEvent): void {
         const value = (event.value || '').trim();
 
-        // Add our element
         if (value) {
-            this.projectTags.push(value);
+            this.searchTags.push(value);
         }
 
         // Clear the input value
         event.input.value = '';
 
         this.formControl.setValue(null);
+
+        this.applySearch();
     }
 
     public remove(projectTag: string): void {
-        const index = this.projectTags.indexOf(projectTag);
+        const index = this.searchTags.indexOf(projectTag);
 
         if (index >= 0) {
-            this.projectTags.splice(index, 1);
+            this.searchTags.splice(index, 1);
         }
+
+        this.applySearch();
     }
 
     public selected(event: MatAutocompleteSelectedEvent): void {
-        this.projectTags.push(event.option.viewValue);
+        this.searchTags.push(event.option.viewValue);
         this.searchInput.nativeElement.value = '';
         this.formControl.setValue(null);
+
+        this.applySearch();
     }
 
-    // TODO: Conectar com Material Chips
     private applySearch(): void {
-        const { value } = this.searchInput.nativeElement;
-
-        // TODO: Substituir pelo mecanismo de autocomplete com chips
-        // const tags = chips.chipsData.map(function (chip) {
-        //     return chip.tag;
-        // });
-        //
-        // const splitTags = tags.map(function (tag) {
-        //     return tag.split(' ');
-        // }).flat();
-
-        const splitTags = value.split(' ');
-
         const filteredProjects = this.projects.reduce(
             (acc, project, i, arr) => {
                 const keywords = project.tags.concat(
@@ -139,7 +130,7 @@ export class CardsFilterComponent implements AfterViewInit {
                     project.subtitulo ? project.subtitulo.split(' ') : [],
                 );
 
-                const found = splitTags.every(tag =>
+                const found = this.searchTags.every(tag =>
                     keywords.some(
                         keyword =>
                             clearStringUtil(keyword).includes(
