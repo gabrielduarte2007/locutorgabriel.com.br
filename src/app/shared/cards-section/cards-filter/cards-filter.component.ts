@@ -47,8 +47,10 @@ export class CardsFilterComponent implements AfterViewInit {
     constructor() {
         this.filteredProjectTags = this.formControl.valueChanges.pipe(
             startWith(null),
-            map((fruit: string | null) =>
-                fruit ? this._filter(fruit) : this.allProjectTags.slice(),
+            map((projectTag: string | null) =>
+                projectTag
+                    ? this._filter(projectTag)
+                    : this.allProjectTags.slice(),
             ),
         );
     }
