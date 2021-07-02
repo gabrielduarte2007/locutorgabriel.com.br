@@ -4,6 +4,7 @@ import {
     ElementRef,
     EventEmitter,
     Input,
+    OnInit,
     Output,
     ViewChild,
 } from '@angular/core';
@@ -13,7 +14,7 @@ import { config } from '../../../../_data/config.data';
 import { clearStringUtil } from '../../../_utils/clear-string.util';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { map } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -23,7 +24,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
     templateUrl: './cards-filter.component.html',
     styleUrls: ['./cards-filter.component.sass'],
 })
-export class CardsFilterComponent implements AfterViewInit {
+export class CardsFilterComponent implements OnInit, AfterViewInit {
     // Search config
 
     public selectable = true;
@@ -49,23 +50,28 @@ export class CardsFilterComponent implements AfterViewInit {
     @Output()
     public filteredProjects = new EventEmitter<Project[]>();
 
-    constructor() {
-        this.listenSearchInputEvents();
+    ngOnInit(): void {
+        this.buildProjectsTags();
     }
 
     ngAfterViewInit(): void {
-        this.buildProjectsTags();
+        setTimeout(() => {
+            this.listenSearchInputEvents();
+        }, 0);
     }
 
     // Listen SearchInput events
 
     private listenSearchInputEvents(): void {
         this.filteredProjectTags = this.formControl.valueChanges.pipe(
+            startWith(null),
             map<string, string>(value => clearStringUtil(value)),
             map<string, string[]>(value =>
-                this.allProjectTags.filter(projectTag =>
-                    clearStringUtil(projectTag).includes(value),
-                ),
+                value
+                    ? this.allProjectTags.filter(projectTag =>
+                          clearStringUtil(projectTag).includes(value),
+                      )
+                    : this.allProjectTags,
             ),
         );
     }
