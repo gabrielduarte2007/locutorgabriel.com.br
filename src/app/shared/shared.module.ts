@@ -9,6 +9,10 @@ import { ProjectListComponent } from './cards-section/project-list/project-list.
 import { RouterModule } from '@angular/router';
 import { ProjectsService } from '../_services/ProjectsService';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -21,7 +25,20 @@ import { MatMenuModule } from '@angular/material/menu';
         CardsFilterComponent,
         ProjectListComponent,
     ],
-    imports: [CommonModule, MatIconModule, RouterModule, MatMenuModule],
+    imports: [
+        CommonModule,
+        RouterModule,
+
+        // Forms
+        ReactiveFormsModule,
+
+        // Angular Material
+        MatIconModule,
+        MatMenuModule,
+        MatFormFieldModule,
+        MatAutocompleteModule,
+        MatChipsModule,
+    ],
     exports: [
         CommonModule,
 
