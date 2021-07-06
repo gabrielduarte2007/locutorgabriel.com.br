@@ -9,11 +9,15 @@ import slugify from 'slugify';
 export class ProjectsService {
     public projects = projects;
 
-    getSlug(project: Project): string {
+    // Slug
+
+    public getSlug(project: Project): string {
         return slugify(project.id);
     }
 
-    getYouTubeVideoId(project: Project): string | undefined {
+    // YouTube
+
+    public getYouTubeVideoId(project: Project): string | undefined {
         if (project.youtube) {
             const url = new URL(project.youtube);
 
@@ -23,7 +27,7 @@ export class ProjectsService {
         }
     }
 
-    getYouTubeImageUrl(project: Project, highRes = false): string {
+    public getYouTubeImageUrl(project: Project, highRes = false): string {
         if (!project.youtube) {
             // console.error(
             //     `Project ${project.id} is a VIDEO without youtube url.`,
@@ -39,7 +43,7 @@ export class ProjectsService {
         return `https://img.youtube.com/vi/${videoId}/${fileName}.jpg`;
     }
 
-    getYouTubeIframeUrl(project: Project): string {
+    public getYouTubeIframeUrl(project: Project): string {
         const videoId = this.getYouTubeVideoId(project);
 
         return `https://www.youtube.com/embed/${videoId}`;

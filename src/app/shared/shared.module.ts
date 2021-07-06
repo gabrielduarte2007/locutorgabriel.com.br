@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CardsSectionComponent } from './cards-section/cards-section.component';
 import { ProjectListComponent } from './cards-section/project-list/project-list.component';
 import { RouterModule } from '@angular/router';
-import { ProjectsService } from '../_services/ProjectsService';
+import { ProjectsService } from '../_services/projects.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
