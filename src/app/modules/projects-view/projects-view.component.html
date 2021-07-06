@@ -43,8 +43,10 @@
         ></mat-icon>
         Compartilhar Link
     </button>
+
     <a
-        href="media/video/Wizard%20-%20Os%20Melhores%20Motivos.mp4"
+        *ngIf="currentProject.tipo === ProjectType.VIDEO"
+        [href]="service.getMediaUrl(currentProject, ProjectType.VIDEO)"
         class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500"
         download
     >
@@ -52,17 +54,20 @@
             class="card__title-icon"
             svgIcon="heroicons_solid:download"
         ></mat-icon>
-        Baixar video
+        Baixar vídeo
     </a>
-    <button
+
+    <a
+        [href]="service.getMediaUrl(currentProject, ProjectType.AUDIO)"
         class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500"
+        download
     >
         <mat-icon
             class="card__title-icon"
             svgIcon="heroicons_solid:download"
         ></mat-icon>
-        Baixar audio
-    </button>
+        Baixar áudio
+    </a>
 </div>
 
 <div *ngIf="visibleShareLink" class="project-share-button flex w-3/5 m-auto">

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { projects } from '_data/projects.data';
 import { Project } from '../../_model/Project';
 import slugify from 'slugify';
+import { ProjectType } from '../../_model/ProjectType';
 
 @Injectable({
     providedIn: 'root',
@@ -13,6 +14,16 @@ export class ProjectsService {
 
     public getSlug(project: Project): string {
         return slugify(project.id);
+    }
+
+    // Media URL
+
+    public getMediaUrl(project: Project, projectType: ProjectType): string {
+        const fileExtension = projectType === ProjectType.VIDEO ? 'mp4' : 'mp3';
+
+        return `assets/media/${projectType.toLowerCase()}/${
+            project.id
+        }.${fileExtension}`;
     }
 
     // YouTube

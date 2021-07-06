@@ -5,6 +5,7 @@ import slugify from 'slugify';
 import { Project } from '../../../_model/Project';
 import { ProjectsService } from '../../_services/projects.service';
 import { config } from '../../../_data/config.data';
+import { ProjectType } from '_model/ProjectType';
 
 @Component({
     selector: 'projects-view',
@@ -18,6 +19,8 @@ export class ProjectsViewComponent {
     public relatedProjects: Project[] = projects.slice(20, 26);
 
     public visibleShareLink: boolean = false;
+
+    public ProjectType = ProjectType;
 
     constructor(
         private readonly router: Router,
