@@ -38,6 +38,13 @@ export const projects: Project[] = [
             'Inscrições Abertas',
             'Locutor Animado',
         ],
+        descricao: `Locução para a propaganda Os Melhores Motivos da escola de inglês Wizard
+feita com a produtora Alma 11:11, produtora de vídeo Brigitte Filmes e
+agência de publicidade 35 Agency. O projeto pediu por uma interpretação de
+locução comercial (locutor jovem e animado), mas que tivesse elementos da
+locução natural. O resultado é um discurso dinâmico e ritmado, porém com a
+energia particular da locução publicitária vendedora. A veiculação dessa
+peça foi para televisão e todas as mídias.`,
     },
     {
         id: 'Pantene - Pantips',
