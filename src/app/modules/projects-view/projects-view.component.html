@@ -70,7 +70,10 @@
     </a>
 </div>
 
-<div *ngIf="visibleShareLink" class="project-share-button flex w-3/5 m-auto">
+<div
+    *ngIf="visibleShareLink"
+    class="project-share-button flex w-3/5 m-auto"
+>
     <input
         class="w-full"
         disabled
@@ -78,7 +81,9 @@
         type="text"
     />
     <button
-        cdkCopyToClipboard="{{ service.getYouTubeIframeUrl(currentProject) }}"
+        cdkCopyToClipboard="{{
+                service.getYouTubeIframeUrl(currentProject)
+            }}"
         class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500"
     >
         <mat-icon
