@@ -6,6 +6,7 @@
             class="header-area relative flex flex-0 items-center w-full h-16 mr-4 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden"
         >
             <button
+                (click)="toggleIcon()"
                 id="header-area__mobile-button"
                 class="header-area__mobile-button mat-focus-indicator -ml-2 mat-icon-button mat-button-base"
             >
@@ -46,6 +47,7 @@
             </div>
 
             <div
+                *ngIf="isMobile"
                 class="header-area__icon-wrapper flex items-center pl-5 ml-auto space-x-5"
             >
                 <a
