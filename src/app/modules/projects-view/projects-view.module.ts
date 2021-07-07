@@ -9,6 +9,7 @@ import { projectsViewRoutes } from './projects-view.routing';
 import { SafePipe } from '../_pipes/safe.pipe';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
         SharedModule,
         ClipboardModule,
         FormsModule,
+        MatTooltipModule,
     ],
 })
 export class ProjectsViewModule {}

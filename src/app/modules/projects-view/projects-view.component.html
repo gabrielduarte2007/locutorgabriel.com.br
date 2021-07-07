@@ -81,17 +81,15 @@
         type="text"
     />
     <button
+        #tooltip="matTooltip"
+        (click)="tooltip.toggle()"
+        matTooltip="Copiado!"
         cdkCopyToClipboard="{{
                 service.getYouTubeIframeUrl(currentProject)
             }}"
         class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500"
     >
         <mat-icon
-            data-toggle="popover"
-            data-value="aaa"
-            data-mode="popover"
-            data-label="aaaaa"
-            data-placement="top"
             class="card__title-icon"
             svgIcon="content_copy"
         ></mat-icon>
