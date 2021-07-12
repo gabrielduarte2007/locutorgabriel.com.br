@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./header.component.sass'],
 })
 export class HeaderComponent {
-    isMobile: boolean = false;
+    isMobile: boolean = true;
 
     // tslint:disable-next-line:typedef use-lifecycle-interface
     ngOnInit() {
