@@ -35,10 +35,10 @@
 <div class="project-video-button flex py-2 text-left m-auto">
     <button
         (click)="shareLink()"
-        class="card__title flex items-center justify-around mx-2 w-48 h-10 rounded-md border-solid border-2 border-yellow-500"
+        class="card__title flex items-center justify-around mx-2 w-48 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
     >
         <mat-icon
-            class="card__title-icon"
+            class="card__title-icon m-2"
             svgIcon="heroicons_solid:share"
         ></mat-icon>
         Compartilhar Link
@@ -47,11 +47,11 @@
     <a
         *ngIf="currentProject.tipo === ProjectType.VIDEO"
         [href]="service.getMediaUrl(currentProject, ProjectType.VIDEO)"
-        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500"
+        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
         download
     >
         <mat-icon
-            class="card__title-icon"
+            class="card__title-icon m-2"
             svgIcon="heroicons_solid:download"
         ></mat-icon>
         Baixar vídeo
@@ -59,11 +59,11 @@
 
     <a
         [href]="service.getMediaUrl(currentProject, ProjectType.AUDIO)"
-        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500"
+        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
         download
     >
         <mat-icon
-            class="card__title-icon"
+            class="card__title-icon m-2"
             svgIcon="heroicons_solid:download"
         ></mat-icon>
         Baixar áudio
@@ -84,7 +84,7 @@
         matTooltip="Copiado!"
         class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500"
     >
-        <mat-icon class="card__title-icon" svgIcon="content_copy"></mat-icon>
+        <mat-icon class="card__title-icon m-0-2" svgIcon="content_copy"></mat-icon>
         Copiar
     </button>
 </div>
