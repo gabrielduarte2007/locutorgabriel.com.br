@@ -3,7 +3,7 @@
     <div class="flex flex-col flex-auto w-full min-w-0">
         <!-- Header -->
         <div
-            class="header-area relative flex flex-0 items-center w-full h-16 mr-4 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden"
+            class="header-area relative flex flex-0 items-center w-full h-16 mr-4 z-49 shadow dark:shadow-none dark:border-b print:hidden"
         >
             <button
                 (click)="toggleIcon()"
@@ -81,11 +81,14 @@
                     matTooltip="5511986686443"
                     #tooltip="matTooltip"
                     (click)="tooltip.toggle()"
-                    href="tel:5511986686443"
                 >
                     <mat-icon class="header-icon">phone</mat-icon>
                 </a>
-                <a href="mailto:presto.gabriel@gmail.com">
+                <a
+                    matTooltip="presto.gabriel@gmail.com"
+                    #tooltipmail="matTooltip"
+                    (click)="tooltipmail.toggle()"
+                >
                     <mat-icon class="header-icon">email</mat-icon>
                 </a>
                 <a
