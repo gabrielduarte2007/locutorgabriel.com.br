@@ -8,6 +8,7 @@ import { config } from '../../../_data/config.data';
 import { ProjectType } from '_model/ProjectType';
 import { delay, filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'projects-view',
@@ -29,6 +30,7 @@ export class ProjectsViewComponent implements OnDestroy {
     constructor(
         private readonly router: Router,
         public readonly service: ProjectsService,
+        private readonly titleService: Title,
     ) {
         this.loadCurrentProject();
 
@@ -48,6 +50,10 @@ export class ProjectsViewComponent implements OnDestroy {
 
         this.currentProject = projects.find(
             project => slugify(project.id) === slug,
+        );
+
+        this.titleService.setTitle(
+            `${this.currentProject.titulo} - ${this.currentProject.subtitulo}`,
         );
 
         const relatedProjects: Project[] = this.service.projects.reduce(
