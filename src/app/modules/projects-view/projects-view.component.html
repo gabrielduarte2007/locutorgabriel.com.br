@@ -12,7 +12,7 @@
 
         <div class="project-tags">
             <button
-                class="card__title px-1 m-1.5 mx-2 w-auto rounded-md border-solid border-2 border-yellow-500"
+                class="card__title px-1 m-1.5 w-auto rounded-md border-solid border border-yellow-500"
                 *ngFor="let tag of currentProject.tags"
             >
                 {{ tag }}
@@ -35,7 +35,7 @@
 <div class="project-video-button flex py-2 text-left m-auto">
     <button
         (click)="shareLink()"
-        class="card__title flex items-center justify-around mx-2 w-48 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
+        class="card__title flex items-center justify-around mx-2 w-48 h-10 rounded-md border-solid border border-yellow-500 p-1"
     >
         <mat-icon
             class="card__title-icon m-2"
@@ -47,7 +47,7 @@
     <a
         *ngIf="currentProject.tipo === ProjectType.VIDEO"
         [href]="service.getMediaUrl(currentProject, ProjectType.VIDEO)"
-        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
+        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border border-yellow-500 p-1"
         download
     >
         <mat-icon
@@ -59,7 +59,7 @@
 
     <a
         [href]="service.getMediaUrl(currentProject, ProjectType.AUDIO)"
-        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
+        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border border-yellow-500 p-1"
         download
     >
         <mat-icon
@@ -82,7 +82,7 @@
         #tooltip="matTooltip"
         (click)="tooltip.toggle()"
         matTooltip="Copiado!"
-        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border-2 border-yellow-500"
+        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border border-yellow-500"
     >
         <mat-icon
             class="card__title-icon m-0-2"
