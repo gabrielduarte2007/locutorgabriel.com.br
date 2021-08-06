@@ -63,6 +63,9 @@ peça foi para televisão e todas as mídias.`,
             'Locutor Simpático',
             'Locutor Tranquilo',
         ],
+        descricao:
+            'Locução explicando a ação da Pantene (a Pantips) feita com a Dope Audio e a Bite Studio. Nesse projeto a marca quis agradecer os cabeleleiros e especialistas que nos ajudaram nessa pandemia a cuidar dos nossos cabelos. E a maneira para transmitir essa mensagem foi através de uma locução coloquial, próxima, quente e amiga; uma locução de case (um clássico da locução comercial publicitária - na qual explica-se não só a intenção por trás da campanha, \n'
+            + 'mas também benchmarks e resultados), porém com uma interpretação um pouco mais simpática. Esse filme só veiculou online nos canais do cliente.',
     },
     {
         id: 'Daus - O Desafio nos Alimenta',
