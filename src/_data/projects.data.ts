@@ -83,6 +83,10 @@ peça foi para televisão e todas as mídias.`,
             'Locução Institucional',
             'Locução Emocionante',
         ],
+        descricao:
+            'Locução instuticional inaugurando a Daus (antiga Ourolac) feita com a produtora de áudio We4 e a Polvo Content. '
+            + 'Nesse projeto a marca quis falar da sua história com uma locução inspiracional, orgulhosa e emocionante, porém sem ser'
+            + ' engessada. Então conseguimos ouvir também alguns elementos da locução natural, num discurso tranquilo, honesto e verdadeiro.',
     },
     {
         id: 'Melitta - Microporos',
@@ -102,6 +106,10 @@ peça foi para televisão e todas as mídias.`,
             'Locutor Calmo',
             'Locutor Sorridente',
         ],
+        descricao:
+            'Locução enautecendo os Microporos dos Filtros Melitta feita com a Bamba Music.'
+            + ' Como o filme aborda o produto de uma maneira sensorial, a locução também vai na '
+            + 'linha do appetite appeal; então podemos ouvir uma locução um pouco mais grave, aerada e pausada. \n',
     },
     {
         id: 'Petrobras - Valor em Alto Mar',
@@ -123,6 +131,11 @@ peça foi para televisão e todas as mídias.`,
             'Locutor Orgulhoso',
             'Locução Padrão',
         ],
+        descricao:
+            'Locução do filme institucional da Petrobrás feito com a produtora de áudio Cabaret e a'
+            + 'produtora de vídeo Madre Mia. Esse projeto foge do locutor comercial, institucional e '
+            + 'tradicional da Petrobrás, explorando uma locução bem natural, jovem, conversada e simpática,'
+            + ' aproximando cliente e marca. Veiculação nacional, televisão e todas as mídias (online).',
     },
     {
         id: 'Babbel - Compreender Muda Tudo',
@@ -143,6 +156,16 @@ peça foi para televisão e todas as mídias.`,
             'Locutor Moderno',
             'Locutor Tranquilo',
         ],
+        descricao:
+            'Locução da primeira campanha do aplicativo de ensino de línguas Babbel com a Pendulum Music,'
+            + ' Marie Schuller e Media Monks. O filme foi produzido no exterior e adaptado para o Brasil pela'
+            + ' Pendulum Music. Nesse projeto o desafio da locução era dar voz a um texto com rítimo poético,'
+            + ' com uma interpretação natural e dinâmica, o que foge um pouco do escopo da locução '
+            + 'clássica (nem sempre o profissional de locução comercial precisa fazer a entonação de quem está vendendo alguma coisa!).'
+            + ' Existiu uma preocupação em fazer com que a locução não relacionasse diretamente um verso'
+            + ' com o outro, criando pra cada frase um colorido diferente. A locução explora mais o registro'
+            + ' grave e pouco emitido. A gravação dessa locução foi dirigida e acompanhada pelo cliente,'
+            + ' agência e diretora, cada um em seu país online com o estúdio.',
     },
     {
         id: 'Babbel - Significa Mais',
@@ -163,6 +186,16 @@ peça foi para televisão e todas as mídias.`,
             'Locutor Moderno',
             'Locutor Tranquilo',
         ],
+        descricao:
+            'Locução da primeira campanha do aplicativo de ensino de línguas Babbel com a Pendulum Music,'
+            + ' Marie Schuller e Media Monks. O filme foi produzido no exterior e adaptado para o Brasil pela'
+            + ' Pendulum Music. Nesse projeto o desafio da locução era dar voz a um texto com rítimo poético,'
+            + ' com uma interpretação natural e dinâmica, o que foge um pouco do escopo da locução '
+            + 'clássica (nem sempre o profissional de locução comercial precisa fazer a entonação de quem está vendendo alguma coisa!).'
+            + ' Existiu uma preocupação em fazer com que a locução não relacionasse diretamente um verso'
+            + ' com o outro, criando pra cada frase um colorido diferente. A locução explora mais o registro'
+            + ' grave e pouco emitido. A gravação dessa locução foi dirigida e acompanhada pelo cliente,'
+            + ' agência e diretora, cada um em seu país online com o estúdio.',
     },
     {
         id: 'Amazon Prime Video - Grandes Estrelas',
@@ -215,6 +248,10 @@ peça foi para televisão e todas as mídias.`,
             'Locutor Irônico',
             'Locutor Divertido',
         ],
+        descricao:
+            'Locução pra campanha de inscrição da CCXP 2019 feita com a produtora de áudio Mandril.'
+            + ' Nesse projeto exploramos uma locução descolada, próxima e jovem, dado o público da feira Comic Con. '
+            + 'A interpretação é bem natural, relaxada, apesar do ritmo rápido. Veiculação internet.',
     },
     {
         id: 'CCXP - Black Panther',
@@ -263,6 +300,13 @@ peça foi para televisão e todas as mídias.`,
             'Filtro',
             'Locução Motivacional',
         ],
+        descricao:
+            'Locução celebrando os 200 anos de Johnnie Walker feito com a produtora de áudio Cabaret e'
+            + ' a produtora de vídeo Vetor Zero. Essa adaptação para o português pedia para fugir da loução '
+            + 'padrão-comercial-standard. Portanto, interpretei o texto pensando em um depoimento, emprestando'
+            + ' o ritmo e contorno melódico da língua falada, conversada. A locução nessa peça é pouco emitida,'
+            + ' porém não chega a ser grave ou sussurrada. A veiculação dessa peça foi pra todas as mídias '
+            + '(televisão aberta/fechada, internet e outras).',
     },
     {
         id: 'Volkswagen - Nivus',
@@ -290,6 +334,12 @@ peça foi para televisão e todas as mídias.`,
             'Locutor Folgado',
             'Locução Impostada',
         ],
+        descricao:
+            'Locução para a campanha de lançamento do novo carro da Volkswagen, Nivus feita com a produtora de áudio Cabaret,'
+            + ' a produtora de vídeo Killers Biz e a agência Almapbbdo. Fazer uma campanha de lançamento de um produto é sempre um '
+            + 'desafio, porque envolve encontrar a melhor relação entre a locução comercial (o timbre, a idade, a entonação) com a '
+            + 'mensagem da campanha; o conceito que querem criar para o novo carro. Essa peça foi veiculada em todas as mídias,'
+            + ' incluindo televisão aberta e fechada, spot para rádio e internet.',
     },
     {
         id: 'Ministerio da Educacao - CNCT',
@@ -314,6 +364,11 @@ peça foi para televisão e todas as mídias.`,
             'Nacional',
             'Brasil',
         ],
+        descricao:
+            'Locução para o Ministério da Educação falando sobre o novo Catálogo Nacional de Cursos Técnicos feito'
+            + ' com a agência Escala. É interessante notar aqui o uso da locução despojada e coloquial interagindo com'
+            + ' o personagem do filme, aproximando a marca com o cliente, trazendo uma dose de modernidade para os '
+            + 'cursos técnicos. Veiculação nacional na televisão e internet.',
     },
     {
         id: 'URA',
@@ -346,6 +401,9 @@ peça foi para televisão e todas as mídias.`,
             'Locutor Animado',
             'Locução Colorida',
         ],
+        descricao:
+            'Locução para URA (Unidade de Resposta Audível), também conhecida como atendimento eletrônico ou '
+            + 'espera telefônica. Muitos clientes tem procurado por um atendimento humanizado, próximo e menos robótico.',
     },
     {
         id: 'Easy - Locutor Seguro de Viagem Internacional',
@@ -402,6 +460,11 @@ peça foi para televisão e todas as mídias.`,
             'Locutor Seguro',
             'Prazeroso',
         ],
+        descricao:
+            'Locução para o Subway lançando o novo sanduíche Carne Defumada com Cream Cheese, feita com a'
+            + ' produtora de áudio Lucha Libre, produtora de vídeo Ça Va e agência Dentsu. Como não poderia deixar'
+            + ' de ser, a locução dessa peça publicitária vai na linha do appetite appeal, grave, aerada, criando'
+            + ' um contraponto entre ingredientes saborosos e... um astronauta. Veiculação pra todas as mídias em território nacional.',
     },
     {
         id: 'Accor - Pandemia',
@@ -614,6 +677,14 @@ peça foi para televisão e todas as mídias.`,
             'Locutor Seguro',
             'Locução Colorida',
         ],
+        descricao:
+            'Locução para o Bradesco lançando a inteligência artificial Bia, feita com a produtora de áudio Alma'
+            + ' 11:11, produtora de filmes Corazon e a agência Publicis. O briefing dessa locução pedia por uma interpretação '
+            + 'natural, coloquial e simpática de um locutor jovem e moderno. O texto abre com uma interjeição, o que é raro'
+            + ' pra peças publicitárias - o resultado é um tom coloquial, como se o locutor conversasse com os personagens'
+            + ' do filme. Encontrar as interjeições certas para inserir essa dose de coloquialidade foi um processo de gravação'
+            + ' de locução bem cuidadoso, feita uma parte no estúdio da Alma 11:11 e outra parte no meu homestudio.\n'
+            + 'A veiculação desse filme foi nacional em todas as mídias, incluindo televisão, spot para rádio, internet etc\n',
     },
     {
         id: 'Athletico Paranaense - Viva o Furacão',
@@ -672,6 +743,10 @@ peça foi para televisão e todas as mídias.`,
             'Humor',
             'Criatividade',
         ],
+        descricao:
+            'Locução para a Associação de Publicidade e Propaganda anunciando a inscrição aberta para o Media Festival,'
+            + ' feito com a Agência Sala e produtora de vídeo Lokomotiv. Nesse projeto escolhemos seguir o caminho de uma'
+            + ' locução rápida e dinâmica, dialogando com o filme de ritmo caótico.\n',
     },
     {
         id: 'Avengers - Guerra Contra o Banho Sem Graça - Impala',
@@ -748,6 +823,9 @@ peça foi para televisão e todas as mídias.`,
             'Fácil',
             'Locutor Divertido',
         ],
+        descricao:
+            'Locução para o Banco do Brasil anunciando a Conta Fácil, feita com a produtora de áudio Mugshot.'
+            + ' A locução tem um tom energético, feliz e simpático. A veiculação dessa peça foi para o Brasil todo na televisão.',
     },
     {
         id: 'Azul - Contador de Historias',
@@ -912,6 +990,10 @@ peça foi para televisão e todas as mídias.`,
             'Livro',
             'Storytel',
         ],
+        descricao:
+            'Locução para o audiolivro My Take On Me. Por se tratar de um audiobook, a entonação da locução é neutra,'
+            + ' pausada e dinâmica. Durante todo o livro, é necessário manter o mesmo ritmo, o que é um desafio, já que a '
+            + 'gravação dessa locução foi feita em diversos dias.',
     },
     {
         id: 'Bonduelle - Ao Locução Natural é Locução Natural de verdade',
@@ -939,6 +1021,12 @@ peça foi para televisão e todas as mídias.`,
             'Personagem',
             'Locutor Jovem',
         ],
+        descricao:
+            'Voz original para a Bonduelle feita com a produtora de áudio Jacarandá.'
+            + ' No processo de gravação de voz original, cria-se a voz do personagem e grava-se a '
+            + 'voz antes de animação (pra que essa sirva de guia pra produção do filme). Por isso'
+            + ' falamos em "voz original" ao invés de "dublagem" (no qual o profissional da voz tem '
+            + 'que trabalhar em cima de uma animação ou filme já produzidos).\n',
     },
     {
         id: 'Ali Express - 11.11 Sonhando acordado',
@@ -1732,6 +1820,10 @@ peça foi para televisão e todas as mídias.`,
             'Locução Forte',
             'Locução Rápida',
         ],
+        descricao:
+            'Locução para a Fiat anunciando a Promoção Big Drive Fiat, feita com a produtora de áudio Evil Twin. '
+            + 'Como se trata de uma promoção, escolhemos seguir com essa gravação de locução de varejo clássica: animada,'
+            + ' energética, quase histriônica e muito rápida. Veiculação televisão nacional.\n',
     },
     {
         id: 'Fofossauros Episódio 01',
@@ -1965,6 +2057,13 @@ peça foi para televisão e todas as mídias.`,
             'Locução Dramática',
             'Locução Colorida',
         ],
+        descricao:
+            'Locução para o spot de rádio da Meber. Existiram vários desafios na locução dessa peça publicitária:'
+            + ' primeiro, não só o texto é bastante extenso pra duração limite de um spot de rádio comum (30 segundos),'
+            + ' mas como é necessário que a locução seja muito rápida, para passar a ideia da angústia sufocante da rotina'
+            + ' do dia-a-dia. Segundo, mesmo com o ritmo rápido, é necessário que a locução interprete cada frase pra facilitar'
+            + ' o entendimento e criar um dinamismo do mosaico de frases; uma espécie de caos. E, por último, entregar no fim'
+            + ' do spot uma quebra entre a angústia cotidiana e o momento de relaxamento.',
     },
     {
         id: 'Drinks and Clubs - Gin Tonica',
@@ -2287,6 +2386,11 @@ peça foi para televisão e todas as mídias.`,
             'Brinquedo',
             'Data Comemorativa',
         ],
+        descricao:
+            'Locução para a Ri Happy de Dia das Crianças, feita com a Dope Audio e a produtora de vídeo Dirty Work.'
+            + ' Como o filme fala sobre as facilidades de se comprar mesmo durante a pandemia, a interpretação dessa '
+            + 'locução é bastante confiante, rápida - resultando numa mensagem descomplicada, simpática e acessível. '
+            + 'Essa peça foi para televisão e internet (online nos canais do cliente).',
     },
     {
         id: 'Sanofi Mobility',
