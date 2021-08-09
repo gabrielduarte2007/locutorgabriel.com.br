@@ -8,5 +8,5 @@ import { projects } from '../../../_data/projects.data';
     encapsulation: ViewEncapsulation.None,
 })
 export class HomeViewComponent {
-    public projects = projects.slice(0, 6);
+    public projects = projects;
 }
