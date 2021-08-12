@@ -4,6 +4,10 @@ export interface Project {
     id: string;
     titulo: string;
     subtitulo: string;
+
+    // Optional custom slug
+    slug?: string;
+
     tipo: ProjectType;
     tags: string[];
 

@@ -6,6 +6,7 @@ export const projects: Project[] = [
         id: 'Aspirina - Seja Qual For a Dor de Cabeca',
         titulo: 'Locução: Aspirina',
         subtitulo: 'Seja Qual For a Dor de Cabeca',
+        slug: 'aspirina-dor-cabeca',
         tipo: ProjectType.VIDEO,
         youtube: 'https://youtu.be/j20G7iLSjYs',
         principal: true,
