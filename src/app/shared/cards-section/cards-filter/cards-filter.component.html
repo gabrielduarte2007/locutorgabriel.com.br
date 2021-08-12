@@ -1,24 +1,11 @@
 <div class="search-area text-center justify-center">
-    <div class="flex items-center">
+    <div class="flex items-start flex-col">
         <mat-form-field class="w-full" appearance="standard" color="accent">
-            <mat-chip-list
-                #chipList
-                class="p-3.5 bg-gray-100 w-full flex rounded-lg"
-            >
+            <div class="p-3.5 bg-gray-100 w-full flex rounded-lg">
                 <mat-icon>search</mat-icon>
 
-                <mat-chip
-                    class="search__chip"
-                    *ngFor="let searchTag of searchTags"
-                    [selectable]="selectable"
-                    [removable]="removable"
-                    (removed)="remove(searchTag)"
-                >
-                    {{ searchTag }}
-                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                </mat-chip>
-
                 <input
+                    matInput
                     placeholder="Busque por cliente, clima, interpretação, tipo da peça, área de atuação, etc"
                     #searchInput
                     class="search__input"
@@ -28,7 +15,7 @@
                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                     (matChipInputTokenEnd)="add($event)"
                 />
-            </mat-chip-list>
+            </div>
 
             <mat-autocomplete
                 #auto="matAutocomplete"
@@ -43,6 +30,21 @@
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>
+
+        <div>
+            <mat-chip-list #chipList>
+                <mat-chip
+                    class="search__chip"
+                    *ngFor="let searchTag of searchTags"
+                    [selectable]="selectable"
+                    [removable]="removable"
+                    (removed)="remove(searchTag)"
+                >
+                    {{ searchTag }}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+            </mat-chip-list>
+        </div>
 
         <!--        <div class="search-area__box flex items-center flex-auto">-->
         <!--            <div class="p-3.5 bg-gray-200 w-full flex rounded-lg">-->

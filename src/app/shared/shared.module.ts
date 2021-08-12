@@ -14,6 +14,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         MatAutocompleteModule,
         MatChipsModule,
         MatTooltipModule,
+        MatInputModule,
     ],
     exports: [
         CommonModule,
