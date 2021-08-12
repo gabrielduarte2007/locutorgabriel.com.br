@@ -15,6 +15,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
     declarations: [
@@ -42,6 +43,7 @@ import { MatInputModule } from '@angular/material/input';
         MatChipsModule,
         MatTooltipModule,
         MatInputModule,
+        MatButtonModule,
     ],
     exports: [
         CommonModule,

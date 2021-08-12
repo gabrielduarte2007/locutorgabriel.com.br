@@ -31,20 +31,28 @@
             </mat-autocomplete>
         </mat-form-field>
 
-        <div>
-            <mat-chip-list #chipList>
-                <mat-chip
-                    class="search__chip"
-                    *ngFor="let searchTag of searchTags"
-                    [selectable]="selectable"
-                    [removable]="removable"
-                    (removed)="remove(searchTag)"
-                >
-                    {{ searchTag }}
-                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                </mat-chip>
-            </mat-chip-list>
+        <div class="search-area__tags-area tags-area flex flex-row">
+            <div class="tags-area__share-search flex">
+                <button mat-raised-button color="primary" >Compartilhe essa busca</button>
+            </div>
+
+            <div class="tags-area__tags">
+                <mat-chip-list #chipList>
+                    <mat-chip
+                        class="search__chip"
+                        *ngFor="let searchTag of searchTags"
+                        [selectable]="selectable"
+                        [removable]="removable"
+                        (removed)="remove(searchTag)"
+                    >
+                        {{ searchTag }}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
         </div>
+
+
 
         <!--        <div class="search-area__box flex items-center flex-auto">-->
         <!--            <div class="p-3.5 bg-gray-200 w-full flex rounded-lg">-->
