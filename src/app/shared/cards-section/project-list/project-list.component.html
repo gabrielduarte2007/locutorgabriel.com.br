@@ -29,6 +29,7 @@
                     <div class="card-title font-extrabold text-4xl">
                         {{ project.titulo }}
                     </div>
+
                     <div class="card-subtitle font-normal text-xl">
                         {{ project.subtitulo }}
                     </div>
@@ -36,28 +37,16 @@
 
                 <div class="tags absolute bottom-8 w-full text-center">
                     <button
-                        class="card__title text-sm p-1 m-2.5 w-auto rounded-md border-solid border-2 border-yellow-500"
+                        *ngFor="let tag of getTagList(project)"
+                        class="card__title text-sm p-1 m-2.5 w-auto rounded-md bg-white border-solid border-2 border-yellow-500"
                     >
-                        {{ project.tags[0] }}
+                        {{ tag }}
                     </button>
 
                     <button
-                        class="card__title text-sm p-1 m-2.5 w-auto rounded-md border-solid border-2 border-yellow-500"
+                        class="text-sm text-white p-1 m-2.5 w-7 rounded-md border-solid border border-white"
                     >
-                        {{ project.tags[1] }}
-                    </button>
-
-                    <button
-                        class="card__title text-sm p-1 m-2.5 w-auto rounded-md border-solid border-2 border-yellow-500"
-                    >
-                        {{ project.tags[2] }}
-                    </button>
-
-                    <button
-                        class="items-center inline-flex card__title text-sm px-1.5 m-2.5 w-auto rounded-md border-solid border-1 border-white bg-white bg-opacity-25"
-                    >
-                        <mat-icon inline class="text-sm p-1"> add</mat-icon>
-                        {{ project.tags.length - 3 }}
+                        {{ project.tags.length - 3 }}+
                     </button>
                 </div>
             </figure>

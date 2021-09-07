@@ -16,4 +16,8 @@ export class ProjectListComponent {
     public updateList(projects: Project[]): void {
         this.projects = projects;
     }
+
+    public getTagList(project: Project): string[] {
+        return project.tags.slice(0, 2);
+    }
 }

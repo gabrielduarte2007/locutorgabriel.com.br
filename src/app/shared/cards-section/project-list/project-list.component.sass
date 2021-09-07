@@ -3,42 +3,43 @@
     padding-left: 16rem
     padding-right: 16rem
 
-.cards-section__card
-    transition: all .5s ease-in-out
+    &__card
+        transition: all .5s ease-in-out
 
-    &:hover
-        transform: scale(1.1)
-        background-color: initial
+        &:hover
+            transform: scale(1.1)
+            background-color: initial
 
-.card__thumbnail
-    width: 24rem
-    height: 22rem
+.card
+    &__thumbnail
+        width: 24rem
+        height: 22rem
 
-.card__title
-    background: white
-    transition: all .2s ease-in-out
+    &__title
+        transition: all .2s ease-in-out
 
-.card__title:hover
-    transform: scale(1.05)
+        &:hover
+            transform: scale(1.05)
 
-.cardcolor1
-    background-color: #C1C478
-    background-blend-mode: multiply
+.cardcolor
+    &1
+        background-color: #C1C478
+        background-blend-mode: multiply
 
-.cardcolor2
-    background-color: #DAA97A
-    background-blend-mode: multiply
+    &2
+        background-color: #DAA97A
+        background-blend-mode: multiply
 
-.cardcolor3
-    background-color: #8E648F
-    background-blend-mode: multiply
+    &3
+        background-color: #8E648F
+        background-blend-mode: multiply
 
 @media screen and (max-width: 1366px)
     .cards-section
         padding-left: 1rem
         padding-right: 1rem
 
-//MOBILE VIEW
+// MOBILE VIEW
 
 @media screen and (max-width: 600px)
     .card__thumbnail
