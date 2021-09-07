@@ -5,6 +5,7 @@ import { clearStringUtil } from '../_utils/clear-string.util';
 import { levenshteinDistance } from '../_utils/levenshtein.distance';
 import { config } from '../../_data/config.data';
 import { ChipAddEvent } from '../../_model/ChipAddEvent';
+import { ChipDeleteEvent } from '../../_model/ChipDeleteEvent';
 
 @Injectable({
     providedIn: 'root',
@@ -19,6 +20,8 @@ export class FilterService {
     // Tags Events
 
     public onChipAddEvent = new EventEmitter<ChipAddEvent>();
+
+    public onChipDeleteEvent = new EventEmitter<ChipDeleteEvent>();
 
     // Chips
 
@@ -64,16 +67,18 @@ export class FilterService {
                     index,
                 });
             },
-            onChipDelete: (a, b, c) => {
-                console.log({ a, b, c });
+            onChipDelete: (_, element) => {
+                this.onChipDeleteEvent.emit({ element });
             },
         });
 
         // Subscribe events
 
-        this.onChipAddEvent.subscribe(chipAddEvent => {
-            this.searchTags.push(chipAddEvent.data);
+        this.onChipAddEvent.subscribe(() => {
+            this.applyFilter();
+        });
 
+        this.onChipDeleteEvent.subscribe(() => {
             this.applyFilter();
         });
     }
@@ -117,7 +122,11 @@ export class FilterService {
                     project.subtitulo ? project.subtitulo.split(' ') : [],
                 );
 
-                const found = this.searchTags.every(tag =>
+                const searchTags = this.chipInstance.chipsData.map(
+                    chipData => chipData.tag,
+                );
+
+                const found = searchTags.every(tag =>
                     keywords.some(
                         keyword =>
                             clearStringUtil(keyword).includes(
