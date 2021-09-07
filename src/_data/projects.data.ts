@@ -2404,11 +2404,10 @@ peça foi para televisão e todas as mídias.`,
             'Brinquedo',
             'Data Comemorativa',
         ],
-        descricao:
-            'Locução para a Ri Happy de Dia das Crianças, feita com a Dope Audio e a produtora de vídeo Dirty Work.'
-            + ' Como o filme fala sobre as facilidades de se comprar mesmo durante a pandemia, a interpretação dessa '
-            + 'locução é bastante confiante, rápida - resultando numa mensagem descomplicada, simpática e acessível. '
-            + 'Essa peça foi para televisão e internet (online nos canais do cliente).',
+        descricao: `Locução para a Ri Happy de Dia das Crianças, feita com a Dope Audio e a produtora de vídeo Dirty Work.
+            Como o filme fala sobre as facilidades de se comprar mesmo durante a pandemia, a interpretação dessa
+            locução é bastante confiante, rápida - resultando numa mensagem descomplicada, simpática e acessível.
+            Essa peça foi para televisão e internet (online nos canais do cliente).`,
     },
     {
         id: 'Sanofi Mobility',
