@@ -18,6 +18,7 @@ import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import * as M from 'assets/libs/materialize.min';
 
 @Component({
     selector: 'app-cards-filter',
@@ -25,6 +26,14 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
     styleUrls: ['./cards-filter.component.sass'],
 })
 export class CardsFilterComponent implements OnInit, AfterViewInit {
+    @ViewChild('chips')
+    chips: ElementRef<HTMLDivElement>;
+
+    @ViewChild('chipsTarget')
+    chipsTarget: ElementRef<HTMLDivElement>;
+
+    public chipInstance;
+
     // Search config
 
     public selectable = true;
@@ -54,11 +63,54 @@ export class CardsFilterComponent implements OnInit, AfterViewInit {
         this.buildProjectsTags();
     }
 
+    //////////////////
+
     ngAfterViewInit(): void {
-        setTimeout(() => {
-            this.listenSearchInputEvents();
-        }, 0);
+        // Convert tags array into an object based on 'chips' data format
+        const autocompleteData = this.allProjectTags.reduce((acc, curr) => {
+            acc[curr] = null;
+
+            return acc;
+        }, {});
+
+        this.chipInstance = M.Chips.init(this.chips.nativeElement, {
+            autocompleteOptions: {
+                data: autocompleteData,
+                limit: Infinity,
+                minLength: 1,
+            },
+            onChipAdd: this.onChipAdd.bind(this),
+            onChipDelete: (a, b, c) => {
+                console.log({ a, b, c });
+            },
+        });
+
+        // setTimeout(() => {
+        //     this.listenSearchInputEvents();
+        // }, 0);
     }
+
+    private onChipAdd(chipsList, chipElement: HTMLDivElement): void {
+        const chipElementClone = chipElement.cloneNode(true) as HTMLDivElement;
+
+        const closeButton = chipElementClone.querySelector(
+            '.close',
+        ) as HTMLElement;
+
+        closeButton.onclick = () => {
+            const array = Array.from(this.chipsTarget.nativeElement.children);
+
+            const index = array.indexOf(chipElementClone);
+
+            const instance = M.Chips.getInstance(this.chips.nativeElement);
+
+            instance.deleteChip(index);
+        };
+
+        this.chipsTarget.nativeElement.appendChild(chipElementClone);
+    }
+
+    //////////////////
 
     // Listen SearchInput events
 
