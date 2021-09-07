@@ -39,12 +39,13 @@
                     <button
                         *ngFor="let tag of getTagList(project)"
                         class="card__title text-sm p-1 m-0.5 w-auto rounded-md bg-white border-solid border-2 border-yellow-500"
+                        (click)="onClickTag($event, tag)"
                     >
                         {{ tag }}
                     </button>
 
                     <button
-                        class="text-sm text-white px-3 p-1 m-0.5 w-7 rounded-md border-solid border border-white"
+                        class="text-sm text-white p-1 m-0.5 w-7 rounded-md border-solid border border-white"
                     >
                         {{ project.tags.length - 3 }}+
                     </button>

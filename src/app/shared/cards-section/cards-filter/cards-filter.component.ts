@@ -4,7 +4,6 @@ import {
     ElementRef,
     EventEmitter,
     Input,
-    OnInit,
     Output,
     ViewChild,
 } from '@angular/core';
@@ -14,25 +13,22 @@ import { config } from '../../../../_data/config.data';
 import { clearStringUtil } from '../../../_utils/clear-string.util';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import * as M from 'assets/libs/materialize.min';
+import { FilterService } from '../../../_services/filter.service';
 
 @Component({
     selector: 'app-cards-filter',
     templateUrl: './cards-filter.component.html',
     styleUrls: ['./cards-filter.component.sass'],
 })
-export class CardsFilterComponent implements OnInit, AfterViewInit {
+export class CardsFilterComponent implements AfterViewInit {
     @ViewChild('chips')
     chips: ElementRef<HTMLDivElement>;
 
     @ViewChild('chipsTarget')
     chipsTarget: ElementRef<HTMLDivElement>;
-
-    public chipInstance;
 
     // Search config
 
@@ -45,7 +41,6 @@ export class CardsFilterComponent implements OnInit, AfterViewInit {
     public formControl = new FormControl();
     public filteredProjectTags: Observable<string[]>;
     public searchTags: string[] = [];
-    private allProjectTags: string[] = [];
 
     // Search Input
 
@@ -59,38 +54,19 @@ export class CardsFilterComponent implements OnInit, AfterViewInit {
     @Output()
     public filteredProjects = new EventEmitter<Project[]>();
 
-    ngOnInit(): void {
-        this.buildProjectsTags();
-    }
+    constructor(public readonly filterService: FilterService) {}
 
     //////////////////
 
     ngAfterViewInit(): void {
-        // Convert tags array into an object based on 'chips' data format
-        const autocompleteData = this.allProjectTags.reduce((acc, curr) => {
-            acc[curr] = null;
+        this.filterService.init(this.projects, this.chips.nativeElement);
 
-            return acc;
-        }, {});
-
-        this.chipInstance = M.Chips.init(this.chips.nativeElement, {
-            autocompleteOptions: {
-                data: autocompleteData,
-                limit: Infinity,
-                minLength: 1,
-            },
-            onChipAdd: this.onChipAdd.bind(this),
-            onChipDelete: (a, b, c) => {
-                console.log({ a, b, c });
-            },
+        this.filterService.onChipAddEvent.subscribe(params => {
+            this.onChipAdd(params.param1, params.param2);
         });
-
-        // setTimeout(() => {
-        //     this.listenSearchInputEvents();
-        // }, 0);
     }
 
-    private onChipAdd(chipsList, chipElement: HTMLDivElement): void {
+    private onChipAdd(_, chipElement: HTMLDivElement): void {
         const chipElementClone = chipElement.cloneNode(true) as HTMLDivElement;
 
         const closeButton = chipElementClone.querySelector(
@@ -102,9 +78,7 @@ export class CardsFilterComponent implements OnInit, AfterViewInit {
 
             const index = array.indexOf(chipElementClone);
 
-            const instance = M.Chips.getInstance(this.chips.nativeElement);
-
-            instance.deleteChip(index);
+            this.filterService.deleteChip(index);
         };
 
         this.chipsTarget.nativeElement.appendChild(chipElementClone);
@@ -114,36 +88,19 @@ export class CardsFilterComponent implements OnInit, AfterViewInit {
 
     // Listen SearchInput events
 
-    private listenSearchInputEvents(): void {
-        this.filteredProjectTags = this.formControl.valueChanges.pipe(
-            startWith(null),
-            map<string, string>(value => clearStringUtil(value)),
-            map<string, string[]>(value =>
-                value
-                    ? this.allProjectTags.filter(projectTag =>
-                          clearStringUtil(projectTag).includes(value),
-                      )
-                    : this.allProjectTags,
-            ),
-        );
-    }
-
-    // Build projects tags
-
-    private buildProjectsTags(): void {
-        this.allProjectTags = Array.from(
-            new Set(
-                this.projects
-                    .map(project => [
-                        ...project.tags,
-                        project.titulo,
-                        project.subtitulo,
-                        project.titulo + ': ' + project.subtitulo,
-                    ])
-                    .flat(),
-            ),
-        );
-    }
+    // private listenSearchInputEvents(): void {
+    //     this.filteredProjectTags = this.formControl.valueChanges.pipe(
+    //         startWith(null),
+    //         map<string, string>(value => clearStringUtil(value)),
+    //         map<string, string[]>(value =>
+    //             value
+    //                 ? this.allProjectTags.filter(projectTag =>
+    //                       clearStringUtil(projectTag).includes(value),
+    //                   )
+    //                 : this.allProjectTags,
+    //         ),
+    //     );
+    // }
 
     // Chips events (add, remove, selected)
 

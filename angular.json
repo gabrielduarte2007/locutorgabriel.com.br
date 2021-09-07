@@ -47,7 +47,7 @@
                             "src/@fuse/styles/main.scss",
                             "src/styles/styles.sass",
                             "src/styles/tailwind.scss",
-                            "src/assets/libs/materialize.min.css"
+                            "src/assets/libs/materialize.css"
                         ],
                         "scripts": [
                             "src/assets/libs/materialize.min.js"
