@@ -29,10 +29,10 @@
     ></iframe>
 </div>
 
-<div class="project-video-button flex py-2 text-left m-auto">
+<div class="project-video-button flex py-2 text-left items-center m-auto">
     <button
         (click)="shareLink()"
-        class="card__title flex items-center justify-around mx-2 w-48 h-10 rounded-md border-solid border border-yellow-500 p-1"
+        class="card__title m-0.5 flex items-center justify-center mx-2 w-72 sm:w-36 h-10 rounded-md border-solid border border-yellow-500 p-1"
     >
         <mat-icon
             class="card__title-icon m-2"
@@ -44,7 +44,7 @@
     <a
         *ngIf="service.currentProject.tipo === ProjectType.VIDEO"
         [href]="service.getMediaUrl(ProjectType.VIDEO)"
-        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border border-yellow-500 p-1"
+        class="card__title m-0.5 flex items-center justify-center mx-2 w-72 sm:w-36 h-10 rounded-md border-solid border border-yellow-500 p-1"
         download
     >
         <mat-icon
@@ -56,7 +56,7 @@
 
     <a
         [href]="service.getMediaUrl(ProjectType.AUDIO)"
-        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border border-yellow-500 p-1"
+        class="card__title m-0.5 flex items-center justify-center mx-2 w-72 sm:w-36 h-10 rounded-md border-solid border border-yellow-500 p-1"
         download
     >
         <mat-icon
