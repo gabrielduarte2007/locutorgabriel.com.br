@@ -2,57 +2,13 @@
     <div class="flex items-start flex-col">
         <div #chips class="chips w-full"></div>
 
-<!--        <mat-form-field class="w-full" appearance="standard" color="accent">-->
-<!--            <div class="p-3.5 bg-gray-100 w-full flex rounded-lg">-->
-<!--                <mat-icon>search</mat-icon>-->
-
-<!--                <input-->
-<!--                    matInput-->
-<!--                    placeholder="Busque por cliente, clima, interpretação, tipo da peça, área de atuação, etc"-->
-<!--                    #searchInput-->
-<!--                    class="search__input"-->
-<!--                    [formControl]="formControl"-->
-<!--                    [matAutocomplete]="auto"-->
-<!--                    [matChipInputFor]="chipList"-->
-<!--                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"-->
-<!--                    (matChipInputTokenEnd)="add($event)"-->
-<!--                />-->
-<!--            </div>-->
-
-<!--            <mat-autocomplete-->
-<!--                #auto="matAutocomplete"-->
-<!--                (optionSelected)="selected($event)"-->
-<!--            >-->
-<!--                &lt;!&ndash; TODO: Rework to hide instead of rewrite HTML &ndash;&gt;-->
-<!--                <mat-option-->
-<!--                    *ngFor="let projectTag of filteredProjectTags | async"-->
-<!--                    [value]="projectTag"-->
-<!--                >-->
-<!--                    {{ projectTag }}-->
-<!--                </mat-option>-->
-<!--            </mat-autocomplete>-->
-<!--        </mat-form-field>-->
-
         <div class="search-area__tags-area tags-area flex flex-row">
             <div class="tags-area__share-search flex mr-12">
-                <button mat-raised-button color="accent" >Compartilhe essa busca</button>
+                <button mat-raised-button color="accent">Compartilhe essa busca</button>
             </div>
 
             <div class="tags-area__tags self-center">
                 <div #chipsTarget class="chips-target"></div>
-
-<!--                <mat-chip-list #chipList>-->
-<!--                    <mat-chip-->
-<!--                        class="search__chip"-->
-<!--                        *ngFor="let searchTag of searchTags"-->
-<!--                        [selectable]="selectable"-->
-<!--                        [removable]="removable"-->
-<!--                        (removed)="remove(searchTag)"-->
-<!--                    >-->
-<!--                        {{ searchTag }}-->
-<!--                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>-->
-<!--                    </mat-chip>-->
-<!--                </mat-chip-list>-->
             </div>
         </div>
     </div>

@@ -32,16 +32,14 @@ export class ProjectListComponent implements AfterViewInit {
     ) {}
 
     public filterProjects(filteredProjects: Project[]): void {
-        setTimeout(() => {
-            this.isotopeInstance.arrange({
-                filter: itemElem => {
-                    const index = itemElem.getAttribute('data-index');
-                    const project = this.projects[index];
+        this.isotopeInstance.arrange({
+            filter: itemElem => {
+                const index = itemElem.getAttribute('data-index');
+                const project = this.projects[index];
 
-                    return filteredProjects.indexOf(project) >= 0;
-                },
-            });
-        }, 0);
+                return filteredProjects.indexOf(project) >= 0;
+            },
+        });
     }
 
     public getTagList(project: Project): string[] {

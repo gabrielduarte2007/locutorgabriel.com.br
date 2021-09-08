@@ -8,8 +8,6 @@ import {
     ViewChild,
 } from '@angular/core';
 import { Project } from '../../../../_model/Project';
-import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { FilterService } from '../../../_services/filter.service';
 import { ChipAddEvent } from '../../../../_model/ChipAddEvent';
@@ -31,16 +29,6 @@ export class CardsFilterComponent implements AfterViewInit {
     public selectable = true;
     public removable = true;
     public separatorKeysCodes: number[] = [ENTER, COMMA];
-
-    // Search elements
-
-    public formControl = new FormControl();
-    public filteredProjectTags: Observable<string[]>;
-    // public searchTags: string[] = [];
-
-    // Search Input
-
-    @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
 
     // Projects Input/Output
 
@@ -74,62 +62,15 @@ export class CardsFilterComponent implements AfterViewInit {
         ) as HTMLElement;
 
         closeButton.onclick = () => {
-            this.filterService.deleteChip(chipEvent.index);
+            const chipTargetElements = Array.from(
+                this.chipsTarget.nativeElement.children,
+            );
+
+            const index = chipTargetElements.indexOf(chipElementClone);
+
+            this.filterService.deleteChip(index);
         };
 
         this.chipsTarget.nativeElement.appendChild(chipElementClone);
     }
-
-    //////////////////
-
-    // Listen SearchInput events
-
-    // private listenSearchInputEvents(): void {
-    //     this.filteredProjectTags = this.formControl.valueChanges.pipe(
-    //         startWith(null),
-    //         map<string, string>(value => clearStringUtil(value)),
-    //         map<string, string[]>(value =>
-    //             value
-    //                 ? this.allProjectTags.filter(projectTag =>
-    //                       clearStringUtil(projectTag).includes(value),
-    //                   )
-    //                 : this.allProjectTags,
-    //         ),
-    //     );
-    // }
-
-    // Chips events (add, remove, selected)
-
-    // public add(event: MatChipInputEvent): void {
-    //     const value = (event.value || '').trim();
-    //
-    //     if (value) {
-    //         this.searchTags.push(value);
-    //     }
-    //
-    //     // Clear the input value
-    //     event.input.value = '';
-    //
-    //     this.formControl.setValue(null);
-    //
-    //     this.applySearch();
-    // }
-    //
-    // public remove(projectTag: string): void {
-    //     const index = this.searchTags.indexOf(projectTag);
-    //
-    //     if (index >= 0) {
-    //         this.searchTags.splice(index, 1);
-    //     }
-    //
-    //     this.applySearch();
-    // }
-    //
-    // public selected(event: MatAutocompleteSelectedEvent): void {
-    //     this.searchTags.push(event.option.viewValue);
-    //     this.searchInput.nativeElement.value = '';
-    //     this.formControl.setValue(null);
-    //
-    //     this.applySearch();
-    // }
 }
