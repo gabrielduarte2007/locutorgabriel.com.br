@@ -6,6 +6,7 @@ import { ProjectType } from '../../_model/ProjectType';
 import { Router } from '@angular/router';
 import { FilterService } from './filter.service';
 import { delay } from 'rxjs/operators';
+import { Unsubscriber } from '../_decorators/unsubscriber.decorator';
 
 @Injectable({
     providedIn: 'root',
@@ -15,13 +16,15 @@ export class ProjectsService {
 
     public currentProject: Project;
 
+    @Unsubscriber() subscriptions;
+
     constructor(
         private readonly router: Router,
         private readonly filterService: FilterService,
     ) {
         this.loadCurrentProject();
 
-        this.filterService.onReady
+        this.subscriptions = this.filterService.onReady
             .pipe(delay(0))
             .subscribe(this.loadRelatedProjects.bind(this));
     }
@@ -30,6 +33,8 @@ export class ProjectsService {
         const slug = this.router.url?.replace('/', '');
 
         if (!slug) {
+            this.currentProject = undefined;
+
             return;
         }
 
