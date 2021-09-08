@@ -4,15 +4,26 @@
     <div class="hero-section__image-area flex">
         <div class="hero-section__image-area mt-7">
             <img
+                #polylineStart
+                (load)="addPolyline()"
+                (window:resize)="onResize()"
                 alt="profile picture"
                 class="hero-section__image-area-profile rounded-xl"
                 src="assets/images/profile-picture/Gabriel%20Duarte%20-%20Locutor%20Comercial.png"
             />
         </div>
     </div>
+
+    <svg class="logo-line">
+        <!--suppress RequiredAttributes -->
+        <circle #circle r="5" class="logo-line__circle" />
+        <!--suppress RequiredAttributes -->
+        <polyline #polyline class="logo-line__polyline"/>
+    </svg>
+
     <div class="hero-section__title-wrapper">
         <div class="hero-section__title font-light text-xl">Bem Vindo!</div>
-        <div class="hero-section__subtitle text-3xl font-bold">
+        <div #polylineEnd class="hero-section__subtitle text-3xl font-bold">
             Sou locutor e esse é o meu repertório.
         </div>
         <div class="hero-section__text text-xl font-normal">
