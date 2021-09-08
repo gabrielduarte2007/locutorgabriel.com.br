@@ -50,7 +50,8 @@
                             "src/assets/libs/materialize.css"
                         ],
                         "scripts": [
-                            "src/assets/libs/materialize.min.js"
+                            "src/assets/libs/materialize.min.js",
+                            "src/assets/libs/isotope.pkgd.min.js"
                         ]
                     },
                     "configurations": {

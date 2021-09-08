@@ -1,10 +1,10 @@
 <app-cards-filter
     [projects]="service.projects"
-    (filteredProjects)="updateList($event)"
+    (filteredProjects)="filterProjects($event)"
 ></app-cards-filter>
 
-<div class="cards-section flex justify-center flex-wrap">
-    <div class="card" *ngFor="let project of projects; let i = index">
+<div class="cards-section flex justify-center flex-wrap" #projectsElement>
+    <div class="card" *ngFor="let project of projects; let i = index" [attr.data-index]="i">
         <a [routerLink]="'/' + service.getSlug(project)">
             <figure
                 class="cards-section__card"
