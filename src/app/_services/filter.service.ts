@@ -6,6 +6,9 @@ import { levenshteinDistance } from '../_utils/levenshtein.distance';
 import { config } from '../../_data/config.data';
 import { ChipAddEvent } from '../../_model/ChipAddEvent';
 import { ChipDeleteEvent } from '../../_model/ChipDeleteEvent';
+import { Router } from '@angular/router';
+import { delay } from 'rxjs/operators';
+import { Unsubscriber } from '../_decorators/unsubscriber.decorator';
 
 @Injectable({
     providedIn: 'root',
@@ -40,6 +43,14 @@ export class FilterService {
     // Service Ready
 
     public onReady = new EventEmitter();
+
+    @Unsubscriber() subscriptions;
+
+    constructor(private readonly router: Router) {
+        this.subscriptions = this.onReady
+            .pipe(delay(0))
+            .subscribe(this.loadCurrentSearch.bind(this));
+    }
 
     // Init Methods
 
@@ -161,5 +172,28 @@ export class FilterService {
         );
 
         this.filteredProjects.emit(filteredProjects);
+    }
+
+    // Load Current Search
+
+    private loadCurrentSearch(): void {
+        if (!this.router.url?.includes('/busca/')) {
+            return;
+        }
+
+        const currentSearch = this.router.url?.replace('/busca/', '');
+
+        if (!currentSearch) {
+            return;
+        }
+
+        // Split Tags
+
+        const invertClearUrl = url =>
+            decodeURIComponent(url).replace(/_/g, ' ');
+
+        const tags = invertClearUrl(currentSearch).split('&');
+
+        tags.forEach(this.addTag.bind(this));
     }
 }

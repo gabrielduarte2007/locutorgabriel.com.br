@@ -20,6 +20,13 @@ export const appRoutes: Route[] = [
                     ),
             },
             {
+                path: 'busca/:search',
+                loadChildren: () =>
+                    import('app/modules/home-view/home-view.module').then(
+                        m => m.HomeViewModule,
+                    ),
+            },
+            {
                 path: ':slug',
                 loadChildren: () =>
                     import(
