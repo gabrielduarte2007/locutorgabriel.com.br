@@ -2,7 +2,7 @@
 
 Este projeto foi criado utilizando o Angular CLI versão 11.
 
-Você pode acessar ele pelo GitHub Pages.
+Esse projeto está hospedado no GitHub Pages.
 
 ## Escopo
 
