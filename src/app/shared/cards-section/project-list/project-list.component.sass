@@ -1,4 +1,5 @@
 $card-width: 400px
+$card-mobile: 352px
 
 .cards-section
     padding-bottom: 1.5rem
@@ -43,6 +44,10 @@ $card-width: 400px
 @media screen and (max-width: 799px)
     .cards-section
         width: $card-width * 1
+
+@media screen and (max-width: 600px)
+    .cards-section
+        width: $card-mobile
 
 // MOBILE VIEW
 
