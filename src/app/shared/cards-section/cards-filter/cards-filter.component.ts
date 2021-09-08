@@ -8,7 +8,6 @@ import {
     ViewChild,
 } from '@angular/core';
 import { Project } from '../../../../_model/Project';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { FilterService } from '../../../_services/filter.service';
 import { ChipAddEvent } from '../../../../_model/ChipAddEvent';
 
@@ -28,7 +27,6 @@ export class CardsFilterComponent implements AfterViewInit {
 
     public selectable = true;
     public removable = true;
-    public separatorKeysCodes: number[] = [ENTER, COMMA];
 
     // Projects Input/Output
 
@@ -39,8 +37,6 @@ export class CardsFilterComponent implements AfterViewInit {
     public filteredProjects = new EventEmitter<Project[]>();
 
     constructor(public readonly filterService: FilterService) {}
-
-    //////////////////
 
     ngAfterViewInit(): void {
         this.filterService.init(this.projects, this.chips.nativeElement);

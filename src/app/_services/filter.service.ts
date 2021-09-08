@@ -51,6 +51,8 @@ export class FilterService {
         }, {});
 
         this.chipInstance = M.Chips.init(chipsElement, {
+            placeholder:
+                'Busque por cliente, clima, interpretação, tipo da peça, área de atuação, etc',
             autocompleteOptions: {
                 data: autocompleteData,
                 limit: Infinity,
