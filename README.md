@@ -1,25 +1,56 @@
-# Fuse - Admin template and Starter project for Angular
+# Projeto Portfólio Locutor Gabriel Duarte 
 
-## Development server
+Este projeto foi criado utilizando o Angular CLI versão 11.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Você pode acessar ele pelo GitHub Pages.
 
-## Code scaffolding
+## Escopo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Criar um site com as seguintes funcionalidades:
 
-## Build
+- Listar, visualizar e assistir projetos de locução
+- Baixar o projeto em `.mp3` e `.mp4`
+- Buscar por projetos específicos
+- Buscar por tags
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Layout (Figma)
 
-## Running unit tests
+## Tecnologias 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Angular CLI
+- Angular
+- TypeScript
+- Node.js
+- Tailwind
+- Sass
+- Fuse (template)
 
-## Running end-to-end tests
+## Instalando
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Certifique-se de quem a Angular CLI instalada
 
-## Further help
+```bash
+npm install -g @angular/cli
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Baixe ou clone este repositório, usando:
+
+```bash
+git clone https://github.com/locutor...
+```
+
+Dentro do diretório clonado, instale as dependências, usando:
+
+```bash
+npm install
+```
+
+## Executando
+
+Execute o comando a seguir para iniciar a versão de desenvolvimento:
+
+```bash
+ng serve -o
+```
+
+Assim que o comando terminar, irá abrir uma página com o endereço http://localhost:4200/.
