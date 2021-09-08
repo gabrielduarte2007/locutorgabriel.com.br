@@ -45,6 +45,10 @@ Dentro do diretório clonado, instale as dependências, usando:
 npm install
 ```
 
+```bash
+npm install jquery
+```
+
 ## Executando
 
 Execute o comando a seguir para iniciar a versão de desenvolvimento:
