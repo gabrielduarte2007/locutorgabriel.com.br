@@ -50,9 +50,14 @@ export class FilterService {
             return acc;
         }, {});
 
+        const placeholderDesktop =
+            'Busque por cliente, clima, interpretação, tipo da peça, área de atuação, etc';
+        const placeholderMobile = 'Cliente, clima, etc';
+
+        const isMobile = window.innerWidth <= 620;
+
         this.chipInstance = M.Chips.init(chipsElement, {
-            placeholder:
-                'Busque por cliente, clima, interpretação, tipo da peça, área de atuação, etc',
+            placeholder: isMobile ? placeholderMobile : placeholderDesktop,
             autocompleteOptions: {
                 data: autocompleteData,
                 limit: Infinity,
