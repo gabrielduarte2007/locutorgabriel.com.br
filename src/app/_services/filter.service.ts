@@ -95,7 +95,7 @@ export class FilterService {
                         ...project.tags,
                         project.titulo,
                         project.subtitulo,
-                        project.titulo + ': ' + project.subtitulo,
+                        `${project.titulo}: ${project.subtitulo}`,
                     ])
                     .flat(),
             ),
@@ -122,11 +122,14 @@ export class FilterService {
                 const keywords = project.tags.concat(
                     project.titulo.split(' '),
                     project.subtitulo ? project.subtitulo.split(' ') : [],
+                    `${project.titulo}: ${project.subtitulo}`,
                 );
 
                 const searchTags = this.chipInstance.chipsData.map(
                     chipData => chipData.tag,
                 );
+
+                console.log({ searchTags });
 
                 const found = searchTags.every(tag =>
                     keywords.some(
