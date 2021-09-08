@@ -11,12 +11,9 @@
         </div>
 
         <div class="project-tags">
-            <button
-                class="card__title px-1 m-1.5 w-auto rounded-md border-solid border border-yellow-500"
+            <app-project-tag
                 *ngFor="let tag of service.currentProject.tags"
-            >
-                {{ tag }}
-            </button>
+                [tag]="tag"></app-project-tag>
         </div>
     </div>
 </div>

@@ -46,13 +46,6 @@ export class ProjectListComponent implements AfterViewInit {
         return project.tags.slice(0, 2);
     }
 
-    public onClickTag($event: MouseEvent, tag: string): void {
-        this.filterService.addTag(tag);
-
-        $event.stopPropagation();
-        $event.preventDefault();
-    }
-
     ngAfterViewInit(): void {
         const elem = this.projectsElement.nativeElement;
         this.isotopeInstance = new Isotope(elem, {

@@ -41,7 +41,7 @@ export class ProjectsService {
     private loadRelatedProjects(): void {
         if (
             !this.filterService.searchTags.length
-            && this.currentProject.tags.length
+            && this.currentProject?.tags.length
         ) {
             const getRandomArbitrary = (min, max) =>
                 Math.floor(Math.random() * (max - min) + min);

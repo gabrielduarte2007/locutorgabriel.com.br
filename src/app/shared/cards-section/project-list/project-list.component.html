@@ -4,7 +4,11 @@
 ></app-cards-filter>
 
 <div class="cards-section flex justify-center flex-wrap" #projectsElement>
-    <div class="card" *ngFor="let project of projects; let i = index" [attr.data-index]="i">
+    <div
+        class="card"
+        *ngFor="let project of projects; let i = index"
+        [attr.data-index]="i"
+    >
         <a [routerLink]="'/' + service.getSlug(project)">
             <figure
                 class="cards-section__card"
@@ -36,13 +40,10 @@
                 </div>
 
                 <div class="tags absolute bottom-8 w-full text-center">
-                    <button
+                    <app-project-tag
                         *ngFor="let tag of getTagList(project)"
-                        class="card__title text-sm p-1 m-0.5 w-auto rounded-md bg-white border-solid border-2 border-yellow-500"
-                        (click)="onClickTag($event, tag)"
-                    >
-                        {{ tag }}
-                    </button>
+                        [tag]="tag"
+                    ></app-project-tag>
 
                     <button
                         class="text-sm text-white p-1 m-0.5 w-7 rounded-md border-solid border border-white"

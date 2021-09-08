@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { ProjectTagComponent } from './cards-section/project-tag/project-tag.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
         CardsSectionComponent,
         CardsFilterComponent,
         ProjectListComponent,
+        ProjectTagComponent,
     ],
     imports: [
         CommonModule,
@@ -58,6 +60,7 @@ import { MatButtonModule } from '@angular/material/button';
 
         // Project
         ProjectListComponent,
+        ProjectTagComponent,
     ],
     providers: [ProjectsService],
 })
