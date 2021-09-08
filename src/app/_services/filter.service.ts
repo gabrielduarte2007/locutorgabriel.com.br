@@ -129,8 +129,6 @@ export class FilterService {
                     chipData => chipData.tag,
                 );
 
-                console.log({ searchTags });
-
                 const found = searchTags.every(tag =>
                     keywords.some(
                         keyword =>

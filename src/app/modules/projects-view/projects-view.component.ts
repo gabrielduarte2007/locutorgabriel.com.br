@@ -23,22 +23,10 @@ export class ProjectsViewComponent implements OnDestroy {
         public readonly service: ProjectsService,
         private readonly titleService: Title,
     ) {
-        console.log('Construct Component');
-
         this.updateTitle();
     }
 
     private updateTitle(): void {
-        console.log(this.service.currentProject);
-
-        // const slug = this.router.url?.replace('/', '');
-        //
-        // this.currentProject = projects.find(
-        //     project => this.service.getSlug(project) === slug,
-        // );
-
-        // this.currentProject = this.service.loadCurrentProject;
-
         this.titleService.setTitle(
             `${this.service.currentProject.titulo} - ${this.service.currentProject.subtitulo}`,
         );
@@ -49,8 +37,6 @@ export class ProjectsViewComponent implements OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        console.log('destroy');
-
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
     }
