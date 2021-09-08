@@ -10,6 +10,8 @@ import {
 import { Project } from '../../../../_model/Project';
 import { FilterService } from '../../../_services/filter.service';
 import { ChipAddEvent } from '../../../../_model/ChipAddEvent';
+import { PlatformLocation } from '@angular/common';
+import { clearAccentUtil } from '../../../_utils/clear-accent.util';
 
 @Component({
     selector: 'app-cards-filter',
@@ -36,7 +38,10 @@ export class CardsFilterComponent implements AfterViewInit {
     @Output()
     public filteredProjects = new EventEmitter<Project[]>();
 
-    constructor(public readonly filterService: FilterService) {}
+    constructor(
+        public readonly filterService: FilterService,
+        private readonly platformLocation: PlatformLocation,
+    ) {}
 
     ngAfterViewInit(): void {
         this.filterService.init(this.projects, this.chips.nativeElement);
@@ -68,5 +73,23 @@ export class CardsFilterComponent implements AfterViewInit {
         };
 
         this.chipsTarget.nativeElement.appendChild(chipElementClone);
+    }
+
+    public getSearchLink(): string {
+        const { protocol, hostname, port } = this.platformLocation;
+
+        const formattedPort = port ? ':' + port : '';
+
+        return (
+            protocol
+            + '//'
+            + hostname
+            + formattedPort
+            + '/'
+            + 'busca/'
+            + clearAccentUtil(
+                this.filterService.searchTags.join('&').replace(' ', '_'),
+            )
+        );
     }
 }

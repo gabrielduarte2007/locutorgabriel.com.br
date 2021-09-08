@@ -37,7 +37,9 @@ export class FilterService {
     public filteredProjects = new EventEmitter<Project[]>();
 
     public get searchTags(): string[] {
-        return this.chipInstance.chipsData.map(chipData => chipData.tag);
+        return (
+            this.chipInstance?.chipsData?.map(chipData => chipData.tag) ?? []
+        );
     }
 
     // Service Ready
