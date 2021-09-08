@@ -15,8 +15,6 @@ export class FilterService {
 
     private allProjectTags: string[] = [];
 
-    private searchTags: string[] = [];
-
     // Tags Events
 
     public onChipAddEvent = new EventEmitter<ChipAddEvent>();
@@ -34,6 +32,14 @@ export class FilterService {
     // Projects Events
 
     public filteredProjects = new EventEmitter<Project[]>();
+
+    public get searchTags(): string[] {
+        return this.chipInstance.chipsData.map(chipData => chipData.tag);
+    }
+
+    // Service Ready
+
+    public onReady = new EventEmitter();
 
     // Init Methods
 
@@ -88,6 +94,8 @@ export class FilterService {
         this.onChipDeleteEvent.subscribe(() => {
             this.applyFilter();
         });
+
+        this.onReady.emit();
     }
 
     // Build projects tags
@@ -130,11 +138,7 @@ export class FilterService {
                     `${project.titulo}: ${project.subtitulo}`,
                 );
 
-                const searchTags = this.chipInstance.chipsData.map(
-                    chipData => chipData.tag,
-                );
-
-                const found = searchTags.every(tag =>
+                const found = this.searchTags.every(tag =>
                     keywords.some(
                         keyword =>
                             clearStringUtil(keyword).includes(

@@ -4,7 +4,8 @@ import { Project } from '../../_model/Project';
 import slugify from 'slugify';
 import { ProjectType } from '../../_model/ProjectType';
 import { Router } from '@angular/router';
-import { config } from '../../_data/config.data';
+import { FilterService } from './filter.service';
+import { delay } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
@@ -14,10 +15,15 @@ export class ProjectsService {
 
     public currentProject: Project;
 
-    public relatedProjects: Project[] = projects.slice(20, 26);
-
-    constructor(private readonly router: Router) {
+    constructor(
+        private readonly router: Router,
+        private readonly filterService: FilterService,
+    ) {
         this.loadCurrentProject();
+
+        this.filterService.onReady
+            .pipe(delay(0))
+            .subscribe(this.loadRelatedProjects.bind(this));
     }
 
     private loadCurrentProject(): void {
@@ -30,30 +36,25 @@ export class ProjectsService {
         this.currentProject = projects.find(
             project => this.getSlug(project) === slug,
         );
+    }
 
-        const relatedProjects: Project[] = this.projects.reduce(
-            (previousValue, currentValue) => {
-                if (currentValue !== this.currentProject) {
-                    const tags = currentValue.tags;
+    private loadRelatedProjects(): void {
+        if (
+            !this.filterService.searchTags.length
+            && this.currentProject.tags.length
+        ) {
+            const getRandomArbitrary = (min, max) =>
+                Math.floor(Math.random() * (max - min) + min);
 
-                    const numberOfEqualTags = this.currentProject.tags
-                        .map(tag => tags.includes(tag))
-                        .reduce((a, b) => a + (b ? 1 : 0), 0);
+            const randomIndex = getRandomArbitrary(
+                0,
+                this.currentProject.tags.length,
+            );
 
-                    if (numberOfEqualTags > 0) {
-                        previousValue.push(currentValue);
-                    }
-                }
+            const randomTag = this.currentProject.tags[randomIndex];
 
-                return previousValue;
-            },
-            [] as Project[],
-        );
-
-        this.relatedProjects = relatedProjects.slice(
-            0,
-            config.maxRelatedProjects,
-        );
+            this.filterService.addTag(randomTag);
+        }
     }
 
     // Slug
