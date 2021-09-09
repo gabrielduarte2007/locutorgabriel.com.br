@@ -17,6 +17,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ProjectTagComponent } from './cards-section/project-tag/project-tag.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import { ProjectTagComponent } from './cards-section/project-tag/project-tag.com
         MatTooltipModule,
         MatInputModule,
         MatButtonModule,
+        ClipboardModule,
     ],
     exports: [
         CommonModule,

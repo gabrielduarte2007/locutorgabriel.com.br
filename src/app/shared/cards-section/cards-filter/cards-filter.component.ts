@@ -29,6 +29,7 @@ export class CardsFilterComponent implements AfterViewInit {
 
     public selectable = true;
     public removable = true;
+    public visibleShareLink = false;
 
     // Projects Input/Output
 
@@ -41,6 +42,7 @@ export class CardsFilterComponent implements AfterViewInit {
     constructor(
         public readonly filterService: FilterService,
         private readonly platformLocation: PlatformLocation,
+
     ) {}
 
     ngAfterViewInit(): void {
@@ -73,6 +75,10 @@ export class CardsFilterComponent implements AfterViewInit {
         };
 
         this.chipsTarget.nativeElement.appendChild(chipElementClone);
+    }
+
+    public shareLink(): void {
+        this.visibleShareLink = !this.visibleShareLink;
     }
 
     public getSearchLink(): string {

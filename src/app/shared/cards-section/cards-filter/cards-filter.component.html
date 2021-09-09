@@ -1,20 +1,45 @@
 <div class="search-area justify-center">
-    <div class="flex items-start flex-col">
+    <div class="items-start ">
         <div #chips class="chips w-full">
             <mat-icon class="search__icon">search</mat-icon>
             <input class="search__input p-3.5 bg-gray-100 w-full flex rounded-lg">
         </div>
 
-        <div class="search-area__tags-area tags-area flex flex-col">
+        <div class="search-area__tags-area tags-area flex">
             <div class="tags-area__share-search flex mb-3 mr-11">
-                <button mat-raised-button color="accent">Compartilhe essa busca</button>
+                <button (click)="shareLink()" mat-raised-button color="accent">Compartilhe essa busca</button>
             </div>
 
-            <div class="tags-area__tags self-center">
-                <div #chipsTarget class="chips-target"></div>
+            <div *ngIf="visibleShareLink" class="project-share-button flex w-10/12 m-auto">
+                <input
+                    class="w-full"
+                    disabled
+                    [value]="getSearchLink()"
+                    type="text"
+                />
+                <button
+                    cdkCopyToClipboard="{{ service.getYouTubeIframeUrl() }}"
+                    #tooltip="matTooltip"
+                    (click)="tooltip.toggle()"
+                    matTooltip="Copiado!"
+                    class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border border-yellow-500"
+                >
+                    <mat-icon
+                        class="card__title-icon m-0-2"
+                        svgIcon="content_copy"
+                    ></mat-icon>
+                    Copiar
+                </button>
             </div>
+
+
+        </div>
+        <div class="tags-area__tags self-center">
+            <div #chipsTarget class="chips-target"></div>
         </div>
 
-        <input [value]="getSearchLink()">
-    </div>
+<!--        <input [value]="getSearchLink()">-->
+<!--    </div>-->
 </div>
+
+
