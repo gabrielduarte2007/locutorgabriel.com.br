@@ -20,6 +20,7 @@
 
 <div class="project-video flex justify-center my-3">
     <iframe
+        *ngIf="service.currentProject.youtube"
         class="project-video__iframe"
         [src]="service.getYouTubeIframeUrl() | safe"
         title="YouTube video player"
