@@ -4,6 +4,7 @@ import { ProjectsService } from '../../_services/projects.service';
 import { ProjectType } from '_model/ProjectType';
 import { Subject } from 'rxjs';
 import { Title } from '@angular/platform-browser';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
     selector: 'projects-view',
@@ -39,5 +40,10 @@ export class ProjectsViewComponent implements OnDestroy {
     public ngOnDestroy(): void {
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
+    }
+
+    public onTooltipClicked(tooltip: MatTooltip): void {
+        tooltip.disabled = false;
+        tooltip.show();
     }
 }

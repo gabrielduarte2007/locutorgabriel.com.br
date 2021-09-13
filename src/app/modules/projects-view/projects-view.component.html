@@ -77,7 +77,9 @@
     <button
         cdkCopyToClipboard="{{ service.getYouTubeIframeUrl() }}"
         #tooltip="matTooltip"
-        (click)="tooltip.toggle()"
+        (click)="onTooltipClicked(tooltip)"
+        (mouseleave)="tooltip.disabled = true"
+        [matTooltipDisabled]="true"
         matTooltip="Copiado!"
         class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border border-yellow-500"
     >
