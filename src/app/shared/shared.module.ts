@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ProjectTagComponent } from './cards-section/project-tag/project-tag.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { SelectableTooltipComponent } from './selectable-tooltip/selectable-tooltip.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
         CardsFilterComponent,
         ProjectListComponent,
         ProjectTagComponent,
+        SelectableTooltipComponent,
     ],
     imports: [
         CommonModule,

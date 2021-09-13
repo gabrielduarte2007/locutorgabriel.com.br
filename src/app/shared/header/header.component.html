@@ -77,15 +77,16 @@
                         />
                     </svg>
                 </a>
-                <a
-                    (click)="copyMessage('5511986686443')" value="click to copy"
 
-                    matTooltip="5511986686443"
-                    #tooltip="matTooltip"
-                    (click)="tooltip.toggle()"
+                <a
+                    selectableTooltip
+                    message="+55 11 98668-6443"
+                    href="tel:5511986686443"
+                    (click)="onPhoneClicked($event)"
                 >
                     <mat-icon class="header-icon">phone</mat-icon>
                 </a>
+
                 <a
                     matTooltip="presto.gabriel@gmail.com"
                     #tooltipmail="matTooltip"

@@ -1,0 +1,23 @@
+\:host
+    display: flex
+    justify-content: center
+
+.selectable-tooltip
+    background: rgba(30, 41, 59, 0.9)
+    border-radius: 4px
+    color: white
+    cursor: text
+    visibility: hidden
+    opacity: 0
+    padding: 8px
+    position: absolute
+    -moz-user-select: text
+    -webkit-user-select: text
+    -ms-user-select: text
+    user-select: text
+    top: 60px
+    transition: visibility 0s linear 0.2s, all 0.2s ease-in
+
+    &--show
+        opacity: 1
+        visibility: visible
