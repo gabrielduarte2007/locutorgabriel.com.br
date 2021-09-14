@@ -43,7 +43,7 @@ export class ProjectListComponent implements AfterViewInit {
     }
 
     public getTagList(project: Project): string[] {
-        return project.tags.slice(0, 2);
+        return project.tags.slice(0, 3);
     }
 
     ngAfterViewInit(): void {
