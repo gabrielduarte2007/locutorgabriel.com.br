@@ -3,6 +3,7 @@
     <div class="flex flex-col flex-auto w-full min-w-0">
         <!-- Header -->
         <div
+            id='top'
             class="header-area fixed flex flex-0 items-center w-full h-16 mr-4 z-49 shadow dark:shadow-none dark:border-b print:hidden"
         >
             <button
@@ -39,11 +40,14 @@
                 ><span class="mat-button-focus-overlay"></span>
             </button>
 
-            <div class="header-title">
+            <div class="header-title" onclick="window.location.href='#top'">
                 <a [routerLink]="['/']">
                     <h3 class="text-lg font-light">Locutor</h3>
-                    <h1 class="font-bold text-2xl"><b>Gabriel Duarte</b></h1>
+                    <h1 class="font-bold text-2xl">
+                        <b>Gabriel Duarte</b>
+                    </h1>
                 </a>
+                <a href="#top"></a>
             </div>
 
             <div
