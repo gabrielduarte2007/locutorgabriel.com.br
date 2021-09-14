@@ -3,7 +3,7 @@
     <div class="flex flex-col flex-auto w-full min-w-0">
         <!-- Header -->
         <div
-            id='top'
+            id="top"
             class="header-area fixed flex flex-0 items-center w-full h-16 mr-4 z-49 shadow dark:shadow-none dark:border-b print:hidden"
         >
             <button
@@ -55,6 +55,7 @@
                 class="header-area__icon-wrapper flex items-center pl-5 ml-auto space-x-5"
             >
                 <a
+                    class="flex"
                     href="https://api.whatsapp.com/send/?phone=5511986686443"
                     target="_blank"
                 >
@@ -83,6 +84,7 @@
                 </a>
 
                 <a
+                    class="flex"
                     selectableTooltip
                     message="+55 11 98668-6443"
                     href="tel:5511986686443"
@@ -92,6 +94,7 @@
                 </a>
 
                 <a
+                    class="flex"
                     matTooltip="presto.gabriel@gmail.com"
                     #tooltipmail="matTooltip"
                     (click)="tooltipmail.toggle()"
@@ -99,12 +102,14 @@
                     <mat-icon class="header-icon">email</mat-icon>
                 </a>
                 <a
+                    class="flex"
                     href="https://www.facebook.com/gabrielduarteloc?fref=nf"
                     target="_blank"
                 >
                     <mat-icon class="header-icon">facebook</mat-icon>
                 </a>
                 <a
+                    class="flex"
                     href="https://www.instagram.com/gabrielduarte_loc/"
                     target="_blank"
                 >
@@ -135,6 +140,7 @@
                     </svg>
                 </a>
                 <a
+                    class="flex"
                     href="https://www.youtube.com/user/zeroaeskerda/featured"
                     target="_blank"
                 >
@@ -153,7 +159,11 @@
                         </g>
                     </svg>
                 </a>
-                <a href="https://soundcloud.com/gabrielduarte" target="_blank">
+                <a
+                    class="flex"
+                    href="https://soundcloud.com/gabrielduarte"
+                    target="_blank"
+                >
                     <svg
                         class="header-icon"
                         id="soundcloud"
