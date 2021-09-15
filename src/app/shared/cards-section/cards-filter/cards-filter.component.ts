@@ -1,5 +1,6 @@
 import {
     AfterViewInit,
+    ChangeDetectionStrategy,
     Component,
     ElementRef,
     EventEmitter,
@@ -10,13 +11,14 @@ import {
 import { Project } from '../../../../_model/Project';
 import { FilterService } from '../../../_services/filter.service';
 import { ChipAddEvent } from '../../../../_model/ChipAddEvent';
-import { PlatformLocation } from '@angular/common';
+import { PlatformLocation, ViewportScroller } from '@angular/common';
 import { clearAccentUtil } from '../../../_utils/clear-accent.util';
 
 @Component({
     selector: 'app-cards-filter',
     templateUrl: './cards-filter.component.html',
     styleUrls: ['./cards-filter.component.sass'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardsFilterComponent implements AfterViewInit {
     @ViewChild('chips')
@@ -42,6 +44,7 @@ export class CardsFilterComponent implements AfterViewInit {
     constructor(
         public readonly filterService: FilterService,
         private readonly platformLocation: PlatformLocation,
+        private readonly viewportScroller: ViewportScroller,
     ) {}
 
     ngAfterViewInit(): void {
@@ -49,6 +52,8 @@ export class CardsFilterComponent implements AfterViewInit {
 
         this.filterService.onChipAddEvent.subscribe(chipAddEvent => {
             this.onChipAdd(chipAddEvent);
+
+            this.scrollToCardsFilter();
         });
 
         this.filterService.filteredProjects.subscribe(this.filteredProjects);
@@ -96,5 +101,9 @@ export class CardsFilterComponent implements AfterViewInit {
                 this.filterService.searchTags.join('&').replace(' ', '_'),
             )
         );
+    }
+
+    private scrollToCardsFilter(): void {
+        this.viewportScroller.scrollToAnchor('cards-filter');
     }
 }
