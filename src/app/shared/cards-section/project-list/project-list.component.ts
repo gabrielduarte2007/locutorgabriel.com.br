@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { Project } from '../../../../_model/Project';
 import { ProjectsService } from '../../../_services/projects.service';
-import { FilterService } from '../../../_services/filter.service';
 import * as Isotope from 'assets/libs/isotope.pkgd.min';
 
 @Component({
@@ -26,10 +25,21 @@ export class ProjectListComponent implements AfterViewInit {
 
     public isotopeInstance: any;
 
-    constructor(
-        public readonly service: ProjectsService,
-        public readonly filterService: FilterService,
-    ) {}
+    constructor(public readonly service: ProjectsService) {}
+
+    ngAfterViewInit(): void {
+        this.initIsotope();
+
+        window.onresize = this.initIsotope;
+    }
+
+    private initIsotope(): void {
+        const elem = this.projectsElement.nativeElement;
+
+        this.isotopeInstance = new Isotope(elem, {
+            itemSelector: '.card',
+        });
+    }
 
     public filterProjects(filteredProjects: Project[]): void {
         this.isotopeInstance.arrange({
@@ -44,12 +54,5 @@ export class ProjectListComponent implements AfterViewInit {
 
     public getTagList(project: Project): string[] {
         return project.tags.slice(0, 3);
-    }
-
-    ngAfterViewInit(): void {
-        const elem = this.projectsElement.nativeElement;
-        this.isotopeInstance = new Isotope(elem, {
-            itemSelector: '.card',
-        });
     }
 }
