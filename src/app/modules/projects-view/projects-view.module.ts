@@ -10,6 +10,7 @@ import { SafePipe } from '../../_pipes/safe.pipe';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SafeHtmlPipe } from '../../_pipes/safe-html.pipe';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
         // Pipes
         SafePipe,
+        SafeHtmlPipe,
     ],
     imports: [
         // Angular

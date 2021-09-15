@@ -19,9 +19,10 @@
         </div>
     </div>
 
-    <div class="project-video flex justify-center my-3">
+    <div
+        *ngIf="currentProject.youtube"
+        class="project-video flex justify-center my-3">
         <iframe
-            *ngIf="currentProject.youtube"
             class="project-video__iframe"
             [src]="service.getYouTubeIframeUrl() | safe"
             title="YouTube video player"
@@ -29,6 +30,12 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
         ></iframe>
+    </div>
+
+    <div
+        *ngIf="currentProject.soundcloud"
+        class="project-audio w-full"
+        [innerHTML]="currentProject.soundcloud | safeHtml">
     </div>
 
     <div class="project-video-button flex py-2 text-left items-center m-auto">
