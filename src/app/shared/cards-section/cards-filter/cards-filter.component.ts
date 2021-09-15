@@ -42,7 +42,6 @@ export class CardsFilterComponent implements AfterViewInit {
     constructor(
         public readonly filterService: FilterService,
         private readonly platformLocation: PlatformLocation,
-
     ) {}
 
     ngAfterViewInit(): void {

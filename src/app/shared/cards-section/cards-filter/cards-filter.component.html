@@ -17,8 +17,9 @@
                     [value]="getSearchLink()"
                     type="text"
                 />
+
                 <button
-                    cdkCopyToClipboard="{{ service.getYouTubeIframeUrl() }}"
+                    [cdkCopyToClipboard]="getSearchLink()"
                     #tooltip="matTooltip"
                     (click)="tooltip.toggle()"
                     matTooltip="Copiado!"
@@ -37,9 +38,5 @@
         <div class="tags-area__tags self-center">
             <div #chipsTarget class="chips-target"></div>
         </div>
-
-<!--        <input [value]="getSearchLink()">-->
-<!--    </div>-->
+    </div>
 </div>
-
-
