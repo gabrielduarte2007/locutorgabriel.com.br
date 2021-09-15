@@ -1,103 +1,105 @@
 <app-header></app-header>
 
-<div class="project-hero-section flex justify-center mt-12">
-    <div class="project-title-wrapper float-left w-full">
-        <div class="project-title text-7xl font-extrabold text-yellow-500">
-            {{ service.currentProject.titulo }}
-        </div>
+<ng-container *ngIf="currentProject">
+    <div class="project-hero-section flex justify-center mt-12">
+        <div class="project-title-wrapper float-left w-full">
+            <div class="project-title text-7xl font-extrabold text-yellow-500">
+                {{ currentProject.titulo }}
+            </div>
 
-        <div class="project-subtitle py-5 text-2xl font-bold">
-            "{{ service.currentProject.subtitulo }}"
-        </div>
+            <div class="project-subtitle py-5 text-2xl font-bold">
+                "{{ currentProject.subtitulo }}"
+            </div>
 
-        <div class="project-tags">
-            <app-project-tag
-                *ngFor="let tag of service.currentProject.tags"
-                [tag]="tag"></app-project-tag>
+            <div class="project-tags">
+                <app-project-tag
+                    *ngFor="let tag of currentProject.tags"
+                    [tag]="tag"></app-project-tag>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="project-video flex justify-center my-3">
-    <iframe
-        *ngIf="service.currentProject.youtube"
-        class="project-video__iframe"
-        [src]="service.getYouTubeIframeUrl() | safe"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-    ></iframe>
-</div>
+    <div class="project-video flex justify-center my-3">
+        <iframe
+            *ngIf="currentProject.youtube"
+            class="project-video__iframe"
+            [src]="service.getYouTubeIframeUrl() | safe"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
+    </div>
 
-<div class="project-video-button flex py-2 text-left items-center m-auto">
-    <button
-        (click)="shareLink()"
-        class="card__title m-0.5 flex items-center justify-center mx-2 w-72 sm:w-48 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
+    <div class="project-video-button flex py-2 text-left items-center m-auto">
+        <button
+            (click)="shareLink()"
+            class="card__title m-0.5 flex items-center justify-center mx-2 w-72 sm:w-48 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
+        >
+            <mat-icon
+                class="card__title-icon m-2"
+                svgIcon="heroicons_solid:share"
+            ></mat-icon>
+            Compartilhar Link
+        </button>
+
+        <a
+            *ngIf="currentProject.tipo === ProjectType.VIDEO"
+            [href]="service.getMediaUrl(ProjectType.VIDEO)"
+            class="card__title m-0.5 flex items-center justify-center mx-2 w-72 sm:w-36 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
+            download
+        >
+            <mat-icon
+                class="card__title-icon m-2"
+                svgIcon="heroicons_solid:download"
+            ></mat-icon>
+            Baixar vídeo
+        </a>
+
+        <a
+            [href]="service.getMediaUrl(ProjectType.AUDIO)"
+            class="card__title m-0.5 flex items-center justify-center mx-2 w-72 sm:w-36 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
+            download
+        >
+            <mat-icon
+                class="card__title-icon m-2"
+                svgIcon="heroicons_solid:download"
+            ></mat-icon>
+            Baixar áudio
+        </a>
+    </div>
+
+    <div *ngIf="visibleShareLink" class="project-share-button flex w-3/5 m-auto">
+        <input
+            class="w-full"
+            disabled
+            [value]="service.getYouTubeIframeUrl()"
+            type="text"
+        />
+        <button
+            cdkCopyToClipboard="{{ service.getYouTubeIframeUrl() }}"
+            #tooltip="matTooltip"
+            (click)="onTooltipClicked(tooltip)"
+            matTooltipHideDelay="2000"
+            [matTooltipDisabled]="true"
+            matTooltip="Copiado!"
+            class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border border-yellow-500"
+        >
+            <mat-icon
+                class="card__title-icon m-0-2"
+                svgIcon="content_copy"
+            ></mat-icon>
+            Copiar
+        </button>
+    </div>
+
+    <div
+        *ngIf="currentProject.descricao"
+        class="project-video-text py-8 m-auto font-normal text-xl"
     >
-        <mat-icon
-            class="card__title-icon m-2"
-            svgIcon="heroicons_solid:share"
-        ></mat-icon>
-        Compartilhar Link
-    </button>
-
-    <a
-        *ngIf="service.currentProject.tipo === ProjectType.VIDEO"
-        [href]="service.getMediaUrl(ProjectType.VIDEO)"
-        class="card__title m-0.5 flex items-center justify-center mx-2 w-72 sm:w-36 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
-        download
-    >
-        <mat-icon
-            class="card__title-icon m-2"
-            svgIcon="heroicons_solid:download"
-        ></mat-icon>
-        Baixar vídeo
-    </a>
-
-    <a
-        [href]="service.getMediaUrl(ProjectType.AUDIO)"
-        class="card__title m-0.5 flex items-center justify-center mx-2 w-72 sm:w-36 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
-        download
-    >
-        <mat-icon
-            class="card__title-icon m-2"
-            svgIcon="heroicons_solid:download"
-        ></mat-icon>
-        Baixar áudio
-    </a>
-</div>
-
-<div *ngIf="visibleShareLink" class="project-share-button flex w-3/5 m-auto">
-    <input
-        class="w-full"
-        disabled
-        [value]="service.getYouTubeIframeUrl()"
-        type="text"
-    />
-    <button
-        cdkCopyToClipboard="{{ service.getYouTubeIframeUrl() }}"
-        #tooltip="matTooltip"
-        (click)="onTooltipClicked(tooltip)"
-        matTooltipHideDelay="2000"
-        [matTooltipDisabled]="true"
-        matTooltip="Copiado!"
-        class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border border-yellow-500"
-    >
-        <mat-icon
-            class="card__title-icon m-0-2"
-            svgIcon="content_copy"
-        ></mat-icon>
-        Copiar
-    </button>
-</div>
-
-<div
-    *ngIf="service.currentProject.descricao"
-    class="project-video-text py-8 m-auto font-normal text-xl"
->
-    {{ service.currentProject.descricao }}
-</div>
+        {{ currentProject.descricao }}
+    </div>
+</ng-container>
 
 <app-cards-section sectionTitle="Relacionados">
     <app-project-list [projects]="service.projects"></app-project-list>

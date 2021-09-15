@@ -3,10 +3,11 @@ import { projects } from '_data/projects.data';
 import { Project } from '../../_model/Project';
 import slugify from 'slugify';
 import { ProjectType } from '../../_model/ProjectType';
-import { Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { FilterService } from './filter.service';
-import { delay } from 'rxjs/operators';
+import { delay, filter } from 'rxjs/operators';
 import { Unsubscriber } from '../_decorators/unsubscriber.decorator';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -14,7 +15,7 @@ import { Unsubscriber } from '../_decorators/unsubscriber.decorator';
 export class ProjectsService {
     public projects = projects;
 
-    public currentProject: Project;
+    public currentProject = new BehaviorSubject<Project>(undefined);
 
     @Unsubscriber() subscriptions;
 
@@ -23,6 +24,20 @@ export class ProjectsService {
         private readonly filterService: FilterService,
     ) {
         this.loadCurrentProject();
+
+        this.subscriptions = this.router.events
+            .pipe(
+                filter(e => e instanceof NavigationStart),
+                delay(0),
+            )
+            .subscribe(() => this.currentProject.next(undefined));
+
+        this.subscriptions = this.router.events
+            .pipe(
+                filter(e => e instanceof NavigationEnd),
+                delay(0),
+            )
+            .subscribe(this.loadCurrentProject.bind(this));
 
         this.subscriptions = this.filterService.onReady
             .pipe(delay(0))
@@ -33,30 +48,30 @@ export class ProjectsService {
         const slug = this.router.url?.replace('/', '');
 
         if (!slug) {
-            this.currentProject = undefined;
+            this.currentProject.next(undefined);
 
             return;
         }
 
-        this.currentProject = projects.find(
-            project => this.getSlug(project) === slug,
+        this.currentProject.next(
+            projects.find(project => this.getSlug(project) === slug),
         );
     }
 
     private loadRelatedProjects(): void {
         if (
             !this.filterService.searchTags.length
-            && this.currentProject?.tags.length
+            && this.currentProject.value?.tags.length
         ) {
             const getRandomArbitrary = (min, max) =>
                 Math.floor(Math.random() * (max - min) + min);
 
             const randomIndex = getRandomArbitrary(
                 0,
-                this.currentProject.tags.length,
+                this.currentProject.value.tags.length,
             );
 
-            const randomTag = this.currentProject.tags[randomIndex];
+            const randomTag = this.currentProject.value.tags[randomIndex];
 
             this.filterService.addTag(randomTag);
         }
@@ -72,7 +87,7 @@ export class ProjectsService {
 
     public getMediaUrl(projectType: ProjectType, project?: Project): string {
         if (!project) {
-            project = this.currentProject;
+            project = this.currentProject.value;
         }
 
         const fileExtension = projectType === ProjectType.VIDEO ? 'mp4' : 'mp3';
@@ -112,7 +127,7 @@ export class ProjectsService {
 
     public getYouTubeIframeUrl(project?: Project): string {
         if (!project) {
-            project = this.currentProject;
+            project = this.currentProject.value;
         }
 
         const videoId = this.getYouTubeVideoId(project);
