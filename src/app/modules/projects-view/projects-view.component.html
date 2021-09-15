@@ -77,7 +77,7 @@
             type="text"
         />
         <button
-            cdkCopyToClipboard="{{ service.getYouTubeIframeUrl() }}"
+            [cdkCopyToClipboard]="service.getYouTubeIframeUrl()"
             #tooltip="matTooltip"
             (click)="onTooltipClicked(tooltip)"
             matTooltipHideDelay="2000"
