@@ -80,12 +80,12 @@
         <input
             class="w-full"
             disabled
-            [value]="service.getYouTubeIframeUrl()"
+            [value]="getSearchLink()"
             type="text"
         />
 
         <button
-            [cdkCopyToClipboard]="service.getYouTubeIframeUrl()"
+            [cdkCopyToClipboard]="getSearchLink()"
             #tooltip="matTooltip"
             (click)="onTooltipClicked(tooltip)"
             matTooltipHideDelay="2000"

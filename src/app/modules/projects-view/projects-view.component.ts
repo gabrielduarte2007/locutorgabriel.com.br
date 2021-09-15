@@ -6,6 +6,8 @@ import { Title } from '@angular/platform-browser';
 import { MatTooltip } from '@angular/material/tooltip';
 import { Project } from '../../../_model/Project';
 import { Unsubscriber } from '../../_decorators/unsubscriber.decorator';
+import { clearAccentUtil } from '../../_utils/clear-accent.util';
+import { PlatformLocation } from '@angular/common';
 
 @Component({
     selector: 'projects-view',
@@ -24,7 +26,23 @@ export class ProjectsViewComponent {
         return this.service.currentProject.value;
     }
 
+    public getSearchLink(): string {
+        const { protocol, hostname, port } = this.platformLocation;
+
+        const formattedPort = port ? ':' + port : '';
+
+        return (
+            protocol
+            + '//'
+            + hostname
+            + formattedPort
+            + '/'
+            +  this.service.getSlug(this.currentProject)
+        );
+    }
+
     constructor(
+        private readonly platformLocation: PlatformLocation,
         private readonly router: Router,
         public readonly service: ProjectsService,
         private readonly titleService: Title,
