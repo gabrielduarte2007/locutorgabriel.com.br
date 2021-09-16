@@ -14,6 +14,10 @@ Criar um site com as seguintes funcionalidades:
 - Buscar por tags
 
 ## Layout (Figma)
+![plot](./src/assets/images/figma/homecomtag.png)
+![plot](./src/assets/images/figma/saibamais.png)
+
+## Arquitetura (Miro)
 
 ## Tecnologias 
 
