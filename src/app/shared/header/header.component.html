@@ -95,9 +95,10 @@
 
                 <a
                     class="flex"
-                    matTooltip="presto.gabriel@gmail.com"
-                    #tooltipmail="matTooltip"
-                    (click)="tooltipmail.toggle()"
+                    selectableTooltip
+                    message="presto.gabriel@gmail.com"
+                    href="presto.gabriel@gmail.com"
+                    (click)="onPhoneClicked($event)"
                 >
                     <mat-icon class="header-icon">email</mat-icon>
                 </a>
