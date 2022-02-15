@@ -1,68 +1,86 @@
-.project-hero-section,
+.project-container
+    max-width: 1024px
+    margin: 0 auto
+
+.project-hero-section
+    padding: 2rem 0 1rem 0
+
 .project-audio
     padding: 2rem 24rem 0
 
-.card__title:hover
-    background-color: #F5BB4E
-
-    .card__title-icon
-        color: white
-
-.card__title-icon
-    color: #F5BB4E
+.project-tags > app-project-tag
+    margin: 1rem 1rem 0 0
+    display: inline-block
 
 .project-video
-    padding-left: 6rem
-    padding-right: 6rem
-
     &__iframe
         width: 1131px
         height: 636px
 
 .project-video-button
-    width: 60%
+    padding: .5rem 0
+    display: flex
+    align-items: center
 
 .project-video-text
-    width: 60%
+    padding: 1.5rem 0
+    margin: auto
+    font-weight: 400
+    font-size: 1.125rem
+    text-align: justify
+
+.card__title
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 0.5rem 1.5rem
+    border-radius: .375rem
+    border: 1px solid rgba(234, 179, 8, 1)
+    margin-right: 2rem
+    transition: all .5s
+
+.card__title:hover
+    background-color: #F5BB4E
+    color: white
+
+    .card__title-icon
+        color: white
+
+.card__title-icon
+    transition: all .5s
+    color: #F5BB4E
+    margin-right: .75rem
 
 .project-share-button
     border: 1px solid #ededed
 
-@media screen and (max-width: 1366px)
-    .project-hero-section,
-    .project-audio
-        padding: 2rem 7rem 0
-
-    .project-video-text
-        width: 83%
-
-    .project-video-button
-        width: 83%
-
 @media screen and (max-width: 1280px)
-    .project-hero-section,
-    .project-audio
-        padding: 2rem 5.6rem 0
+    .project-container
+        padding: 0 4rem
+
+@media screen and (max-width: 927px)
+    .card__title
+        margin-right: unset
+        font-size: .7rem
 
     .project-video-button
-        width: 86.8%
+        justify-content: space-between
 
 // MOBILE VIEW
 @media screen and (max-width: 600px)
-    .project-hero-section,
-    .project-audio
-        padding: 2rem 2rem 0 2rem
-
-    .project-video
-        padding-left: 2.5rem
-        padding-right: 2.5rem
-
     .project-video__iframe
         width: 100%
         height: 100%
 
-    .project-video-text
-        width: 90%
+    .card__title
+        margin: .5rem 0 .5rem 0
+        width: 100%
+        padding: 5px
+        font-size: 0.5rem
+        width: 120px
 
-    .project-video-button
-        flex-direction: column-reverse
+        &-icon
+            margin-right: .5rem
+
+    .project-container
+        padding: 0 2rem

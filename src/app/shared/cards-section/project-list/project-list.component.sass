@@ -1,12 +1,14 @@
-$card-width: 400px
-$card-mobile: 352px
+.card-tags > app-project-tag
+    margin: .5rem .5rem 0 0
+    display: inline-block
 
 .cards-section
     padding-bottom: 1.5rem
-    width: $card-width * 3
+    width: 100%
     margin: 0 auto
 
     &__card
+        border-radius: .4rem
         transition: all .5s ease-in-out
 
         &:hover
@@ -15,8 +17,10 @@ $card-mobile: 352px
 
 .card
     &__thumbnail
-        width: 24rem
-        height: 22rem
+        max-width: 325px
+        max-height: 325px
+        width: 100vw
+        height: 100vw
 
     &__title
         transition: all .2s ease-in-out
@@ -24,34 +28,47 @@ $card-mobile: 352px
         &:hover
             transform: scale(1.05)
 
+.backdrop
+    backdrop-filter: contrast(.5) brightness(1.1) saturate(1.5)
+    border-radius: .4rem
+    height: 100%
+    width: 100%
+
+    &:hover
+        backdrop-filter: unset
+
 .cardcolor
+    &0, &5
+        background-color: #3b6b88
+        background-blend-mode: luminosity
+
     &1
         background-color: #C1C478
-        background-blend-mode: multiply
+        background-blend-mode: luminosity
 
-    &2
+    &2, &3
         background-color: #DAA97A
-        background-blend-mode: multiply
+        background-blend-mode: luminosity
 
-    &3
+    &4
         background-color: #8E648F
-        background-blend-mode: multiply
+        background-blend-mode: luminosity
 
-@media screen and (max-width: 1199px)
-    .cards-section
-        width: $card-width * 2
+@media screen and (max-width: 1280px)
+    .card
+        &__thumbnail
+            max-width: calc(25vw + .5rem)
+            max-height: calc(25vw + .5rem)
 
-@media screen and (max-width: 799px)
-    .cards-section
-        width: $card-width * 1
-
-@media screen and (max-width: 600px)
-    .cards-section
-        width: $card-mobile
+@media screen and (max-width: 927px)
+    .card
+        &__thumbnail
+            max-width: calc(50vw - 5rem)
+            max-height: calc(50vw - 5rem)
 
 // MOBILE VIEW
-
 @media screen and (max-width: 600px)
-    .card__thumbnail
-        width: 21rem
-        height: 18rem
+    .card
+        &__thumbnail
+            max-width: calc(100vw - 4rem)
+            max-height: calc(100vw - 4rem)

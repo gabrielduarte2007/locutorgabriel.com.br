@@ -19,6 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ProjectTagComponent } from './cards-section/project-tag/project-tag.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { SelectableTooltipComponent } from './selectable-tooltip/selectable-tooltip.component';
+import { ModalShareComponent } from './modal-share/modal-share.component';
+import { OverlayComponent } from './overlay/overlay.component';
 
 @NgModule({
     declarations: [
@@ -32,6 +34,10 @@ import { SelectableTooltipComponent } from './selectable-tooltip/selectable-tool
         ProjectListComponent,
         ProjectTagComponent,
         SelectableTooltipComponent,
+
+        // Modals
+        OverlayComponent,
+        ModalShareComponent,
     ],
     imports: [
         CommonModule,
@@ -65,6 +71,10 @@ import { SelectableTooltipComponent } from './selectable-tooltip/selectable-tool
         // Project
         ProjectListComponent,
         ProjectTagComponent,
+
+        // Modals
+        OverlayComponent,
+        ModalShareComponent,
     ],
     providers: [ProjectsService],
 })

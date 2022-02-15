@@ -1,80 +1,83 @@
 <app-header></app-header>
 
-<div class="hero-section flex justify-center pt-32 pb-16">
-    <div class="hero-section__image-area flex">
-        <div class="hero-section__image-area mt-7">
-            <img
-                #polylineStart
-                (load)="addPolyline()"
-                (window:resize)="onResize()"
-                alt="profile picture"
-                class="hero-section__image-area-profile rounded-xl"
-                src="assets/images/profile-picture/Gabriel%20Duarte%20-%20Locutor%20Comercial.png"
-            />
+<div class="home-container">
+    <div class="hero-section flex justify-center pt-32 pb-16">
+        <div class="hero-section__image flex">
+            <div class="hero-section__image-area" #imageArea>
+                <img
+                    #polylineStart
+                    (window:resize)="onResize()"
+                    (load)="addPolyline()"
+                    alt="profile picture"
+                    class="hero-section__image-area-profile rounded-xl"
+                    src="assets/images/profile-picture/Gabriel%20Duarte%20-%20Locutor%20Comercial.png"
+                />
+            </div>
         </div>
-    </div>
 
-    <svg class="logo-line">
-        <!--suppress RequiredAttributes -->
-        <circle #circle r="5" class="logo-line__circle" />
-        <!--suppress RequiredAttributes -->
-        <polyline #polyline class="logo-line__polyline" />
-    </svg>
+        <svg class="logo-line">
+            <!--suppress RequiredAttributes -->
+            <circle #circle r="5" class="logo-line__circle" />
+            <!--suppress RequiredAttributes -->
+            <polyline #polyline class="logo-line__polyline" />
+        </svg>
 
-    <div class="hero-section__title-wrapper">
-        <div class="hero-section__title font-light text-xl">Bem Vindo!</div>
-        <div #polylineEnd class="hero-section__subtitle text-3xl font-bold">
-            Sou locutor e esse é o meu repertório.
-        </div>
-        <div class="hero-section__text text-xl font-normal">
-            <br />
-            Sou mais conhecido pelo meu trabalho em campanhas nacionais com
-            grandes marcas como
-            <b
-                ><a routerLink="/EN-Whatsapp">WhatsApp</a>,
-                <a routerLink="/locucao-publicitaria">Volkswagen Nivus</a>,
-                <a routerLink="/locucao-institucional">Petrobrás</a>,
-                <a routerLink="/Extra-Que-vantagem-Maria-Leva"> Extra</a>,
-                <a routerLink="/Extra-Que-vantagem-Maria-Leva">Bradesco</a>,
-                <a routerLink="/Amazon-Prime-Video-Grandes-Estrelas">
-                    Amazon Prime</a
-                >, <a routerLink="/locutor-off">Ministério da Educação</a>,
-                <a routerLink="/locutor-online">Subway</a></b
-            >
-            entre outros.
-            <br />
-            <br />
-            Mas também fui locutor em inúmeros projetos como: vídeos internos,
-            cases, vídeos de apresentação, treinamento, campanhas para internet,
-            institucionais e tutoriais. Incluindo também locuções em língua
-            estrangeira
-            <a href="#busca">
+        <div class="hero-section__title-wrapper">
+            <div class="hero-section__title font-light text-xl">Bem Vindo!</div>
+            <div #polylineEnd class="hero-section__subtitle text-2xl font-bold">
+                Sou locutor e esse é o meu repertório.
+            </div>
+            <div class="hero-section__text">
+                <br />
+                Sou mais conhecido pelo meu trabalho em campanhas nacionais com
+                grandes marcas como
                 <b
-                    >(<a routerLink="/busca/Ingles">inglês</a>,
-                    <a routerLink="/busca/Espanhol">espanhol</a> e
-                    <a routerLink="/busca/Francês">francês)</a>,</b
-                ></a
-            >
-            voz original de personagem, games, narração de áudiolivro, spots
-            para rádio, portfolios, varejo, documentários, interfaces de voz e
-            URA (espera telefônica). <br /><br />
-            Além disso, fui produtor musical de peças publicitárias por mais de
-            10 anos, período em que dirigi centenas de locutores e atores.
-            Produzi campanhas de grande destaque; algumas delas premiadas com
-            <b>
-                Cannes Lions, El Ojo, D&AD, Clio, Ciclope, LIA, The One Show
-            </b>
-            entre outros.
+                    ><a routerLink="/EN-Whatsapp">WhatsApp</a>,
+                    <a routerLink="/locucao-publicitaria">Volkswagen Nivus</a>,
+                    <a routerLink="/locucao-institucional">Petrobrás</a>,
+                    <a routerLink="/Extra-Que-vantagem-Maria-Leva"> Extra</a>,
+                    <a routerLink="/Extra-Que-vantagem-Maria-Leva">Bradesco</a>,
+                    <a routerLink="/Amazon-Prime-Video-Grandes-Estrelas">
+                        Amazon Prime</a
+                    >, <a routerLink="/locutor-off">Ministério da Educação</a>,
+                    <a routerLink="/locutor-online">Subway</a></b
+                >
+                entre outros.
+                <br />
+                <br />
+                Mas também fui locutor em inúmeros projetos como: vídeos internos,
+                cases, vídeos de apresentação, treinamento, campanhas para internet,
+                institucionais e tutoriais. Incluindo também locuções em língua
+                estrangeira
+                <a href="#busca">
+                    <b
+                        >(<a routerLink="busca/Ingles">inglês</a>,
+                        <a routerLink="busca/Espanhol">espanhol</a> e
+                        <a routerLink="busca/Francês">francês)</a>,</b
+                    ></a
+                >
+                voz original de personagem, games, narração de áudiolivro, spots
+                para rádio, portfolios, varejo, documentários, interfaces de voz e
+                URA (espera telefônica). <br /><br />
+                Além disso, fui produtor musical de peças publicitárias por mais de
+                10 anos, período em que dirigi centenas de locutores e atores.
+                Produzi campanhas de grande destaque; algumas delas premiadas com
+                <b>
+                    Cannes Lions, El Ojo, D&AD, Clio, Ciclope, LIA, The One Show
+                </b>
+                entre outros.
+            </div>
         </div>
     </div>
-</div>
 
-<app-cards-section
-    id="busca"
-    sectionTitle="Portfólio"
-    sectionSubtitle="Saiba mais acessando os trabalhos abaixo."
->
-    <app-project-list [projects]="projects"></app-project-list>
-</app-cards-section>
+    <app-cards-section
+        id="busca"
+        sectionTitle="Portfólio"
+        sectionSubtitle="Saiba mais acessando os trabalhos abaixo."
+    >
+        <app-project-list [projects]="projects"></app-project-list>
+    </app-cards-section>
+
+</div>
 
 <app-footer></app-footer>

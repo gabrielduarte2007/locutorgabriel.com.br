@@ -1,14 +1,10 @@
 import {
-    AfterViewInit,
     ChangeDetectionStrategy,
     Component,
-    ElementRef,
     Input,
-    ViewChild,
 } from '@angular/core';
 import { Project } from '../../../../_model/Project';
 import { ProjectsService } from '../../../_services/projects.service';
-import * as Isotope from 'assets/libs/isotope.pkgd.min';
 import { FilterService } from '../../../_services/filter.service';
 import { ProjectTag } from '../../../../_model/ProjectTag';
 
@@ -18,12 +14,9 @@ import { ProjectTag } from '../../../../_model/ProjectTag';
     styleUrls: ['./project-list.component.sass'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectListComponent implements AfterViewInit {
+export class ProjectListComponent {
     @Input()
     public projects: Project[];
-
-    @ViewChild('projectsElement')
-    projectsElement: ElementRef<HTMLDivElement>;
 
     public isotopeInstance: any;
 
@@ -33,31 +26,6 @@ export class ProjectListComponent implements AfterViewInit {
         public readonly service: ProjectsService,
         private readonly filterService: FilterService,
     ) {}
-
-    ngAfterViewInit(): void {
-        this.initIsotope();
-
-        window.onresize = this.initIsotope;
-    }
-
-    private initIsotope(): void {
-        const elem = this.projectsElement.nativeElement;
-
-        this.isotopeInstance = new Isotope(elem, {
-            itemSelector: '.card',
-        });
-    }
-
-    public filterProjects(filteredProjects: Project[]): void {
-        this.isotopeInstance.arrange({
-            filter: itemElem => {
-                const index = itemElem.getAttribute('data-index');
-                const project = this.projects[index];
-
-                return filteredProjects.indexOf(project) >= 0;
-            },
-        });
-    }
 
     public getTagList(project: Project): ProjectTag[] {
         const searchTags = this.filterService.searchTags;

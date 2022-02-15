@@ -1,6 +1,5 @@
 <app-cards-filter
     [projects]="service.projects"
-    (filteredProjects)="filterProjects($event)"
 ></app-cards-filter>
 
 <div class="cards-section flex justify-center flex-wrap" #projectsElement>
@@ -10,15 +9,9 @@
         [attr.data-index]="i"
     >
         <a [routerLink]="'/' + service.getSlug(project)">
-            <figure
-                class="cards-section__card"
-                [ngClass]="
-                    i % 3 === 0
-                        ? 'card__thumbnail rounded-lg m-2 relative text-center cardcolor3'
-                        : i % 2 === 0
-                        ? 'card__thumbnail rounded-lg m-2 relative text-center cardcolor2'
-                        : 'card__thumbnail rounded-lg m-2 relative text-center cardcolor1'
-                "
+            <div
+                class="cards-section__card card__thumbnail m-2 relative text-center"
+                [ngClass]="'cardcolor' + i % 6"
                 [style.background-image]="
                     'url(' + service.getYouTubeImageUrl(project) + ')'
                 "
@@ -29,29 +22,31 @@
                     + (project.imagem_altura || '135%')
                 "
             >
-                <div class="card-title-wrapper text-white pt-3.5">
-                    <div class="card-title font-extrabold text-4xl">
-                        {{ project.titulo }}
+                <div class="backdrop">
+                    <div class="card-title-wrapper text-white pt-3.5">
+                        <div class="card-title font-extrabold text-3xl">
+                            {{ project.titulo }}
+                        </div>
+
+                        <div class="card-subtitle font-normal text-xl">
+                            {{ project.subtitulo }}
+                        </div>
                     </div>
 
-                    <div class="card-subtitle font-normal text-xl">
-                        {{ project.subtitulo }}
+                    <div class="card-tags absolute bottom-8 w-full text-center">
+                        <app-project-tag
+                            *ngFor="let tag of getTagList(project)"
+                            [tag]="tag"
+                        ></app-project-tag>
+
+                        <button
+                            class="text-sm text-white p-1 m-0.5 w-7 rounded-md border-solid border border-white"
+                        >
+                            {{ project.tags.length - 3 }}+
+                        </button>
                     </div>
                 </div>
-
-                <div class="absolute bottom-8 w-full text-center">
-                    <app-project-tag
-                        *ngFor="let tag of getTagList(project)"
-                        [tag]="tag"
-                    ></app-project-tag>
-
-                    <button
-                        class="text-sm text-white p-1 m-0.5 w-7 rounded-md border-solid border border-white"
-                    >
-                        {{ project.tags.length - 3 }}+
-                    </button>
-                </div>
-            </figure>
+            </div>
         </a>
     </div>
 </div>

@@ -28,7 +28,9 @@ export class HomeViewComponent implements AfterViewInit {
     @ViewChild('circle')
     circle: ElementRef<SVGCircleElement>;
 
-    ngAfterViewInit(): void {}
+    ngAfterViewInit(): void {
+        this.addPolyline();
+    }
 
     addPolyline(): void {
         const circle = this.circle.nativeElement;
@@ -40,8 +42,10 @@ export class HomeViewComponent implements AfterViewInit {
         // Get Start Position
         const polylineStart = this.polylineStart.nativeElement;
 
-        const xStart = polylineStart.offsetLeft + polylineStart.width - 40;
-        const yStart = polylineStart.offsetTop + polylineStart.height / 2;
+        const bodyWidth = document.body.offsetWidth;
+
+        const xStart = bodyWidth / 2 - 130;
+        const yStart = (polylineStart.offsetTop + polylineStart.height / 2) + 70;
 
         // Add Circle at Start Position
         circle.setAttributeNS(null, 'cx', xStart.toString());

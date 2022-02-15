@@ -1,47 +1,38 @@
-.hero-section
-    padding-right: 11rem
-    padding-left: 11rem
-
-    &__title
-        margin-left: -5px
+.home-container
+    max-width: 1024px
+    margin: 0 auto
 
     &__subtitle
         display: inline-block
         border-bottom: 3px solid #F5BB4E
         padding-bottom: 2px
-        margin-left: -5px
 
     &__title-wrapper
         width: 50%
-        margin-left: 80px
+        margin-left: 30px
 
-    &__image-area-profile
-        height: 28rem
+    &__image
+        width: 50%
 
-.form
-    display: flex
+    &__image-area
+        display: flex
+        width: 100%
+        justify-content: center
+        column-gap: 2.5px
+        position: relative
+        padding-top: 20px
 
-@media screen and (max-width: 1280px)
-    .hero-section
-        padding-right: 0
-        padding-left: 0
+        &--move
+            margin-top: -10px
+            padding-top: 10px
+            background-color: #d6dbde
 
-// MOBILE VIEW
-@media screen and (max-width: 600px)
-    .hero-section
-        flex-direction: column
-
-        &__title-wrapper
-            margin-top: 2rem
-            margin-left: 0
-            align-self: center
-            width: 70%
-
-        &__image-area
-            align-self: center
+    &__text
+        text-align: justify
+        font-size: 1.08rem
 
 .logo-line
-    left: 0
+    left: 1px
     height: 100%
     pointer-events: none
     position: absolute
@@ -56,6 +47,39 @@
         stroke-width: 3px
         stroke: rgb(245 187 78)
 
-@media screen and (max-width: 583px)
+.form
+    display: flex
+
+@media screen and (max-width: 1280px)
+    .home-container
+        padding: 0 4rem
+
+        &__text
+            font-size: .95rem
+
+@media screen and (max-width: 927px)
+    .hero-section
+
+        &__text
+            font-size: .8rem
+
+// MOBILE VIEW
+@media screen and (max-width: 600px)
+    .hero-section
+        flex-direction: column
+
+        &__title-wrapper
+            margin-top: 2rem
+            margin-left: 0
+            align-self: center
+            width: 100%
+            text-align: center
+
+        &__image
+            width: 100%
+
+        &__image-area
+            align-self: center
+
     .logo-line
         display: none

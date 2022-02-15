@@ -1,0 +1,106 @@
+.modal-share
+    height: 70vh
+    max-width: 600px
+    max-height: 400px
+    color: white
+    border-radius: 10px
+    background: #212121
+    display: flex
+    flex-direction: column
+    position: relative
+    padding: 20px 30px
+
+    &__header
+        font-size: 1.5rem
+        margin-top: 20px
+
+    &__icons
+        display: flex
+        margin-top: 30px
+        column-gap: 25px
+
+        div
+            display: flex
+            flex-direction: column
+            align-items: center
+
+        .box
+            border-radius: 10px
+            overflow: hidden
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-bottom: 10px
+            cursor: pointer
+            width: 70px
+            height: 70px
+
+            &--whatsapp
+                background: #6ae45b
+                svg
+                    width: 50px
+                    height: 50px
+
+            &--incorporate
+                background: #f4f4f4
+                color: #212121
+                svg
+                    width: 25px
+                    height: 45px
+
+            &--email
+                background: #888888
+                svg
+                    width: 40px
+                    height: 40px
+
+            &--twitter
+                background: white
+                svg
+                    width: 95px
+                    height: 95px
+
+            &--facebook
+                background: white
+                svg
+                    width: 95px
+                    height: 95px
+
+    &__input, &__footer-warning
+        padding: 10px
+        display: inline-block
+        background-color: #1c1c1c
+        border-radius: 5px
+
+    &__input
+        display: flex
+        margin-top: 50px
+
+        &-button
+            text-transform: uppercase
+            font-size: 1rem
+            display: flex
+            align-items: center
+            color: #ce9637
+
+    &__footer-warning
+        color: #ce9637
+        margin-top: 10px
+
+    .close
+        cursor: pointer
+        position: absolute
+        font-size: 2.5rem
+        top: 20px
+        right: 20px
+        font-weight: 300
+        transform: rotate(45deg)
+
+    hr
+        width: 70%
+        border-color: rgba(255, 255, 255, .1)
+        margin: auto
+        position: absolute
+        left: 50%
+        bottom: 30px
+        transform: translateX(-50%)

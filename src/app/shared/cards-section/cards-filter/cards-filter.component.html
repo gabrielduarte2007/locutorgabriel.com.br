@@ -1,6 +1,6 @@
 <a id="cards-filter"></a>
 
-<div class="search-area justify-center">
+<div class="search-area justify-center mt-7">
     <div class="items-start ">
         <div #chips class="chips w-full">
             <mat-icon class="search__icon">search</mat-icon>
@@ -8,37 +8,27 @@
         </div>
 
         <div class="search-area__tags-area tags-area flex">
-            <div class="tags-area__share-search flex mb-3 mr-11">
-                <button (click)="shareLink()" mat-raised-button color="accent">Compartilhe essa busca</button>
+            <button
+                (click)="shareLink()"
+                class="search-area__button"
+            >
+                <mat-icon
+                    class="card__title-icon"
+                    svgIcon="heroicons_solid:share"
+                ></mat-icon>
+                Compartilhar busca
+            </button>
+
+            <div class="tags-area__tags self-center">
+                <div #chipsTarget class="chips-target"></div>
             </div>
-
-            <div *ngIf="visibleShareLink" class="project-share-button flex w-10/12 m-auto">
-                <input
-                    class="w-full"
-                    disabled
-                    [value]="getSearchLink()"
-                    type="text"
-                />
-
-                <button
-                    [cdkCopyToClipboard]="getSearchLink()"
-                    #tooltip="matTooltip"
-                    (click)="tooltip.toggle()"
-                    matTooltip="Copiado!"
-                    class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border border-yellow-500"
-                >
-                    <mat-icon
-                        class="card__title-icon m-0-2"
-                        svgIcon="content_copy"
-                    ></mat-icon>
-                    Copiar
-                </button>
-            </div>
-
-
         </div>
-        <div class="tags-area__tags self-center">
-            <div #chipsTarget class="chips-target"></div>
-        </div>
+
+        <app-modal-share
+            *ngIf="visibleShareLink"
+            [link]="getSearchLink()"
+            (onClose)="visibleShareLink = false"
+        ></app-modal-share>
+
     </div>
 </div>
