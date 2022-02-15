@@ -1,7 +1,9 @@
 import {
     ChangeDetectionStrategy,
+    ChangeDetectorRef,
     Component,
     Input,
+    OnChanges,
 } from '@angular/core';
 import { Project } from '../../../../_model/Project';
 import { ProjectsService } from '../../../_services/projects.service';
@@ -14,18 +16,40 @@ import { ProjectTag } from '../../../../_model/ProjectTag';
     styleUrls: ['./project-list.component.sass'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectListComponent {
+export class ProjectListComponent implements OnChanges{
     @Input()
     public projects: Project[];
+    public projectList = [];
 
     public isotopeInstance: any;
 
     private readonly TAGS_AMOUNT = 3;
+    public cdRef: ChangeDetectorRef;
 
     constructor(
         public readonly service: ProjectsService,
         private readonly filterService: FilterService,
-    ) {}
+        cdRef: ChangeDetectorRef,
+    ) {
+        this.cdRef = cdRef;
+        this.filterService.onChipDeleteEvent.subscribe(() => this.setProjectList());
+        this.filterService.onChipAddEvent.subscribe(() => this.setProjectList());
+    }
+
+    ngOnChanges(): void {
+        this.setProjectList('by change');
+    }
+
+    private setProjectList(str = 'default') {
+        this.projectList = this.listMaker();
+        this.cdRef.detectChanges();
+    }
+
+    public listMaker() {
+        const findCommonElements = (arr1: string[], arr2: string[]) => arr1.some(item => arr2.includes(item))
+        if (!this.filterService.searchTags.length) return this.projects;
+        return this.projects.filter(i => findCommonElements(i.tags, this.filterService.searchTags));
+    }
 
     public getTagList(project: Project): ProjectTag[] {
         const searchTags = this.filterService.searchTags;

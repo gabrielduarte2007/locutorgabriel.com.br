@@ -28,7 +28,9 @@
                 Sou locutor e esse é o meu repertório.
             </div>
             <div class="hero-section__text">
-                <br />
+                <br>
+                <p>
+
                 Sou mais conhecido pelo meu trabalho em campanhas nacionais com
                 grandes marcas como
                 <b
@@ -43,29 +45,53 @@
                     <a routerLink="/locutor-online">Subway</a></b
                 >
                 entre outros.
-                <br />
-                <br />
-                Mas também fui locutor em inúmeros projetos como: vídeos internos,
-                cases, vídeos de apresentação, treinamento, campanhas para internet,
-                institucionais e tutoriais. Incluindo também locuções em língua
-                estrangeira
-                <a href="#busca">
-                    <b
-                        >(<a routerLink="busca/Ingles">inglês</a>,
-                        <a routerLink="busca/Espanhol">espanhol</a> e
-                        <a routerLink="busca/Francês">francês)</a>,</b
-                    ></a
-                >
-                voz original de personagem, games, narração de áudiolivro, spots
-                para rádio, portfolios, varejo, documentários, interfaces de voz e
-                URA (espera telefônica). <br /><br />
-                Além disso, fui produtor musical de peças publicitárias por mais de
-                10 anos, período em que dirigi centenas de locutores e atores.
-                Produzi campanhas de grande destaque; algumas delas premiadas com
-                <b>
-                    Cannes Lions, El Ojo, D&AD, Clio, Ciclope, LIA, The One Show
-                </b>
-                entre outros.
+                <br>
+                <br>
+
+                </p>
+
+                <p>
+                    Mas também fui locutor em inúmeros projetos como:
+                    <a href="#busca">
+                        <b>
+                            <a routerLink="busca/vídeos internos"> vídeos internos</a>,
+                            <a routerLink="busca/cases"> cases</a>,
+                            <a routerLink="busca/vídeos de apresentação"> vídeos de apresentação</a>,
+                            <a routerLink="busca/treinamento"> treinamento</a>,
+                            <a routerLink="busca/campanhas para internet"> campanhas para internet</a>,
+                            <a routerLink="busca/institucionais e tutoriais"> institucionais e tutoriais.</a>
+                        </b>
+                        Incluindo também
+                        <a routerLink="busca/Ingles"> locuções em língua estrangeira</a>
+                        <b>
+                            (<a routerLink="busca/Ingles">inglês</a>,
+                            <a routerLink="busca/Espanhol">espanhol</a> e
+                            <a routerLink="busca/Francês">francês)</a>,
+                            <a routerLink="busca/voz original de personagem">voz original de personagem</a>,
+                            <a routerLink="busca/games">games</a>,
+                            <a routerLink="busca/narração de áudiolivro">narração de áudiolivro</a>,
+                            <a routerLink="busca/spots para rádio">spots para rádio</a>,
+                            <a routerLink="busca/portfolios">portfolios</a>,
+                            <a routerLink="busca/varejo">varejo</a>,
+                            <a routerLink="busca/documentários">documentários</a>,
+                            <a routerLink="busca/interfaces de voz">interfaces de voz </a>e
+                            <a routerLink="busca/URA">URA</a>
+                            <a routerLink="busca/espera telefônica"> (espera telefônica)</a>.
+                        </b>
+                    </a>
+                </p>
+
+                <br>
+                <br>
+                <p>
+                    Além disso, fui produtor musical de peças publicitárias por mais de
+                    10 anos, período em que dirigi centenas de locutores e atores.
+                    Produzi campanhas de grande destaque; algumas delas premiadas com
+                    <b>
+                        Cannes Lions, El Ojo, D&AD, Clio, Ciclope, LIA, The One Show
+                    </b>
+                    entre outros.
+                </p>
             </div>
         </div>
     </div>
@@ -75,7 +101,7 @@
         sectionTitle="Portfólio"
         sectionSubtitle="Saiba mais acessando os trabalhos abaixo."
     >
-        <app-project-list [projects]="projects"></app-project-list>
+        <app-project-list [projects]="service.projects"></app-project-list>
     </app-cards-section>
 
 </div>

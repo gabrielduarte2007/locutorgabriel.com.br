@@ -5,7 +5,8 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { projects } from '../../../_data/projects.data';
+import { ProjectsService } from 'app/_services/projects.service';
+// import { projects } from '../../../_data/projects.data';
 
 @Component({
     selector: 'home-view',
@@ -14,8 +15,6 @@ import { projects } from '../../../_data/projects.data';
     encapsulation: ViewEncapsulation.None,
 })
 export class HomeViewComponent implements AfterViewInit {
-    public projects = projects;
-
     @ViewChild('polylineStart')
     polylineStart: ElementRef<HTMLImageElement>;
 
@@ -27,6 +26,11 @@ export class HomeViewComponent implements AfterViewInit {
 
     @ViewChild('circle')
     circle: ElementRef<SVGCircleElement>;
+
+    constructor(
+        public readonly service: ProjectsService,
+    ) {
+    }
 
     ngAfterViewInit(): void {
         this.addPolyline();

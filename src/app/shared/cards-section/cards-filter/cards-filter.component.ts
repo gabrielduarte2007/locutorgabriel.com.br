@@ -57,7 +57,29 @@ export class CardsFilterComponent implements AfterViewInit {
         });
 
         this.filterService.filteredProjects.subscribe(this.filteredProjects);
+        // this.initChips();
     }
+
+    // private initChips() {
+    //     // console.log(this.filterService.getChipInstance)
+
+    //     let e = document.createElement("div");
+    //     let i = document.createElement("i");
+    //     e.classList.add("chip");
+    //     e.setAttribute("tabindex", '0');
+    //     i.textContent=("close");
+    //     i.classList.add("material-icons close");
+
+    //     if(this.filterService.searchTags.length) {
+    //         this.filterService.searchTags.forEach((tag, index) => {
+    //             e.textContent = tag
+    //             const data = tag;
+    //             const element =  e.appendChild(i) as HTMLDivElement;
+
+    //             this.onChipAdd({ data, index, element });
+    //         });
+    //     }
+    // }
 
     private onChipAdd(chipEvent: ChipAddEvent): void {
         const chipElementClone = chipEvent.element.cloneNode(
