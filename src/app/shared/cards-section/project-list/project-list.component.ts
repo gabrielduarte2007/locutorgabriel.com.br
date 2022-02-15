@@ -37,10 +37,10 @@ export class ProjectListComponent implements OnChanges{
     }
 
     ngOnChanges(): void {
-        this.setProjectList('by change');
+        this.setProjectList();
     }
 
-    private setProjectList(str = 'default') {
+    private setProjectList() {
         this.projectList = this.listMaker();
         this.cdRef.detectChanges();
     }

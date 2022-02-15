@@ -42,6 +42,10 @@ export class FilterService {
         );
     }
 
+    public get getChipInstance() {
+        return this.chipInstance;
+    }
+
     // Service Ready
 
     public onReady = new EventEmitter();
@@ -75,28 +79,30 @@ export class FilterService {
 
         const isMobile = window.innerWidth <= 620;
 
-        this.chipInstance = M.Chips.init(chipsElement, {
-            placeholder: isMobile ? placeholderMobile : placeholderDesktop,
-            autocompleteOptions: {
-                data: autocompleteData,
-                limit: Infinity,
-                minLength: 1,
-            },
-            onChipAdd: (_, element) => {
-                const chips = Array.from(this.chipInstance.$chips);
-                const index = chips.indexOf(element);
-                const data = this.chipInstance.chipsData[index].tag;
+        if(!this.chipInstance) {
+            this.chipInstance = M.Chips.init(chipsElement, {
+                placeholder: isMobile ? placeholderMobile : placeholderDesktop,
+                autocompleteOptions: {
+                    data: autocompleteData,
+                    limit: Infinity,
+                    minLength: 1,
+                },
+                onChipAdd: (_, element) => {
+                    const chips = Array.from(this.chipInstance.$chips);
+                    const index = chips.indexOf(element);
+                    const data = this.chipInstance.chipsData[index].tag;
 
-                this.onChipAddEvent.emit({
-                    element,
-                    data,
-                    index,
-                });
-            },
-            onChipDelete: (_, element) => {
-                this.onChipDeleteEvent.emit({ element });
-            },
-        });
+                    this.onChipAddEvent.emit({
+                        element,
+                        data,
+                        index,
+                    });
+                },
+                onChipDelete: (_, element) => {
+                    this.onChipDeleteEvent.emit({ element });
+                },
+            });
+        }
 
         // Subscribe events
 
@@ -109,6 +115,10 @@ export class FilterService {
         });
 
         this.onReady.emit();
+    }
+
+    private setInitChips() {
+
     }
 
     // Build projects tags
