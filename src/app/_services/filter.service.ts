@@ -117,12 +117,7 @@ export class FilterService {
         this.onReady.emit();
     }
 
-    private setInitChips() {
-
-    }
-
     // Build projects tags
-
     private buildProjectTags(projects: Project[]): void {
         this.allProjectTags = Array.from(
             new Set(
