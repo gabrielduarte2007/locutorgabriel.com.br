@@ -1,6 +1,7 @@
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
+    ChangeDetectorRef,
     Component,
     ElementRef,
     EventEmitter,
@@ -32,6 +33,7 @@ export class CardsFilterComponent implements AfterViewInit {
     public selectable = true;
     public removable = true;
     public visibleShareLink = false;
+    public canShare = false;
 
     // Projects Input/Output
 
@@ -42,10 +44,12 @@ export class CardsFilterComponent implements AfterViewInit {
     public filteredProjects = new EventEmitter<Project[]>();
 
     constructor(
-        public readonly filterService: FilterService,
+        public filterService: FilterService,
         private readonly platformLocation: PlatformLocation,
         private readonly viewportScroller: ViewportScroller,
-    ) {}
+        private cdr: ChangeDetectorRef
+    ) {
+    }
 
     ngAfterViewInit(): void {
         this.filterService.init(this.projects, this.chips.nativeElement);
@@ -54,10 +58,17 @@ export class CardsFilterComponent implements AfterViewInit {
             this.onChipAdd(chipAddEvent);
 
             this.scrollToCardsFilter();
+            this.verifyIfCanShare();
         });
 
         this.filterService.filteredProjects.subscribe(this.filteredProjects);
         this.initChips();
+        this.verifyIfCanShare();
+    }
+
+    public verifyIfCanShare(): void {
+        this.canShare = Boolean(this.filterService.searchTags.length)
+        this.cdr.detectChanges();
     }
 
     private initChips() {

@@ -11,6 +11,7 @@
             <button
                 (click)="shareLink()"
                 class="search-area__button"
+                *ngIf="canShare"
             >
                 <mat-icon
                     class="card__title-icon"
@@ -20,7 +21,7 @@
             </button>
 
             <div class="tags-area__tags self-center">
-                <div #chipsTarget class="chips-target"></div>
+                <div #chipsTarget class="chips-target" (click)="verifyIfCanShare()"></div>
             </div>
         </div>
 
