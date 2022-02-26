@@ -1,26 +1,16 @@
 <app-header></app-header>
 
 <div class="home-container">
-    <div class="hero-section flex justify-center pt-32 pb-16">
-        <div class="hero-section__image flex">
+    <div class="hero-section pt-32 pb-16">
+        <div class="hero-section__image">
             <div class="hero-section__image-area" #imageArea>
                 <img
-                    #polylineStart
-                    (window:resize)="onResize()"
-                    (load)="addPolyline()"
                     alt="profile picture"
                     class="hero-section__image-area-profile rounded-xl"
                     src="assets/images/profile-picture/Gabriel%20Duarte%20-%20Locutor%20Comercial.png"
                 />
             </div>
         </div>
-
-        <svg class="logo-line">
-            <!--suppress RequiredAttributes -->
-            <circle #circle r="5" class="logo-line__circle" />
-            <!--suppress RequiredAttributes -->
-            <polyline #polyline class="logo-line__polyline" />
-        </svg>
 
         <div class="hero-section__title-wrapper">
             <div class="hero-section__title font-light text-xl">Bem Vindo!</div>
