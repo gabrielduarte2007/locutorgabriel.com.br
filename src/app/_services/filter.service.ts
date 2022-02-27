@@ -59,8 +59,9 @@ export class FilterService {
     }
 
     // Init Methods
-
     public init(projects: Project[], chipsElement: HTMLDivElement): void {
+        const oldChips = this.searchTags;
+
         this.projects = projects;
 
         // Build Project Tags
@@ -79,33 +80,30 @@ export class FilterService {
 
         const isMobile = window.innerWidth <= 620;
 
-        if(!this.chipInstance) {
-            this.chipInstance = M.Chips.init(chipsElement, {
-                placeholder: isMobile ? placeholderMobile : placeholderDesktop,
-                autocompleteOptions: {
-                    data: autocompleteData,
-                    limit: Infinity,
-                    minLength: 1,
-                },
-                onChipAdd: (_, element) => {
-                    const chips = Array.from(this.chipInstance.$chips);
-                    const index = chips.indexOf(element);
-                    const data = this.chipInstance.chipsData[index].tag;
+        this.chipInstance = M.Chips.init(chipsElement, {
+            placeholder: isMobile ? placeholderMobile : placeholderDesktop,
+            autocompleteOptions: {
+                data: autocompleteData,
+                limit: Infinity,
+                minLength: 1,
+            },
+            onChipAdd: (_, element) => {
+                const chips = Array.from(this.chipInstance.$chips);
+                const index = chips.indexOf(element);
+                const data = this.chipInstance.chipsData[index].tag;
 
-                    this.onChipAddEvent.emit({
-                        element,
-                        data,
-                        index,
-                    });
-                },
-                onChipDelete: (_, element) => {
-                    this.onChipDeleteEvent.emit({ element });
-                },
-            });
-        }
+                this.onChipAddEvent.emit({
+                    element,
+                    data,
+                    index,
+                });
+            },
+            onChipDelete: (_, element) => {
+                this.onChipDeleteEvent.emit({ element });
+            },
+        });
 
         // Subscribe events
-
         this.onChipAddEvent.subscribe(() => {
             this.applyFilter();
         });
@@ -115,6 +113,11 @@ export class FilterService {
         });
 
         this.onReady.emit();
+        oldChips.forEach((chip, index) =>
+            !(this.router.url.length <= 1)
+                ? this.addTag(chip)
+                : this.deleteChip(index),
+        );
     }
 
     // Build projects tags
