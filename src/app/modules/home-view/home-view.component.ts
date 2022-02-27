@@ -1,7 +1,5 @@
-import {
-    Component,
-    ViewEncapsulation,
-} from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { FilterService } from 'app/_services/filter.service';
 import { ProjectsService } from 'app/_services/projects.service';
 // import { projects } from '../../../_data/projects.data';
 
@@ -12,5 +10,8 @@ import { ProjectsService } from 'app/_services/projects.service';
     encapsulation: ViewEncapsulation.None,
 })
 export class HomeViewComponent {
-    constructor(public readonly service: ProjectsService) {}
+    constructor(
+        public readonly service: ProjectsService,
+        public readonly filterService: FilterService,
+    ) {}
 }

@@ -44,12 +44,12 @@
                     Mas também fui locutor em inúmeros projetos como:
                     <a href="#busca">
                         <b>
-                            <a routerLink="busca/vídeos internos"> vídeos internos</a>,
-                            <a routerLink="busca/cases"> cases</a>,
-                            <a routerLink="busca/vídeos de apresentação"> vídeos de apresentação</a>,
-                            <a routerLink="busca/treinamento"> treinamento</a>,
-                            <a routerLink="busca/campanhas para internet"> campanhas para internet</a>,
-                            <a routerLink="busca/institucionais e tutoriais"> institucionais e tutoriais.</a>
+                            <span (click)="filterService.addTag('vídeos internos')"> vídeos internos</span>,
+                            <span (click)="filterService.addTag('cases')"> cases</span>,
+                            <span (click)="filterService.addTag('vídeos de apresentação')"> vídeos de apresentação</span>,
+                            <span (click)="filterService.addTag('treinamento')"> treinamento</span>,
+                            <span (click)="filterService.addTag('campanhas para internet')"> campanhas para internet</span>,
+                            <span (click)="filterService.addTag('institucionais e tutoriais')"> institucionais e tutoriais.</span>
                         </b>
                         Incluindo também
                         <a routerLink="busca/Ingles"> locuções em língua estrangeira</a>
