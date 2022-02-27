@@ -14,6 +14,7 @@ import { FilterService } from '../../../_services/filter.service';
 import { ChipAddEvent } from '../../../../_model/ChipAddEvent';
 import { PlatformLocation, ViewportScroller } from '@angular/common';
 import { clearAccentUtil } from '../../../_utils/clear-accent.util';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-cards-filter',
@@ -47,9 +48,9 @@ export class CardsFilterComponent implements AfterViewInit {
         public filterService: FilterService,
         private readonly platformLocation: PlatformLocation,
         private readonly viewportScroller: ViewportScroller,
-        private cdr: ChangeDetectorRef
-    ) {
-    }
+        private router: Router,
+        private cdr: ChangeDetectorRef,
+    ) {}
 
     ngAfterViewInit(): void {
         this.filterService.init(this.projects, this.chips.nativeElement);
@@ -67,14 +68,15 @@ export class CardsFilterComponent implements AfterViewInit {
     }
 
     public verifyIfCanShare(): void {
-        this.canShare = Boolean(this.filterService.searchTags.length)
+        this.canShare = Boolean(this.filterService.searchTags.length);
         this.cdr.detectChanges();
     }
 
     private initChips() {
-        if(this.filterService.getChipInstance.chipsData.length) {
+        if (this.filterService.getChipInstance.chipsData.length) {
             this.filterService.searchTags.forEach((data, index) => {
-                const element =  this.filterService.getChipInstance.$chips[index];
+                const element =
+                    this.filterService.getChipInstance.$chips[index];
                 this.onChipAdd({ data, index, element });
             });
         }
@@ -125,6 +127,8 @@ export class CardsFilterComponent implements AfterViewInit {
     }
 
     private scrollToCardsFilter(): void {
-        this.viewportScroller.scrollToAnchor('cards-filter');
+        const { url } = this.router;
+        if (url.includes('busca'))
+            this.viewportScroller.scrollToAnchor('cards-filter');
     }
 }
