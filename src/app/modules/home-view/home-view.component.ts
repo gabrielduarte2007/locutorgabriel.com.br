@@ -14,4 +14,9 @@ export class HomeViewComponent {
         public readonly service: ProjectsService,
         public readonly filterService: FilterService,
     ) {}
+
+    public insertTag(tag: string) {
+        this.filterService.resetTags();
+        this.filterService.addTag(tag);
+    }
 }

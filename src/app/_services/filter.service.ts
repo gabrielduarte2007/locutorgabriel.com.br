@@ -120,6 +120,11 @@ export class FilterService {
         );
     }
 
+    public resetTags() {
+        const chips = document.querySelectorAll('.chips-target > .chip')
+        chips.forEach(i => i.querySelector('i').click())
+    }
+
     // Build projects tags
     private buildProjectTags(projects: Project[]): void {
         this.allProjectTags = Array.from(
