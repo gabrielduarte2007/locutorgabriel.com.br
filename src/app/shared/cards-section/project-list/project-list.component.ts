@@ -9,6 +9,7 @@ import { Project } from '../../../../_model/Project';
 import { ProjectsService } from '../../../_services/projects.service';
 import { FilterService } from '../../../_services/filter.service';
 import { ProjectTag } from '../../../../_model/ProjectTag';
+import { clearStringUtil } from 'app/_utils/clear-string.util';
 
 @Component({
     selector: 'app-project-list',
@@ -47,19 +48,24 @@ export class ProjectListComponent implements OnChanges{
 
     public listMaker() {
         const findCommonElements = (arr1: string[], arr2: string[]) => arr1.some(item => arr2.includes(item))
+        const normalize = (str: string) => clearStringUtil(str)
         if (!this.filterService.searchTags.length) return this.projects;
-        return this.projects.filter(i => findCommonElements(i.tags, this.filterService.searchTags));
+        return this.projects.filter(i =>
+            findCommonElements(i.tags, this.filterService.searchTags) ||
+            findCommonElements(i.tags.map(t => normalize(t).split(' ')).flat(), this.filterService.searchTags.map(normalize))
+        );
     }
 
     public getTagList(project: Project): ProjectTag[] {
-        const searchTags = this.filterService.searchTags;
+        const searchTags = this.filterService.searchTags.map(st => clearStringUtil(st));
 
         const firstTags = project.tags
-            .filter(tag => !searchTags.includes(tag))
+            .filter(tag => !searchTags.includes(clearStringUtil(tag)))
             .slice(0, this.TAGS_AMOUNT);
 
         const highlightTags = project.tags.filter(tag =>
-            searchTags.includes(tag),
+            searchTags.includes(clearStringUtil(tag)) || [...clearStringUtil(tag).split(' ')].some(t => searchTags.includes(t)),
+            // searchTags.map(t => clearStringUtil(t)).includes(clearStringUtil(tag)),
         );
 
         const tagList: ProjectTag[] = [];

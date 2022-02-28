@@ -70,6 +70,7 @@ export class FilterService {
         // Convert tags array into an object based on 'chips' data format
         const autocompleteData = this.allProjectTags.reduce((acc, curr) => {
             acc[curr] = null;
+            // acc[clearStringUtil(curr)] = null;
 
             return acc;
         }, {});
@@ -162,6 +163,7 @@ export class FilterService {
                     project.titulo.split(' '),
                     project.subtitulo ? project.subtitulo.split(' ') : [],
                     `${project.titulo}: ${project.subtitulo}`,
+                    // ...project.tags.map(pt => clearStringUtil(pt).split(' '))
                 );
 
                 const found = this.searchTags.every(tag =>
