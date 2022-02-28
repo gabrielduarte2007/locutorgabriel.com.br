@@ -52,7 +52,8 @@ export class ProjectListComponent implements OnChanges{
         if (!this.filterService.searchTags.length) return this.projects;
         return this.projects.filter(i =>
             findCommonElements(i.tags, this.filterService.searchTags) ||
-            findCommonElements(i.tags.map(t => normalize(t).split(' ')).flat(), this.filterService.searchTags.map(normalize))
+            findCommonElements(i.tags.map(t => normalize(t).split(' ')).flat(), this.filterService.searchTags.map(normalize)) ||
+            findCommonElements(i.tags.map(t => normalize(t)), this.filterService.searchTags.map(normalize))
         );
     }
 
