@@ -15,6 +15,7 @@
                 <div class="project-tags">
                     <app-project-tag
                         *ngFor="let tag of currentProject.tags"
+                        [canShowClose]="true"
                         [rawTag]="tag"></app-project-tag>
                 </div>
             </div>

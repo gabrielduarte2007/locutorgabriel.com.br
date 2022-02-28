@@ -16,6 +16,9 @@ export class ProjectTagComponent {
     @Input()
     public rawTag: string;
 
+    @Input()
+    public canShowClose: boolean;
+
     constructor(
         private readonly filterService: FilterService,
         private readonly viewportScroller: ViewportScroller,
