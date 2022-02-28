@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FilterService } from '../../../_services/filter.service';
 import { ProjectTag } from '../../../../_model/ProjectTag';
 import { ViewportScroller } from '@angular/common';
+import { clearStringUtil } from 'app/_utils/clear-string.util';
 
 @Component({
     selector: 'app-project-tag',
@@ -17,8 +18,23 @@ export class ProjectTagComponent {
 
     constructor(
         private readonly filterService: FilterService,
-        private readonly viewportScroller: ViewportScroller
+        private readonly viewportScroller: ViewportScroller,
     ) {}
+
+    public get highlight(): boolean {
+        return this.filterService.searchTags
+            .map(s => clearStringUtil(s))
+            .includes(
+                clearStringUtil(this.tag?.text) || clearStringUtil(this.rawTag),
+            ) || this.tag?.highlight;
+    }
+
+    public deleteTag($event: MouseEvent, tag: string) {
+        this.filterService.deleteChipByText(tag)
+
+        $event.stopPropagation();
+        $event.preventDefault();
+    }
 
     public onClickTag($event: MouseEvent): void {
         this.filterService.addTag(this.tag?.text || this.rawTag);

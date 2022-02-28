@@ -121,9 +121,18 @@ export class FilterService {
         );
     }
 
+    public deleteChipByText(text: string) {
+        const chips = document.querySelectorAll('.chips-target > .chip');
+        const tag = Array.from(chips).find(
+            i => i.children[0].previousSibling.textContent === text,
+        );
+
+        tag.querySelector('i').click();
+    }
+
     public resetTags() {
-        const chips = document.querySelectorAll('.chips-target > .chip')
-        chips.forEach(i => i.querySelector('i').click())
+        const chips = document.querySelectorAll('.chips-target > .chip');
+        chips.forEach(i => i.querySelector('i').click());
     }
 
     // Build projects tags
@@ -163,7 +172,7 @@ export class FilterService {
                     project.titulo.split(' '),
                     project.subtitulo ? project.subtitulo.split(' ') : [],
                     `${project.titulo}: ${project.subtitulo}`,
-                    ...project.tags.map(pt => clearStringUtil(pt).split(' '))
+                    ...project.tags.map(pt => clearStringUtil(pt).split(' ')),
                 );
 
                 const found = this.searchTags.every(tag =>
