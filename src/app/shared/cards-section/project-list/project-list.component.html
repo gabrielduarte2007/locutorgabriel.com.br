@@ -13,6 +13,7 @@
             <div
                 [class]="'cards-section__card card__thumbnail m-2 relative text-center ' + 'cardcolor' + i % 6"
                 role="img"
+                (mouseleave)="expandedCardList = []"
                 [title]="project.titulo"
                 [aria-label]="project.titulo"
                 [style.background-image]="
@@ -26,7 +27,12 @@
                 "
             >
                 <div class="backdrop">
-                    <div class="card-title-wrapper text-white pt-3.5">
+                    <div
+                        class="card-title-wrapper text-white pt-3.5"
+                        [ngClass]="{
+                            'card--hide' : expandedCardList.includes(project.id)
+                        }"
+                    >
                         <div class="card-title font-extrabold text-3xl">
                             {{ project.titulo }}
                         </div>
@@ -36,14 +42,26 @@
                         </div>
                     </div>
 
-                    <div class="card-tags absolute bottom-8 w-full text-center">
-                        <app-project-tag
-                            *ngFor="let tag of getTagList(project)"
-                            [tag]="tag"
-                        ></app-project-tag>
+                    <div
+                        class="card-tags absolute bottom-8 w-full text-center"
+                        [ngClass]="{
+                            'card-tags--expand' : expandedCardList.includes(project.id)
+                        }"
+                    >
+
+                        <ng-container
+                            *ngFor="let tag of getTagList(project); let idx = index"
+                        >
+                            <app-project-tag
+                                *ngIf="idx < TAGS_AMOUNT || expandedCardList.includes(project.id)"
+                                [tag]="tag"
+                            ></app-project-tag>
+                        </ng-container>
 
                         <button
+                            (click)="expandTag($event, project.id)"
                             class="text-sm text-white p-1 m-0.5 w-7 rounded-md border-solid border border-white"
+                            *ngIf="!expandedCardList.includes(project.id)"
                         >
                             {{ project.tags.length - 3 }}+
                         </button>

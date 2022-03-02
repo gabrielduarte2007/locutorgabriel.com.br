@@ -23,13 +23,14 @@ import * as Isotope from 'assets/libs/isotope.pkgd.min';
 export class ProjectListComponent implements AfterViewInit {
     @Input()
     public projects: Project[];
-    public projectList = [];
+
+    public expandedCardList = [];
 
     public isotopeInstance: any;
 
     private cdr: ChangeDetectorRef;
 
-    private readonly TAGS_AMOUNT = 3;
+    public readonly TAGS_AMOUNT = 3;
 
     @ViewChild('projectsElement')
     projectsElement: ElementRef<HTMLDivElement>;
@@ -48,6 +49,13 @@ export class ProjectListComponent implements AfterViewInit {
         const { searchTags, backupList } = this.filterService
         if (searchTags.length) this.filterProjects(backupList);
         this.cdr.detectChanges();
+    }
+
+    public expandTag($event: MouseEvent, projectId: string) {
+        this.expandedCardList.push(projectId)
+
+        $event.stopPropagation();
+        $event.preventDefault();
     }
 
     private initIsotope(): void {
@@ -85,18 +93,19 @@ export class ProjectListComponent implements AfterViewInit {
     public getTagList(project: Project): ProjectTag[] {
         const searchTags = this.filterService.searchTags.map(st => clearStringUtil(st));
 
+        const length = project.tags.length;
+
         const firstTags = project.tags
             .filter(tag => !searchTags.includes(clearStringUtil(tag)))
-            .slice(0, this.TAGS_AMOUNT);
+            .slice(0, length);
 
         const highlightTags = project.tags.filter(tag =>
             searchTags.includes(clearStringUtil(tag)) || [...clearStringUtil(tag).split(' ')].some(t => searchTags.includes(t)),
-            // searchTags.map(t => clearStringUtil(t)).includes(clearStringUtil(tag)),
         );
 
         const tagList: ProjectTag[] = [];
 
-        for (let i = 0; i < this.TAGS_AMOUNT; i++) {
+        for (let i = 0; i < length; i++) {
             if (highlightTags.length) {
                 const text = highlightTags.splice(
                     highlightTags.length - 1,

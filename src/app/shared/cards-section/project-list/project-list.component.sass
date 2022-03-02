@@ -29,11 +29,23 @@ $card-mobile: 352px
         &:hover
             transform: scale(1.05)
 
+    &--hide
+        display: none
+
+    &-tags
+        transition: all 1s
+
+        &--expand
+            height: 100%
+            top: 10px
+
 .backdrop
     backdrop-filter: contrast(.5) brightness(1.1) saturate(1.5)
     border-radius: .4rem
     height: 100%
     width: 100%
+    display: flex
+    justify-content: center
 
     &:hover
         backdrop-filter: unset
