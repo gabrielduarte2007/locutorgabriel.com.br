@@ -1,17 +1,17 @@
 <app-cards-filter
     [projects]="service.projects"
+    (filteredProjects)="filterProjects($event)"
 ></app-cards-filter>
 
 <div class="cards-section flex justify-center flex-wrap" #projectsElement>
     <div
         class="card"
-        *ngFor="let project of projectList; let i = index"
+        *ngFor="let project of projects; let i = index"
         [attr.data-index]="i"
     >
         <a [routerLink]="'/' + service.getSlug(project)">
             <div
-                class="cards-section__card card__thumbnail m-2 relative text-center"
-                [ngClass]="'cardcolor' + i % 6"
+                [class]="'cards-section__card card__thumbnail m-2 relative text-center ' + 'cardcolor' + i % 6"
                 role="img"
                 [title]="project.titulo"
                 [aria-label]="project.titulo"

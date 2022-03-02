@@ -13,6 +13,7 @@
     max-width: 1024px
     width: 100%
     justify-content: space-between
+    padding: 0 1.5rem
 
 .header-area
     display: flex
@@ -38,6 +39,13 @@
 .mat-icon
     width: 30px
     height: 30px
+
+@media screen and (max-width: 980px)
+    :host
+        padding: .5rem 3rem
+
+    .header
+        padding: 0
 
 // MOBILE VIEW
 @media screen and (max-width: 600px)

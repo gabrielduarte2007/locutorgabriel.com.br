@@ -35,6 +35,7 @@ export class FilterService {
     // Projects Events
 
     public filteredProjects = new EventEmitter<Project[]>();
+    public backupList: Project[] = [];
 
     public get searchTags(): string[] {
         return (
@@ -47,7 +48,6 @@ export class FilterService {
     }
 
     // Service Ready
-
     public onReady = new EventEmitter();
 
     @Unsubscriber() subscriptions;

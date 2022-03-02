@@ -1,15 +1,18 @@
 import {
+    AfterViewInit,
     ChangeDetectionStrategy,
-    ChangeDetectorRef,
     Component,
+    ChangeDetectorRef,
+    ElementRef,
     Input,
-    OnChanges,
+    ViewChild,
 } from '@angular/core';
 import { Project } from '../../../../_model/Project';
 import { ProjectsService } from '../../../_services/projects.service';
 import { FilterService } from '../../../_services/filter.service';
 import { ProjectTag } from '../../../../_model/ProjectTag';
 import { clearStringUtil } from 'app/_utils/clear-string.util';
+import * as Isotope from 'assets/libs/isotope.pkgd.min';
 
 @Component({
     selector: 'app-project-list',
@@ -17,36 +20,58 @@ import { clearStringUtil } from 'app/_utils/clear-string.util';
     styleUrls: ['./project-list.component.sass'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectListComponent implements OnChanges{
+export class ProjectListComponent implements AfterViewInit {
     @Input()
     public projects: Project[];
     public projectList = [];
 
     public isotopeInstance: any;
 
+    private cdr: ChangeDetectorRef;
+
     private readonly TAGS_AMOUNT = 3;
-    public cdRef: ChangeDetectorRef;
+
+    @ViewChild('projectsElement')
+    projectsElement: ElementRef<HTMLDivElement>;
 
     constructor(
         public readonly service: ProjectsService,
         private readonly filterService: FilterService,
-        cdRef: ChangeDetectorRef,
+        changeDetectorRef: ChangeDetectorRef
     ) {
-        this.cdRef = cdRef;
-        this.filterService.onChipDeleteEvent.subscribe(() => this.setProjectList());
-        this.filterService.onChipAddEvent.subscribe(() => this.setProjectList());
+        this.cdr = changeDetectorRef;
     }
 
-    ngOnChanges(): void {
-        this.setProjectList();
+    ngAfterViewInit(): void {
+        this.initIsotope();
+
+        const { searchTags, backupList } = this.filterService
+        if (searchTags.length) this.filterProjects(backupList);
+        this.cdr.detectChanges();
     }
 
-    private setProjectList() {
-        this.projectList = this.listMaker();
-        this.cdRef.detectChanges();
+    private initIsotope(): void {
+        const elem = this.projectsElement.nativeElement;
+
+        this.isotopeInstance = new Isotope(elem, {
+            itemSelector: '.card',
+        });
     }
 
-    public listMaker() {
+    public filterProjects(filteredProjects: Project[]): void {
+        this.filterService.backupList = filteredProjects;
+
+        this.isotopeInstance.arrange({
+            filter: itemElem => {
+                const index = itemElem.getAttribute('data-index');
+                const project = this.projects[index];
+
+                return filteredProjects.indexOf(project) >= 0;
+            },
+        });
+    }
+
+    public listMaker(): Project[] {
         const findCommonElements = (arr1: string[], arr2: string[]) => arr1.some(item => arr2.includes(item))
         const normalize = (str: string) => clearStringUtil(str)
         if (!this.filterService.searchTags.length) return this.projects;

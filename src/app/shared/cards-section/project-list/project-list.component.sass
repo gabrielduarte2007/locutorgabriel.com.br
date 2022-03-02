@@ -1,11 +1,14 @@
+$card-width: 340px
+$card-mobile: 352px
+
 .card-tags > app-project-tag
     margin: .5rem .5rem 0 0
     display: inline-block
 
 .cards-section
     padding-bottom: 1.5rem
-    width: 100%
     margin: 0 auto
+    width: $card-width * 3
 
     &__card
         border-radius: .4rem
@@ -17,10 +20,8 @@
 
 .card
     &__thumbnail
-        max-width: 325px
-        max-height: 325px
-        width: 100vw
-        height: 100vw
+        width: 19.5rem
+        height: 17.5rem
 
     &__title
         transition: all .2s ease-in-out
@@ -54,21 +55,11 @@
         background-color: #8E648F
         background-blend-mode: luminosity
 
-@media screen and (max-width: 1280px)
-    .card
-        &__thumbnail
-            max-width: calc(32vw + .5rem)
-            max-height: calc(32vw + .5rem)
-
 @media screen and (max-width: 927px)
-    .card
-        &__thumbnail
-            max-width: calc(50vw - 5rem)
-            max-height: calc(50vw - 5rem)
+    .cards-section
+        width: $card-width * 2
 
 // MOBILE VIEW
 @media screen and (max-width: 600px)
-    .card
-        &__thumbnail
-            max-width: calc(100vw - 4rem)
-            max-height: calc(100vw - 4rem)
+    .cards-section
+        width: $card-mobile
