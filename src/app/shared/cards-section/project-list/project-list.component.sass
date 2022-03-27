@@ -12,7 +12,7 @@ $card-mobile: 352px
 
     &__card
         border-radius: .4rem
-        transition: transform .25s ease-in-out
+        transition: transform .25s
         background-repeat: no-repeat
 
         &:hover
@@ -25,7 +25,7 @@ $card-mobile: 352px
         height: 17.5rem
 
     &__title
-        transition: all .2s ease-in-out
+        transition: all .2s
 
         &:hover
             transform: scale(1.05)
@@ -74,10 +74,39 @@ $card-mobile: 352px
         background-blend-mode: luminosity
 
 @media screen and (max-width: 927px)
+    // $card-width-teste: calc(58vw - 4rem)
+
+    // .cards-section
+    //     width: 119vw
+    //     // max-width: calc(100% - 1.5rem)
+    //     max-width: calc(#{$card-width-teste} * 2)
+
+    // .card
+    //     &__thumbnail
+    //         width: calc(58vw - 6rem)
+    //         height: calc(56vw - 6rem)
+
+    .card
+        width: 50%
+
     .cards-section
-        width: $card-width * 2
+        width: 119vw
+        max-width: 100%
+
+    .card
+        &__thumbnail
+            width: 95%
+            height: 56vw
 
 // MOBILE VIEW
 @media screen and (max-width: 600px)
+    .card
+        width: unset
+
     .cards-section
-        width: $card-mobile
+        width: 100vw
+
+    .card
+        &__thumbnail
+            width: 97.5vw
+            height: 95.5vw
