@@ -23,7 +23,7 @@
                 [style.background-size]="
                     (project.imagem_largura || 'auto')
                     + ' '
-                    + (project.imagem_altura || '135%')
+                    + ('135%' || project.imagem_altura)
                 "
             >
                 <div class="backdrop">
