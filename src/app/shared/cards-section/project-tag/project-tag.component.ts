@@ -17,6 +17,9 @@ export class ProjectTagComponent {
     public rawTag: string;
 
     @Input()
+    public canCloseOnClick: boolean = false;
+
+    @Input()
     public canShowClose: boolean;
 
     constructor(
@@ -33,14 +36,18 @@ export class ProjectTagComponent {
     }
 
     public deleteTag($event: MouseEvent, tag: string) {
-        this.filterService.deleteChipByText(tag)
+        this.filterService.deleteChipByText(tag);
 
         $event.stopPropagation();
         $event.preventDefault();
     }
 
     public onClickTag($event: MouseEvent): void {
-        this.filterService.addTag(this.tag?.text || this.rawTag);
+        const text = this.tag?.text || this.rawTag;
+
+        if (this.filterService.searchTags.includes(text) && this.canCloseOnClick) this.deleteTag($event, text);
+        else this.filterService.addTag(this.tag?.text || this.rawTag);
+
         this.viewportScroller.scrollToAnchor('cards-filter');
 
         $event.stopPropagation();

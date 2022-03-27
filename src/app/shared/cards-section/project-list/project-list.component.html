@@ -55,6 +55,7 @@
                             <app-project-tag
                                 *ngIf="idx < TAGS_AMOUNT || expandedCardList.includes(project.id)"
                                 [tag]="tag"
+                                [canCloseOnClick]="true"
                             ></app-project-tag>
                         </ng-container>
 
