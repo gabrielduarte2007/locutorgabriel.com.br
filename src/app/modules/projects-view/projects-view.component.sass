@@ -4,6 +4,12 @@
     padding: 0 1.5rem
     margin-top: 5rem
 
+.mat-icon
+    width: 18px !important
+    height: 18px !important
+    min-width: none
+    min-height: none
+
 .project-hero-section
     padding: 2rem 0 1rem 0
 
@@ -32,11 +38,11 @@
     display: flex
     align-items: center
     justify-content: center
-    padding: 0.5rem 1.5rem
+    padding: .7rem 1.5rem
     border-radius: .375rem
     border: 1px solid rgba(234, 179, 8, 1)
     margin-right: 2rem
-    transition: all .5s
+    transition: all .25s
 
 .card__title:hover
     background-color: #F5BB4E
@@ -46,7 +52,7 @@
         color: white
 
 .card__title-icon
-    transition: all .5s
+    transition: all .25s
     color: #F5BB4E
     margin-right: .75rem
 
@@ -56,7 +62,7 @@
 @media screen and (max-width: 927px)
     .card__title
         margin-right: unset
-        font-size: .7rem
+        // font-size: rem
 
     .project-video-button
         justify-content: space-between
@@ -71,8 +77,8 @@
         margin: .5rem 0 .5rem 0
         width: 100%
         padding: 5px
-        font-size: 0.5rem
-        width: 120px
+        // font-size: 0.5rem
+        width: 170px
 
         &-icon
             margin-right: .5rem
@@ -80,3 +86,8 @@
     .project-container
         padding: 0 2rem
         margin-top: 9rem
+
+// MOBILE VIEW
+@media screen and (max-width: 470px)
+    .card__title-icon
+        display: none !important
