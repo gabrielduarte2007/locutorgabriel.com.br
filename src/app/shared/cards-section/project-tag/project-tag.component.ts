@@ -45,10 +45,12 @@ export class ProjectTagComponent {
     public onClickTag($event: MouseEvent): void {
         const text = this.tag?.text || this.rawTag;
 
-        if (this.filterService.searchTags.includes(text) && this.canCloseOnClick) this.deleteTag($event, text);
-        else this.filterService.addTag(this.tag?.text || this.rawTag);
+        (document.querySelector('#cards-filter') as HTMLAnchorElement).scrollIntoView()
 
-        this.viewportScroller.scrollToAnchor('cards-filter');
+        const validation = this.filterService.searchTags.includes(text) && this.canCloseOnClick;
+
+        if (validation) this.deleteTag($event, text);
+        else setTimeout(() => this.filterService.addTag(this.tag?.text || this.rawTag), 400)
 
         $event.stopPropagation();
         $event.preventDefault();

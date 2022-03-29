@@ -128,7 +128,8 @@ export class CardsFilterComponent implements AfterViewInit {
 
     private scrollToCardsFilter(): void {
         const { url } = this.router;
+
         if (url.includes('busca'))
-            this.viewportScroller.scrollToAnchor('cards-filter');
+            (document.querySelector('#cards-filter') as HTMLAnchorElement).scrollIntoView()
     }
 }
