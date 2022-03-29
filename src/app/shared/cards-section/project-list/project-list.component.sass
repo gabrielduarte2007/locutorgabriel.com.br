@@ -1,6 +1,13 @@
 $card-width: 340px
 $card-mobile: 352px
 
+article.card div.card__thumbnail
+    transition: transform .2s
+
+article.card div.card__thumbnail:hover
+    transform: scale(1.09)
+    background-color: initial
+
 .card-tags > app-project-tag
     margin: .5rem .5rem 0 0
     display: inline-block
@@ -12,12 +19,7 @@ $card-mobile: 352px
 
     &__card
         border-radius: .4rem
-        transition: transform .25s
         background-repeat: no-repeat
-
-        &:hover
-            transform: scale(1.05)
-            background-color: initial
 
 .card
     &__thumbnail

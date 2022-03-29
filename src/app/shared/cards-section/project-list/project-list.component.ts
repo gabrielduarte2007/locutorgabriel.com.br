@@ -51,8 +51,11 @@ export class ProjectListComponent implements AfterViewInit {
         this.cdr.detectChanges();
     }
 
-    public expandTag($event: MouseEvent, projectId: string) {
-        this.expandedCardList.push(projectId)
+    public toggleExpandTag($event: MouseEvent, projectId: string) {
+        const alreadyOnlist = this.expandedCardList.includes(projectId);
+
+        if(!alreadyOnlist) this.expandedCardList.push(projectId)
+        else this.expandedCardList = this.expandedCardList.filter(i => i !== projectId)
 
         $event.stopPropagation();
         $event.preventDefault();

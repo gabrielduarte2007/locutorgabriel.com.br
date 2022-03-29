@@ -4,7 +4,7 @@
 ></app-cards-filter>
 
 <div class="cards-section flex justify-center flex-wrap" #projectsElement>
-    <div
+    <article
         class="card"
         *ngFor="let project of projects; let i = index"
         [attr.data-index]="i"
@@ -13,7 +13,6 @@
             <div
                 [class]="'cards-section__card card__thumbnail m-2 relative text-center ' + 'cardcolor' + i % 6"
                 role="img"
-                (mouseleave)="expandedCardList = []"
                 [title]="project.titulo"
                 [aria-label]="project.titulo"
                 [style.background-image]="
@@ -60,15 +59,14 @@
                         </ng-container>
 
                         <button
-                            (click)="expandTag($event, project.id)"
+                            (click)="toggleExpandTag($event, project.id)"
                             class="text-sm text-white p-1 m-0.5 w-7 rounded-md border-solid border border-white"
-                            *ngIf="!expandedCardList.includes(project.id)"
                         >
-                            {{ project.tags.length - 3 }}+
+                            {{  !expandedCardList.includes(project.id) ? (project.tags.length - 3) + '+'  : '↓' }}
                         </button>
                     </div>
                 </div>
             </div>
         </a>
-    </div>
+    </article>
 </div>
