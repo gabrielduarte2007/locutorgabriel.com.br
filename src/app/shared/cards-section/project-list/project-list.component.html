@@ -42,7 +42,7 @@
                     </div>
 
                     <div
-                        class="card-tags absolute bottom-8 w-full text-center"
+                        class="card-tags absolute w-full text-center"
                         [ngClass]="{
                             'card-tags--expand' : expandedCardList.includes(project.id)
                         }"
@@ -53,6 +53,9 @@
                         >
                             <app-project-tag
                                 *ngIf="idx < TAGS_AMOUNT || expandedCardList.includes(project.id)"
+                                [ngClass]="{
+                                    'tag-to-show' : idx < TAGS_AMOUNT || expandedCardList.includes(project.id)
+                                }"
                                 [tag]="tag"
                                 [canCloseOnClick]="true"
                             ></app-project-tag>
@@ -60,7 +63,7 @@
 
                         <button
                             (click)="toggleExpandTag($event, project.id)"
-                            class="text-sm text-white p-1 m-0.5 w-7 rounded-md border-solid border border-white"
+                            class="text-sm text-yellow-500 p-1 m-0.5 w-7 rounded-md border-solid border border-yellow-500"
                         >
                             {{  !expandedCardList.includes(project.id) ? (project.tags.length - 3) + '+'  : '↓' }}
                         </button>
