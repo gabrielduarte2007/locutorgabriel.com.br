@@ -114,11 +114,11 @@ export class FilterService {
         });
 
         this.onReady.emit();
-        oldChips.forEach((chip, index) =>
-            !(this.router.url.length <= 1)
-                ? this.addTag(chip)
-                : this.deleteChip(index),
-        );
+        // oldChips.forEach((chip, index) =>
+        //     !(this.router.url.length <= 1)
+        //         ? this.addTag(chip)
+        //         : this.deleteChip(index),
+        // );
     }
 
     public deleteChipByText(text: string) {
@@ -172,7 +172,7 @@ export class FilterService {
                     project.titulo.split(' '),
                     project.subtitulo ? project.subtitulo.split(' ') : [],
                     `${project.titulo}: ${project.subtitulo}`,
-                    ...project.tags.map(pt => clearStringUtil(pt).split(' ')),
+                    // ...project.tags.map(pt => clearStringUtil(pt).split(' ')),
                 );
 
                 const found = this.searchTags.every(tag =>
