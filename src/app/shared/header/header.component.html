@@ -40,12 +40,17 @@
                 ><span class="mat-button-focus-overlay"></span>
             </button>
 
-            <div class="header-title" onclick="window.location.href='#top'">
+            <div class="header-title" onclick="window.location.href='#top'" (click)="resetTags()">
                 <a [routerLink]="['/']">
-                    <h3 class="text-lg font-light">Locutor</h3>
-                    <h1 class="font-bold text-2xl">
-                        <b>Gabriel Duarte</b>
-                    </h1>
+                    <div class="container-img">
+                        <img class="logo__img" src="assets/images/logo/Logo.png" alt="Gabriel Duarte Locução">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-light">Locutor</h3>
+                        <h1 class="font-bold text-2xl">
+                            <b>Gabriel Duarte</b>
+                        </h1>
+                    </div>
                 </a>
                 <a href="#top"></a>
             </div>

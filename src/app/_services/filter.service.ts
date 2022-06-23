@@ -134,6 +134,11 @@ export class FilterService {
         this.chipInstance.addChip({ tag });
     }
 
+    public resetTags() {
+        const chips = document.querySelectorAll('.chips-target > .chip');
+        chips.forEach(i => i.querySelector('i').click());
+    }
+
     // Chip Methods
 
     public deleteChip(index: number): void {
