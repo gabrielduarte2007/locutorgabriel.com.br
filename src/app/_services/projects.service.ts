@@ -39,9 +39,9 @@ export class ProjectsService {
             )
             .subscribe(this.loadCurrentProject.bind(this));
 
-        this.subscriptions = this.filterService.onReady
-            .pipe(delay(0))
-            .subscribe(this.loadRelatedProjects.bind(this));
+        // this.subscriptions = this.filterService.onReady
+        //     .pipe(delay(0))
+        //     .subscribe(this.loadRelatedProjects.bind(this));
     }
 
     private loadCurrentProject(): void {
@@ -57,8 +57,9 @@ export class ProjectsService {
             projects.find(project => this.getSlug(project) === slug),
         );
     }
-
+    // unsed
     private loadRelatedProjects(): void {
+
         if (
             !this.filterService.searchTags.length
             && this.currentProject.value?.tags.length

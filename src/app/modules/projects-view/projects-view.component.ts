@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { FilterService } from './../../_services/filter.service';
+import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectsService } from '../../_services/projects.service';
 import { ProjectType } from '_model/ProjectType';
@@ -6,7 +7,6 @@ import { Title } from '@angular/platform-browser';
 import { MatTooltip } from '@angular/material/tooltip';
 import { Project } from '../../../_model/Project';
 import { Unsubscriber } from '../../_decorators/unsubscriber.decorator';
-import { clearAccentUtil } from '../../_utils/clear-accent.util';
 import { PlatformLocation } from '@angular/common';
 
 @Component({
@@ -15,7 +15,7 @@ import { PlatformLocation } from '@angular/common';
     styleUrls: ['./projects-view.component.sass'],
     encapsulation: ViewEncapsulation.None,
 })
-export class ProjectsViewComponent {
+export class ProjectsViewComponent implements AfterViewInit {
     public visibleShareLink = false;
 
     public ProjectType = ProjectType;
@@ -46,10 +46,15 @@ export class ProjectsViewComponent {
         private readonly router: Router,
         public readonly service: ProjectsService,
         private readonly titleService: Title,
+        private readonly filterService: FilterService
     ) {
         this.subscriptions = this.service.currentProject.subscribe(
             this.updateTitle.bind(this),
         );
+    }
+
+    ngAfterViewInit(): void {
+
     }
 
     private updateTitle(): void {

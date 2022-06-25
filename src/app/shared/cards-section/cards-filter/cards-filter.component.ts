@@ -53,7 +53,6 @@ export class CardsFilterComponent implements AfterViewInit {
         this.filterService.onChipAddEvent.subscribe(chipAddEvent => {
             this.onChipAdd(chipAddEvent);
 
-            this.scrollToCardsFilter();
         });
 
         this.filterService.filteredProjects.subscribe(this.filteredProjects);
