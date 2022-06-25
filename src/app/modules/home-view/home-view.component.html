@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="hero-section flex justify-center pt-32 pb-16">
-    <div class="hero-section__image-area flex">
+    <div class="hero-section__image-area flex" style="flex-direction: column;">
         <div class="hero-section__image-area mt-7">
             <img
                 #polylineStart
@@ -11,6 +11,14 @@
                 class="hero-section__image-area-profile rounded-xl"
                 src="assets/images/profile-picture/Gabriel%20Duarte%20-%20Locutor%20Comercial.png"
             />
+        </div>
+        <div class="audio">
+            <div>
+                Ouça aqui uma seleção de trechos de trabalhos recentes
+            </div>
+            <audio controls>
+                <source src="assets/media/audio/repertorio.mp3" type="audio/mpeg">
+            </audio>
         </div>
     </div>
 
