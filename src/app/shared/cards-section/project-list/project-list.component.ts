@@ -52,6 +52,7 @@ export class ProjectListComponent implements AfterViewInit {
         this.isotopeInstance.arrange({
             filter: itemElem => {
                 const index = itemElem.getAttribute('data-index');
+                console.log(index);
                 const project = this.projects[index];
 
                 return filteredProjects.indexOf(project) >= 0;
