@@ -41,6 +41,8 @@ export class ProjectListComponent implements AfterViewInit {
     }
 
     private initIsotope(): void {
+        if (!this.projectsElement) return;
+
         const elem = this.projectsElement.nativeElement;
 
         this.isotopeInstance = new Isotope(elem, {

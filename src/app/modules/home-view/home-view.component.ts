@@ -31,6 +31,7 @@ export class HomeViewComponent implements AfterViewInit {
     ngAfterViewInit(): void {}
 
     addPolyline(): void {
+        if (!this.circle || !this.polyline) return;
         const circle = this.circle.nativeElement;
         const polyline = this.polyline.nativeElement;
         const svg = polyline.ownerSVGElement;

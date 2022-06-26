@@ -12,13 +12,7 @@
         <a [routerLink]="'/' + service.getSlug(project)">
             <figure
                 class="cards-section__card"
-                [ngClass]="
-                    i % 3 === 0
-                        ? 'card__thumbnail rounded-lg m-2 relative text-center cardcolor3'
-                        : i % 2 === 0
-                        ? 'card__thumbnail rounded-lg m-2 relative text-center cardcolor2'
-                        : 'card__thumbnail rounded-lg m-2 relative text-center cardcolor1'
-                "
+                [ngClass]="'card__thumbnail rounded-lg m-2 relative text-center'"
                 [style.background-image]="
                     'url(' + service.getYouTubeImageUrl(project) + ')'
                 "
@@ -30,11 +24,11 @@
                 "
             >
                 <div class="card-title-wrapper text-white pt-3.5">
-                    <div class="card-title font-extrabold text-4xl">
+                    <div class="card-title font-extrabold text-4xl grifado">
                         {{ project.titulo }}
                     </div>
 
-                    <div class="card-subtitle font-normal text-xl">
+                    <div class="card-subtitle font-normal text-xl grifado">
                         {{ project.subtitulo }}
                     </div>
                 </div>
