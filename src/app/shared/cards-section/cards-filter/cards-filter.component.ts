@@ -29,6 +29,7 @@ export class CardsFilterComponent implements AfterViewInit {
 
     // Search config
 
+    countTags = 0;
     public selectable = true;
     public removable = true;
     public visibleShareLink = false;
@@ -58,6 +59,8 @@ export class CardsFilterComponent implements AfterViewInit {
         this.filterService.filteredProjects.subscribe(this.filteredProjects);
     }
 
+
+
     private onChipAdd(chipEvent: ChipAddEvent): void {
         const chipElementClone = chipEvent.element.cloneNode(
             true,
@@ -71,13 +74,14 @@ export class CardsFilterComponent implements AfterViewInit {
             const chipTargetElements = Array.from(
                 this.chipsTarget.nativeElement.children,
             );
-
+            this.countTags--;
             const index = chipTargetElements.indexOf(chipElementClone);
 
             this.filterService.deleteChip(index);
         };
 
         this.chipsTarget.nativeElement.appendChild(chipElementClone);
+        this.countTags++;
     }
 
     public shareLink(): void {
