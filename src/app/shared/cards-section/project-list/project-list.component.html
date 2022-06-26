@@ -23,7 +23,7 @@
                     + (project.imagem_altura || '135%')
                 "
             >
-                <div class="card-title-wrapper text-white pt-3.5">
+                <div class="card-title-wrapper text-white pt-3.5" *ngIf="!expandedCardList.includes(project.id)">
                     <div class="card-title font-extrabold text-4xl grifado">
                         {{ project.titulo }}
                     </div>
@@ -33,17 +33,21 @@
                     </div>
                 </div>
 
-                <div class="absolute bottom-8 w-full text-center">
+                <div class="absolute bottom-8 w-full text-center" [ngClass]="{'card-tags-expand': expandedCardList.includes(project.id)}">
+                    <ng-container *ngFor="let tag of getTagList(project); let idx = index">
                     <app-project-tag
-                        *ngFor="let tag of getTagList(project)"
+                        *ngIf="idx < TAGS_AMOUNT || expandedCardList.includes(project.id)"
                         [tag]="tag"
+                        [canCloseOnClick]="true"
                     ></app-project-tag>
+                </ng-container>
 
                     <button
-                        class="text-sm text-white p-1 m-0.5 w-7 rounded-md border-solid border border-white"
-                    >
-                        {{ project.tags.length - 3 }}+
-                    </button>
+                            (click)="toggleExpandTag($event, project.id)"
+                            class="text-sm text-yellow-500 p-1 m-0.5 w-7 rounded-md border-solid border border-yellow-500"
+                        >
+                            {{  !expandedCardList.includes(project.id) ? '+'  : '↓' }}
+                        </button>
                 </div>
             </figure>
         </a>

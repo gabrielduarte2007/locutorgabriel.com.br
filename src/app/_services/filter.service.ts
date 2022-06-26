@@ -145,6 +145,15 @@ export class FilterService {
         this.chipInstance.deleteChip(index);
     }
 
+    public deleteChipByText(text: string) {
+        const chips = document.querySelectorAll('.chips-target > .chip');
+        const tag = Array.from(chips).find(
+            i => i.children[0].previousSibling.textContent === text,
+        );
+
+        tag.querySelector('i').click();
+    }
+
     // Apply Filter
 
     private applyFilter(): void {

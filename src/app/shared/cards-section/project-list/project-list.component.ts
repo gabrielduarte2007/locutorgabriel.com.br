@@ -11,6 +11,7 @@ import { ProjectsService } from '../../../_services/projects.service';
 import * as Isotope from 'assets/libs/isotope.pkgd.min';
 import { FilterService } from '../../../_services/filter.service';
 import { ProjectTag } from '../../../../_model/ProjectTag';
+import { clearStringUtil } from 'app/_utils/clear-string.util';
 
 @Component({
     selector: 'app-project-list',
@@ -24,6 +25,8 @@ export class ProjectListComponent implements AfterViewInit {
 
     @ViewChild('projectsElement')
     projectsElement: ElementRef<HTMLDivElement>;
+
+    public expandedCardList = [];
 
     public isotopeInstance: any;
 
@@ -50,6 +53,16 @@ export class ProjectListComponent implements AfterViewInit {
         });
     }
 
+    public toggleExpandTag($event: MouseEvent, projectId: string) {
+        const alreadyOnlist = this.expandedCardList.includes(projectId);
+
+        if(!alreadyOnlist) this.expandedCardList.push(projectId)
+        else this.expandedCardList = this.expandedCardList.filter(i => i !== projectId)
+
+        $event.stopPropagation();
+        $event.preventDefault();
+    }
+
     public filterProjects(filteredProjects: Project[]): void {
         this.isotopeInstance.arrange({
             filter: itemElem => {
@@ -62,19 +75,21 @@ export class ProjectListComponent implements AfterViewInit {
     }
 
     public getTagList(project: Project): ProjectTag[] {
-        const searchTags = this.filterService.searchTags;
+        const searchTags = this.filterService.searchTags.map(st => clearStringUtil(st));
+
+        const length = project.tags.length;
 
         const firstTags = project.tags
-            .filter(tag => !searchTags.includes(tag))
-            .slice(0, this.TAGS_AMOUNT);
+            .filter(tag => !searchTags.includes(clearStringUtil(tag)))
+            .slice(0, length);
 
         const highlightTags = project.tags.filter(tag =>
-            searchTags.includes(tag),
+            searchTags.includes(clearStringUtil(tag)) || [...clearStringUtil(tag).split(' ')].some(t => searchTags.includes(t)),
         );
 
         const tagList: ProjectTag[] = [];
 
-        for (let i = 0; i < this.TAGS_AMOUNT; i++) {
+        for (let i = 0; i < length; i++) {
             if (highlightTags.length) {
                 const text = highlightTags.splice(
                     highlightTags.length - 1,
