@@ -43,11 +43,11 @@
                 </ng-container>
 
                     <button
-                            (click)="toggleExpandTag($event, project.id)"
-                            class="text-sm text-yellow-500 p-1 m-0.5 w-7 rounded-md border-solid border border-yellow-500"
-                        >
-                            {{  !expandedCardList.includes(project.id) ? '+'  : '↓' }}
-                        </button>
+                        (click)="toggleExpandTag($event, project.id)"
+                        class="text-sm text-yellow-500 p-1 m-0.5 w-7 rounded-md border-solid border border-yellow-500"
+                    >
+                        {{  !expandedCardList.includes(project.id) ? '+'  : '↓' }}
+                    </button>
                 </div>
             </figure>
         </a>
