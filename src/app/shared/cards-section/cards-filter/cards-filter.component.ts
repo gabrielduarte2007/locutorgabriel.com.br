@@ -80,6 +80,8 @@ export class CardsFilterComponent implements AfterViewInit {
             this.filterService.deleteChip(index);
         };
 
+        chipElementClone.classList.value = 'chip--selection tag text-sm p-2 w-auto rounded-md border-solid border-2 border-yellow-500 m-1'
+
         this.chipsTarget.nativeElement.appendChild(chipElementClone);
         this.countTags++;
     }
