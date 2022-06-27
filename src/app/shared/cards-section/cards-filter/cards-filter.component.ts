@@ -69,8 +69,8 @@ export class CardsFilterComponent implements AfterViewInit {
         const closeButton = chipElementClone.querySelector(
             '.close',
         ) as HTMLElement;
-
-        closeButton.onclick = () => {
+        chipElementClone.removeChild(closeButton);
+        chipElementClone.onclick = () => {
             const chipTargetElements = Array.from(
                 this.chipsTarget.nativeElement.children,
             );
@@ -78,9 +78,10 @@ export class CardsFilterComponent implements AfterViewInit {
             const index = chipTargetElements.indexOf(chipElementClone);
 
             this.filterService.deleteChip(index);
+            chipElementClone.remove();
         };
 
-        chipElementClone.classList.value = 'chip--selection tag text-sm p-2 w-auto rounded-md border-solid border-2 border-yellow-500 m-1'
+        // chipElementClone.classList.value = ' chip chip--selection tag text-sm p-2 w-auto rounded-md border-solid border-2 border-yellow-500 m-1'
 
         this.chipsTarget.nativeElement.appendChild(chipElementClone);
         this.countTags++;
