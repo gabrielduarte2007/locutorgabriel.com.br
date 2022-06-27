@@ -33,7 +33,7 @@
                     </div>
                 </div>
 
-                <div class="absolute bottom-8 w-full text-center" [ngClass]="{'card-tags-expand': expandedCardList.includes(project.id)}">
+                <div class="absolute bottom-8 w-full text-center" style="display: flex; flex-wrap: wrap; justify-content: center;" [ngClass]="{'card-tags-expand': expandedCardList.includes(project.id)}">
                     <ng-container *ngFor="let tag of getTagList(project); let idx = index">
                     <app-project-tag
                         *ngIf="idx < TAGS_AMOUNT || expandedCardList.includes(project.id)"
@@ -45,8 +45,22 @@
                     <button
                         (click)="toggleExpandTag($event, project.id)"
                         class="tag text-sm p-2 w-auto rounded-md border-solid border-2 border-yellow-500 m-1"
+                        style="padding: 0 12px !important;
+                        height: 30px;
+                        max-height: 30px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: transparent;
+                        color: white;
+                        text-shadow: 1px 1px 1.5px black;"
                     >
-                        {{  !expandedCardList.includes(project.id) ? '+'  : '↓' }}
+                        <ng-container *ngIf="!expandedCardList.includes(project.id); else notTag">
+                            <i class="small material-icons">add</i>
+                        </ng-container>
+                        <ng-template #notTag>
+                            <i class="small material-icons">arrow_downward</i>
+                        </ng-template>
                     </button>
                 </div>
             </figure>
