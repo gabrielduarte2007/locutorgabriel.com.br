@@ -70,13 +70,13 @@ export class CardsFilterComponent implements AfterViewInit {
             '.close',
         ) as HTMLElement;
         chipElementClone.removeChild(closeButton);
+        chipElementClone.classList.value = 'chip chip-style';
         chipElementClone.onclick = () => {
             const chipTargetElements = Array.from(
                 this.chipsTarget.nativeElement.children,
             );
             this.countTags--;
             const index = chipTargetElements.indexOf(chipElementClone);
-
             this.filterService.deleteChip(index);
             chipElementClone.remove();
         };
