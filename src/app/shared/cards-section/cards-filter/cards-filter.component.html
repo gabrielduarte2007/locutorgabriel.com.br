@@ -8,21 +8,23 @@
         </div>
 
         <div class="search-area__tags-area tags-area flex" *ngIf="countTags">
-            <div #chips class="tags-area__share-search flex mb-3 mr-11">
+            <div #chips class="tags-area__share-search flex" style="min-width: 240px !important">
                 <button
                     (click)="shareLink()"
-                    class="card__title m-0.5 flex items-center justify-center mx-2 w-72 sm:w-48 h-10 rounded-md border-solid border-2 border-yellow-500 p-1"
-                    style="width: fit-content !important;"
+                    class="card__title m-0.5 flex items-center justify-center mx-2 w-72 sm:w-48 h-10 rounded-md border-solid border-2 color-border-default p-1"
+                    style="min-width: 230px"
                 >
                     <mat-icon
                         class="card__title-icon m-2"
                         svgIcon="heroicons_solid:share"
                     ></mat-icon>
-                    Compartilhe essa busca
+                    <div style="width: fit-content !important; padding: 0 5px">
+                        Compartilhe essa busca
+                    </div>
                 </button>
             </div>
 
-            <div *ngIf="visibleShareLink" class="project-share-button flex w-10/12 m-auto">
+            <div *ngIf="visibleShareLink" class="project-share-button flex w-10/12" style="border: 1px solid #ededed; margin: 0 8px">
                 <input
                     class="w-full"
                     disabled
@@ -35,7 +37,7 @@
                     #tooltip="matTooltip"
                     (click)="tooltip.toggle()"
                     matTooltip="Copiado!"
-                    class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border border-yellow-500"
+                    class="card__title flex items-center justify-around mx-2 w-36 h-10 rounded-md border-solid border color-border-default"
                 >
                     <mat-icon
                         class="card__title-icon m-0-2"
