@@ -1,3 +1,4 @@
+$default-color-1: #ffdb4f !important
 .chips-target
     display: flex
     margin: 8px
@@ -16,7 +17,8 @@
         text-indent: 4rem
 
     &__chip
-        border: 1px solid #F5BB4E
+        border: 1px solid $default-color-1
+        background: $default-color-1
 
 @media screen and (max-width: 1366px)
     .search-area
