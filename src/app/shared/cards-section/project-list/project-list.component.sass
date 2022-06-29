@@ -1,6 +1,11 @@
 $card-width: 400px
 $card-mobile: 352px
 
+$default-color-1: #ffdb4f !important
+
+.color-background-default
+    background: $default-color-1
+
 .card-tags > app-project-tag
     margin: .5rem .5rem 0 0
     display: inline-block
@@ -47,17 +52,13 @@ $card-mobile: 352px
             transform: scale(1.05)
 
 .cardcolor
-    &1
-        background-color: #C1C478
-        background-blend-mode: multiply
+    background-color: #565050a8 !important
+    background-blend-mode: multiply
 
-    &2
-        background-color: #DAA97A
-        background-blend-mode: multiply
+.cardcolor:hover
+    background-color: transparent !important
+    background-blend-mode: multiply !important
 
-    &3
-        background-color: #8E648F
-        background-blend-mode: multiply
 
 @media screen and (max-width: 1199px)
     .cards-section
@@ -66,6 +67,9 @@ $card-mobile: 352px
 @media screen and (max-width: 799px)
     .cards-section
         width: $card-width * 1
+    .cardcolor
+        background-color: transparent !important
+        background-blend-mode: multiply
 
 @media screen and (max-width: 600px)
     .cards-section
