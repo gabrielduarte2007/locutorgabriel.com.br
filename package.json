@@ -9,7 +9,8 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "prettier": "npx @btmills/prettier --write --ignore-unknown ."
+        "prettier": "npx @btmills/prettier --write --ignore-unknown .",
+        "build:ghpg": "ng build --prod --output-path docs"
     },
     "husky": {
         "hooks": {
