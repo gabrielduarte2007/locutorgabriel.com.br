@@ -1,3 +1,12 @@
+$default-color-1: #ffdb4f !important
+
+.color-border-default
+    border-color: $default-color-1
+
+.chips-target
+    display: flex
+    margin: 8px
+
 .search
     &-area
         padding: 1.5rem 20rem
@@ -12,7 +21,8 @@
         text-indent: 4rem
 
     &__chip
-        border: 1px solid #F5BB4E
+        border: 1px solid $default-color-1
+        background: $default-color-1
 
 @media screen and (max-width: 1366px)
     .search-area
@@ -30,4 +40,8 @@
     .search__input
         text-overflow: ellipsis
         width: 250px
+
+    .tags-area
+        flex-wrap: wrap
+        margin: 0 0.5rem !important
 

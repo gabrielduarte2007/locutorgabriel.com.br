@@ -148,10 +148,10 @@ export class FilterService {
     public deleteChipByText(text: string) {
         const chips = document.querySelectorAll('.chips-target > .chip');
         const tag = Array.from(chips).find(
-            i => i.children[0].previousSibling.textContent === text,
+            i => i.innerHTML === text,
         );
 
-        tag.querySelector('i').click();
+        (tag as HTMLElement).click();
     }
 
     // Apply Filter

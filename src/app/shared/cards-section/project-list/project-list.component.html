@@ -12,10 +12,12 @@
         <a [routerLink]="'/' + service.getSlug(project)">
             <figure
                 class="cards-section__card"
-                [ngClass]="'card__thumbnail rounded-lg m-2 relative text-center'"
+                [ngClass]="'card__thumbnail rounded-lg m-2 relative text-center cardcolor'"
                 [style.background-image]="
                     'url(' + service.getYouTubeImageUrl(project) + ')'
                 "
+
+                style="background-repeat:no-repeat"
                 [style.background-position]="project.imagem_posicao || 'center'"
                 [style.background-size]="
                     (project.imagem_largura || 'auto')
@@ -33,7 +35,7 @@
                     </div>
                 </div>
 
-                <div class="absolute bottom-8 w-full text-center" [ngClass]="{'card-tags-expand': expandedCardList.includes(project.id)}">
+                <div class="absolute bottom-8 w-full text-center" style="display: flex; flex-wrap: wrap; justify-content: center;" [ngClass]="{'card-tags-expand': expandedCardList.includes(project.id)}">
                     <ng-container *ngFor="let tag of getTagList(project); let idx = index">
                     <app-project-tag
                         *ngIf="idx < TAGS_AMOUNT || expandedCardList.includes(project.id)"
@@ -44,9 +46,23 @@
 
                     <button
                         (click)="toggleExpandTag($event, project.id)"
-                        class="tag text-sm p-2 w-auto rounded-md border-solid border-2 border-yellow-500 m-1"
+                        class="tag text-sm p-2 w-auto rounded-md border-solid border-2 color-background-default m-1"
+                        style="padding: 0 9px !important;
+                        height: 30px;
+                        max-height: 30px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: white;
+                        border-color: #ffdb4f;
+                        "
                     >
-                        {{  !expandedCardList.includes(project.id) ? '+'  : '↓' }}
+                        <ng-container *ngIf="!expandedCardList.includes(project.id); else notTag">
+                            <i class="small material-icons" style="font-size: 20px; font-weight: 600;">add</i>
+                        </ng-container>
+                        <ng-template #notTag>
+                            <i class="small material-icons" style="font-size: 18px; font-weight: 600;">arrow_downward</i>
+                        </ng-template>
                     </button>
                 </div>
             </figure>

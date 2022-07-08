@@ -1,7 +1,7 @@
 <button
-  class="tag text-sm p-2 w-auto rounded-md border-solid border-2 border-yellow-500 m-1"
+  class="tag text-sm p-1 w-auto rounded-md border-solid border-2 color-border-default m-1"
   (click)="onClickTag($event)"
-  [ngClass]="{ 'tag--highlight': tag?.highlight || highlight }">
+  [ngClass]="{ 'color-background-default': tag?.highlight || highlight }">
 
   {{ tag?.text || rawTag }}
 
