@@ -1501,7 +1501,7 @@ peça foi para televisão e todas as mídias.`,
         soundcloud:
             '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/880244671&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/gabrielduarte" title="Gabriel Duarte - Locutor" target="_blank" style="color: #cccccc; text-decoration: none;">Gabriel Duarte - Locutor</a> · <a href="https://soundcloud.com/gabrielduarte/en-brother" title="EN Brother" target="_blank" style="color: #cccccc; text-decoration: none;">EN Brother</a></div>',
         imagem:
-            'https://i1.sndcdn.com/avatars-WPbGSQWtzyZzrdlt-2nxrIQ-t500x500.jpg',
+            'https://i1.sndcdn.com/artworks-BRylTzaYxVw7oBRd-yfkOig-t500x500.jpg',
         imagem_altura: '100%',
         principal: true,
         tags: [
@@ -1533,7 +1533,7 @@ peça foi para televisão e todas as mídias.`,
         soundcloud:
             '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/880244665&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/gabrielduarte" title="Gabriel Duarte - Locutor" target="_blank" style="color: #cccccc; text-decoration: none;">Gabriel Duarte - Locutor</a> · <a href="https://soundcloud.com/gabrielduarte/en-dogs" title="EN Dogs" target="_blank" style="color: #cccccc; text-decoration: none;">EN Dogs</a></div>',
         imagem:
-            'https://i1.sndcdn.com/avatars-WPbGSQWtzyZzrdlt-2nxrIQ-t500x500.jpg',
+            'https://i1.sndcdn.com/artworks-9pXN4w8hzaGWwlym-jM1zfA-t500x500.jpg',
         imagem_posicao: 'center',
         imagem_altura: '100%',
         tags: [
@@ -1559,7 +1559,7 @@ peça foi para televisão e todas as mídias.`,
         soundcloud:
             '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/880244662&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/gabrielduarte" title="Gabriel Duarte - Locutor" target="_blank" style="color: #cccccc; text-decoration: none;">Gabriel Duarte - Locutor</a> · <a href="https://soundcloud.com/gabrielduarte/en-susan" title="EN Susan" target="_blank" style="color: #cccccc; text-decoration: none;">EN Susan</a></div>',
         imagem:
-            'https://i1.sndcdn.com/avatars-WPbGSQWtzyZzrdlt-2nxrIQ-t500x500.jpg',
+            'https://i1.sndcdn.com/artworks-oRPVuleYTqGddOoy-Quk69A-t500x500.jpg',
         imagem_posicao: 'center',
         imagem_altura: '100%',
         tags: [
@@ -1772,7 +1772,7 @@ peça foi para televisão e todas as mídias.`,
         soundcloud:
             '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/880244608&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/gabrielduarte" title="Gabriel Duarte - Locutor" target="_blank" style="color: #cccccc; text-decoration: none;">Gabriel Duarte - Locutor</a> · <a href="https://soundcloud.com/gabrielduarte/fr-gm" title="FR GM" target="_blank" style="color: #cccccc; text-decoration: none;">FR GM</a></div>',
         imagem:
-            'https://i1.sndcdn.com/avatars-WPbGSQWtzyZzrdlt-2nxrIQ-t500x500.jpg',
+            'https://i1.sndcdn.com/artworks-7jhooqtXaADKoyVe-DFgP5g-t500x500.jpg',
         imagem_posicao: 'center',
         imagem_altura: '100%',
         tags: [
@@ -1795,7 +1795,7 @@ peça foi para televisão e todas as mídias.`,
         soundcloud:
             '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/880244605&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/gabrielduarte" title="Gabriel Duarte - Locutor" target="_blank" style="color: #cccccc; text-decoration: none;">Gabriel Duarte - Locutor</a> · <a href="https://soundcloud.com/gabrielduarte/fr-orange" title="FR Orange" target="_blank" style="color: #cccccc; text-decoration: none;">FR Orange</a></div>',
         imagem:
-            'https://i1.sndcdn.com/avatars-WPbGSQWtzyZzrdlt-2nxrIQ-t500x500.jpg',
+            'https://i1.sndcdn.com/artworks-xmPyobjB83sVYtYN-FeHLfA-t500x500.jpg',
         imagem_posicao: 'center',
         imagem_altura: '100%',
         tags: [
@@ -1937,7 +1937,7 @@ peça foi para televisão e todas as mídias.`,
         soundcloud:
             '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/880244572&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/gabrielduarte" title="Gabriel Duarte - Locutor" target="_blank" style="color: #cccccc; text-decoration: none;">Gabriel Duarte - Locutor</a> · <a href="https://soundcloud.com/gabrielduarte/grupo-godoy-spot-Locução Coloquial" title="Grupo Godoy - Spot - Locução Coloquial" target="_blank" style="color: #cccccc; text-decoration: none;">Grupo Godoy - Spot - Locução Coloquial</a></div>',
         imagem:
-            'https://i1.sndcdn.com/avatars-WPbGSQWtzyZzrdlt-2nxrIQ-t500x500.jpg',
+            'https://i1.sndcdn.com/artworks-yN8QnUZVd05gXMiv-J7h4fQ-t500x500.jpg',
         imagem_posicao: 'center',
         imagem_altura: '100%',
         tags: [
